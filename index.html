@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FullonBaan - Leading ERP Consulting, Training & Implementation Services for Infor LN">
+    <meta name="keywords" content="Infor LN, ERP Consulting, ERP Training, Infor ION, Cloud ERP">
+    <title>FullonBaan - Leading ERP Consulting & Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-purple: #7c3aed;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232563eb" opacity="0.1" width="1200" height="600"/><circle cx="100" cy="100" r="80" fill="%237c3aed" opacity="0.1"/><circle cx="1000" cy="400" r="120" fill="%232563eb" opacity="0.1"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--light-bg);
+            padding: 4rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        /* Client Logos */
+        .clients {
+            background: var(--light-bg);
+            padding: 5rem 2rem;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .client-logo {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .client-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-bg), #1e293b);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Hide sections by default */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">FULLONBAAN</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="showPage('home'); closeMenu();">HOME</a></li>
+                <li><a href="#about" onclick="showPage('about'); closeMenu();">ABOUT US</a></li>
+                <li><a href="#services" onclick="showPage('services'); closeMenu();">SERVICES</a></li>
+                <li><a href="#training" onclick="showPage('training'); closeMenu();">TRAINING</a></li>
+                <li><a href="#career" onclick="showPage('career'); closeMenu();">CAREER</a></li>
+                <li><a href="#contact" onclick="showPage('contact'); closeMenu();">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>A leading consulting & software development company</h1>
+                <p>Infor LN Application Support, Customization, Implementation & Upgrade</p>
+                <div class="cta-buttons">
+                    <a href="#contact" onclick="showPage('contact')" class="btn btn-primary">Get Started</a>
+                    <a href="#about" onclick="showPage('about')" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">SATISFIED CUSTOMERS (TRAINING)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">YEARS INDUSTRY EXPERIENCE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">COUNTRIES SUPPORT</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">TRUSTING CLIENTS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="section">
+            <h2 class="section-title">About FullonBaan</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    FULLONBAAN is global leader in Consulting and Training of ERP's and digital services. We enable clients across the globe in managing their ERP and digital transformation.
+                </p>
+                <a href="#about" onclick="showPage('about')" class="btn btn-primary">Learn More About Us</a>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section class="section" style="background: var(--light-bg);">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-light);">We cater services to spectrum of Industries</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>AUTOMOTIVE</h3>
+                    <p>Comprehensive ERP solutions for automotive manufacturing and distribution</p>
+                </div>
+                <div class="card">
+                    <h3>CONSTRUCTION</h3>
+                    <p>Project-based ERP systems for construction and infrastructure</p>
+                </div>
+                <div class="card">
+                    <h3>DISTRIBUTION</h3>
+                    <p>Supply chain and logistics optimization solutions</p>
+                </div>
+                <div class="card">
+                    <h3>HIGH TECH & ELECTRONICS</h3>
+                    <p>Advanced ERP for technology and electronics sectors</p>
+                </div>
+                <div class="card">
+                    <h3>INDUSTRIAL MACHINERY</h3>
+                    <p>Specialized solutions for equipment manufacturers</p>
+                </div>
+                <div class="card">
+                    <h3>MANUFACTURING</h3>
+                    <p>End-to-end manufacturing resource planning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infor Solutions -->
+        <section class="section">
+            <h2 class="section-title">Infor Solutions Expertise</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                We help transform Client Business through state of the art technologies of Infor Solutions
+            </p>
+            <div class="grid">
+                <div class="card">
+                    <h3>INFOR LN EXPERTISE</h3>
+                    <ul>
+                        <li>Infor LN Implementations</li>
+                        <li>Application Management</li>
+                        <li>Migrations & Upgrades</li>
+                        <li>Service & Support</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>INFOR ION EXPERTISE</h3>
+                    <ul>
+                        <li>Integration Infor & Third Party Apps</li>
+                        <li>Creating Workflows & Alerts</li>
+                        <li>Business Process Monitoring</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>INFOR CLOUD EXPERTISE</h3>
+                    <ul>
+                        <li>Infor OS Implementations</li>
+                        <li>Infor OS Administration</li>
+                        <li>Service & Support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients -->
+        <section class="clients">
+            <h2 class="section-title">They Trust Our Capabilities</h2>
+            <div class="client-grid">
+                <div class="client-logo">Global Manufacturing Co.</div>
+                <div class="client-logo">Tech Solutions Inc.</div>
+                <div class="client-logo">Industrial Partners</div>
+                <div class="client-logo">Auto Excellence</div>
+                <div class="client-logo">Distribution Leaders</div>
+                <div class="client-logo">Electronics Corp.</div>
+            </div>
+        </section>
+
+        <!-- Career CTA -->
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; text-align: center;">
+            <h2 style="color: white; margin-bottom: 1rem;">Want to excel in your Career?</h2>
+            <h3 style="color: white; margin-bottom: 2rem;">Join our Leading Team</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Send your updated CV at <strong>careers@fullonbaan.com</strong></p>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 1rem;"><strong>INFOR LN TECHNICAL CONSULTANT</strong><br>2-10 Years of Experience</p>
+                <p style="margin-bottom: 1rem;"><strong>INFOR LN FUNCTIONAL CONSULTANT</strong><br>2-15 Years of Experience</p>
+                <p><strong>INFOR LN Integration Specialist</strong><br>2-10 Years of Experience</p>
+            </div>
+            <a href="#career" onclick="showPage('career')" class="btn btn-secondary" style="margin-top: 2rem;">View Career Opportunities</a>
+        </section>
+    </div>
+
+    <!-- ABOUT US PAGE -->
+    <div id="about" class="page-section">
+        <section class="hero" style="padding: 6rem 2rem;">
+            <h1>About Us</h1>
+            <p>Global leader in ERP Consulting and Training</p>
+        </section>
+
+        <section class="section">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;">
+                <div>
+                    <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">Overview</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                        FULLONBAAN is global leader in Consulting and Training of ERP's and digital services.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                        We enable clients across the globe in managing their ERP and digital transformation.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        With over a decade experience in managing the ERP system, we expertly steer our clients in their productive journey. Our always-on learning agenda drives their continuous improvements through building and transferring our skills, expertise and ideas.
+                    </p>
+                </div>
+                <div>
+                    <div class="card" style="text-align: center; margin-bottom: 1rem;">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years of Service</div>
+                    </div>
+                    <div class="card" style="text-align: center; margin-bottom: 1rem;">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Countries Support</div>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Trusting Clients</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--light-bg);">
+            <div class="grid">
+                <div class="card">
+                    <h3>Mission</h3>
+                    <p>FULLONBAAN believes in delivering the business values not only through technology but with human touch. Our human-technology centered approach helps in delivery quality solutions to our clients.</p>
+                </div>
+                <div class="card">
+                    <h3>Vision</h3>
+                    <p>In partnership with customer we create and deliver business and technology solutions which fits the customer needs and drives them towards excellency. We believe in quality as a service.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Business Model</h2>
+            <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 2rem;">Infor ERP Support, Implement, Training & Contract Resources</h3>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+                FullonBaan offers enterprise resource planning services that helps client with value for money propositions. We provide Application Support, Customizations, Implementation, ERP Upgrades, Infor Training and also Contract Resources.
+            </p>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page-section">
+        <section class="hero" style="padding: 6rem 2rem;">
+            <h1>Services</h1>
+            <p>Comprehensive ERP Solutions</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">FULLONBAAN Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                We provide consulting services on ERP Products and Suites
+            </p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Application Development & Customizations</h3>
+                    <p>Tailored solutions to meet your specific business needs with expert customization services</p>
+                </div>
+                <div class="card">
+                    <h3>Implementation</h3>
+                    <p>End-to-end ERP implementation services ensuring smooth transition and adoption</p>
+                </div>
+                <div class="card">
+                    <h3>Data Migration & Archival</h3>
+                    <p>Secure and efficient data management solutions for seamless migration</p>
+                </div>
+                <div class="card">
+                    <h3>Application Support</h3>
+                    <p>Comprehensive Technical & Functional support services for your ERP systems</p>
+                </div>
+                <div class="card">
+                    <h3>Training Services</h3>
+                    <p>Professional training programs to empower your team with ERP expertise</p>
+                </div>
+                <div class="card">
+                    <h3>Resource Staffing</h3>
+                    <p>Expert resources available for contract and permanent positions</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    From small fixes to big implementations, we have experts who can cater to all types of requirements.
+                </p>
+                <p style="font-size: 1.1rem;">
+                    Write to us at <a href="mailto:support@fullonbaan.com" style="color: var(--primary-blue); font-weight: 600;">support@fullonbaan.com</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--light-bg);">
+            <h2 class="section-title">Infor Solutions Expertise</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>INFOR LN EXPERTISE</h3>
+                    <ul>
+                        <li>Infor LN Implementations</li>
+                        <li>Application Management</li>
+                        <li>Migrations & Upgrades</li>
+                        <li>Service & Support</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>INFOR ION EXPERTISE</h3>
+                    <ul>
+                        <li>Integration Infor & Third Party Applications</li>
+                        <li>Creating workflows & Alerts</li>
+                        <li>Business process Monitoring</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>INFOR CLOUD EXPERTISE</h3>
+                    <ul>
+                        <li>Infor OS Implementations</li>
+                        <li>Infor OS Administration</li>
+                        <li>Service & Support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TRAINING PAGE -->
+    <div id="training" class="page-section">
+        <section class="hero" style="padding: 6rem 2rem;">
+            <h1>TRAINING</h1>
+            <p>Professional Infor LN Training & Certification</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">INFOR Training & Certification</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Who should go for this Infor LN Training?</h3>
+                <p style="margin-bottom: 2rem;">The following professionals can go for this training:</p>
+                <ul style="line-height: 2; margin-left: 2rem;">
+                    <li>Fresh Engineering Graduates</li>
+                    <li>Technical Consultants from other ERP like SAP, Oracle</li>
+                    <li>Functional Consultants from Finance, SCM, Manufacturing domains</li>
+                    <li>Business Analysts, Project Managers</li>
+                    <li>Anyone looking to switch career to ERP domain</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--light-bg);">
+            <h2 class="section-title">Training Modules</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Technical Training</h3>
+                    <ul>
+                        <li>Infor LN Technical Architecture</li>
+                        <li>Development Tools & IDE</li>
+                        <li>Programming & Customization</li>
+                        <li>Data Dictionary & Forms</li>
+                        <li>Reports & Interfaces</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Functional Training</h3>
+                    <ul>
+                        <li>Finance & Controlling</li>
+                        <li>Sales & Distribution</li>
+                        <li>Manufacturing</li>
+                        <li>Warehouse Management</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Integration Training</h3>
+                    <ul>
+                        <li>Infor ION Fundamentals</li>
+                        <li>Workflow Design</li>
+                        <li>API Development</li>
+                        <li>Data Integration</li>
+                        <li>Cloud Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
+                <h2 style="color: white; margin-bottom: 1rem;">Ready to Start Your Training?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Join 1000+ professionals who have already transformed their careers</p>
+                <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary">Enroll Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CAREER PAGE -->
+    <div id="career" class="page-section">
+        <section class="hero" style="padding: 6rem 2rem;">
+            <h1>Career Opportunities</h1>
+            <p>Join Our Growing Team of ERP Experts</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Current Openings</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.2rem;">
+                We're always looking for talented professionals to join our team
+            </p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>INFOR LN Technical Consultant</h3>
+                    <p><strong>Experience:</strong> 2-10 Years</p>
+                    <p><strong>Skills Required:</strong></p>
+                    <ul>
+                        <li>Infor LN Development</li>
+                        <li>Programming (4GL, SQL)</li>
+                        <li>Customization & Enhancement</li>
+                        <li>Technical Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>INFOR LN Functional Consultant</h3>
+                    <p><strong>Experience:</strong> 2-15 Years</p>
+                    <p><strong>Skills Required:</strong></p>
+                    <ul>
+                        <li>Finance/SCM/Manufacturing Domain</li>
+                        <li>Business Process Analysis</li>
+                        <li>Configuration & Implementation</li>
+                        <li>User Training</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>INFOR LN Integration Specialist</h3>
+                    <p><strong>Experience:</strong> 2-10 Years</p>
+                    <p><strong>Skills Required:</strong></p>
+                    <ul>
+                        <li>Infor ION Expertise</li>
+                        <li>API Development</li>
+                        <li>Integration Architecture</li>
+                        <li>Cloud Technologies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 3rem; background: var(--light-bg); border-radius: 20px;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Why Work With Us?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+                        <strong>Global Exposure</strong>
+                        <p>Work with clients from 20+ countries</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                        <strong>Career Growth</strong>
+                        <p>Continuous learning and advancement</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💼</div>
+                        <strong>Exciting Projects</strong>
+                        <p>Work on cutting-edge ERP solutions</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                        <strong>Great Team</strong>
+                        <p>Collaborative work environment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; text-align: center;">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Apply?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Send your updated CV to:</p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 2rem;">careers@fullonbaan.com</p>
+            <a href="mailto:careers@fullonbaan.com" class="btn btn-secondary">Email Your CV</a>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-section">
+        <section class="hero" style="padding: 6rem 2rem;">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team</p>
+        </section>
+
+        <section class="section">
+            <div class="contact-form">
+                <h2 style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">Send Us a Message</h2>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="consulting">ERP Consulting</option>
+                            <option value="implementation">Implementation</option>
+                            <option value="training">Training</option>
+                            <option value="support">Application Support</option>
+                            <option value="staffing">Resource Staffing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--light-bg);">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="grid">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:support@fullonbaan.com" style="color: var(--primary-blue);">support@fullonbaan.com</a></p>
+                    <p><a href="mailto:careers@fullonbaan.com" style="color: var(--primary-blue);">careers@fullonbaan.com</a></p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                    <h3>Global Presence</h3>
+                    <p>Serving clients in 20+ countries worldwide</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⏰</div>
+                    <h3>Business Hours</h3>
+                    <p>24/7 Support Available</p>
+                    <p>Mon-Fri: 9AM - 6PM (Local Time)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FULLONBAAN</h3>
+                <p>Leading ERP Consulting & Training Company</p>
+                <p>Transforming businesses through innovative ERP solutions</p>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Facebook">f</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home" onclick="showPage('home')">Home</a>
+                <a href="#about" onclick="showPage('about')">About Us</a>
+                <a href="#services" onclick="showPage('services')">Services</a>
+                <a href="#training" onclick="showPage('training')">Training</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services" onclick="showPage('services')">Application Development</a>
+                <a href="#services" onclick="showPage('services')">Implementation</a>
+                <a href="#services" onclick="showPage('services')">Support</a>
+                <a href="#training" onclick="showPage('training')">Training</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@fullonbaan.com</p>
+                <p>Careers: careers@fullonbaan.com</p>
+                <p>Available 24/7</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Leading ERP Consulting & Training Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Form Submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Here you would typically send the data to your server
+            alert('Thank you for your message! We will get back to you soon.');
+            form.reset();
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>;">Why learn Infor LN?</h3>
+                <p style="line-height: 1.8; margin-bottom: 1rem;">
+                    With Infor, you can easily find the right solutions for every aspect of your business. Over 90,000 organizations worldwide rely on Infor to help overcome market disruptions and achieve business-wide digital transformation.
+                </p>
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    As there is a shortage of Infor LN Professionals in the Market, you can quickly fill in and start working in this growing ERP ecosystem with abundant career opportunities.
+                </p>
+
+                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem

@@ -608,6 +608,47 @@
         display: none;
     }
 }
+/* Premium Trust Heading */
+.premium-trust-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+    position: relative;
+    color: #0f172a;
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #334155 40%,
+        #2563eb 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Elegant underline accent */
+.premium-trust-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 14px auto 0;
+    background: linear-gradient(
+        135deg,
+        var(--primary-blue),
+        var(--primary-purple)
+    );
+    border-radius: 2px;
+}
+
+/* Mobile polish */
+@media (max-width: 768px) {
+    .premium-trust-title {
+        font-size: 2.1rem;
+    }
+}
 
     </style>
 </head>
@@ -1152,7 +1193,7 @@
 
     <!-- Testimonials Grid -->
     <section class="section">
-        <h2 class="section-title">Trusted by Professionals Worldwide</h2>
+        <h2 class="premium-trust-title">Trusted by Professionals Worldwide</h2>
 
         <div class="testimonial-carousel">
 

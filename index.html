@@ -754,6 +754,61 @@ body.dark-mode .premium-trust-title {
     -webkit-text-fill-color: transparent;
 }
 
+/* Fix section overlay */
+body.dark-mode .section::before {
+    background: linear-gradient(
+        180deg,
+        rgba(2,6,23,0.6),
+        rgba(2,6,23,0.95)
+    );
+}
+
+/* Fix light background sections */
+body.dark-mode .stats,
+body.dark-mode .clients,
+body.dark-mode section[style*="var(--light-bg)"] {
+    background: rgba(2,6,23,0.9) !important;
+}
+
+/* Fix contact form */
+body.dark-mode .contact-form {
+    background: rgba(15,23,42,0.95);
+    color: #e5e7eb;
+}
+
+body.dark-mode .form-group label {
+    color: #cbd5f5;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #020617;
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+/* Fix footer */
+body.dark-mode footer {
+    background: linear-gradient(135deg, #020617, #020617);
+}
+
+body.dark-mode .footer-bottom {
+    border-top: 1px solid #1e293b;
+    color: #94a3b8;
+}
+
+/* Fix marquee heading */
+body.dark-mode .logo-marquee h3 {
+    color: #e5e7eb;
+}
+
+body.dark-mode .client-logo {
+    background: rgba(15,23,42,0.85);
+    color: #cbd5f5;
+}
+
+
 /* Toggle button */
 .theme-toggle {
     background: transparent;
@@ -774,7 +829,7 @@ body.dark-mode .premium-trust-title {
         <div class="nav-container">
             <div class="logo">FULLONBAAN</div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-			<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+			
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" onclick="showPage('home'); closeMenu();">HOME</a></li>
@@ -785,6 +840,7 @@ body.dark-mode .premium-trust-title {
                 <li><a href="#career" onclick="showPage('career'); closeMenu();">CAREER</a></li>
                 <li><a href="#contact" onclick="showPage('contact'); closeMenu();">CONTACT US</a></li>
             </ul>
+			<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
         </div>
     </nav>
 

@@ -483,6 +483,62 @@
         html {
             scroll-behavior: smooth;
         }
+		/* Client Logo Marquee */
+		.logo-marquee {
+			background: var(--light-bg);
+			padding: 2.5rem 0;
+			overflow: hidden;
+		}
+
+		.logo-marquee h3 {
+			text-align: center;
+			font-size: 1.4rem;
+			margin-bottom: 1.5rem;
+			color: var(--text-dark);
+		}
+
+		.marquee-track {
+			display: flex;
+			width: max-content;
+			animation: scroll-marquee 20s linear infinite;
+		}
+
+		.marquee-wrapper {
+			overflow: hidden;
+			position: relative;
+		}
+
+		.marquee-item {
+			flex: 0 0 auto;
+			margin: 0 3rem;
+			display: flex;
+			align-items: center;
+		}
+
+		.marquee-item img {
+			height: 60px;
+			max-width: 180px;
+			object-fit: contain;
+			filter: grayscale(100%);
+			opacity: 0.8;
+			transition: all 0.3s ease;
+		}
+
+		.marquee-item img:hover {
+			filter: grayscale(0%);
+			opacity: 1;
+			transform: scale(1.05);
+		}
+
+		@keyframes scroll-marquee {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
     </style>
 </head>
 <body>

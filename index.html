@@ -917,7 +917,50 @@ body.dark-mode h3 {
 }
 
 
-    </style>
+    
+/* Training Highlights – Premium Style */
+.training-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.highlight-card {
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 2.4rem;
+    border-radius: 20px;
+    border: 1px solid rgba(226,232,240,0.6);
+    box-shadow:
+        0 20px 40px rgba(15,23,42,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: all 0.35s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 30px 60px rgba(15,23,42,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.highlight-card p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #334155;
+}
+
+body.dark-mode .highlight-card {
+    background: rgba(15,23,42,0.85);
+    border-color: rgba(148,163,184,0.15);
+}
+
+body.dark-mode .highlight-card p {
+    color: #cbd5f5;
+}
+
+</style>
 </head>
 <body>
     <!-- Navigation -->

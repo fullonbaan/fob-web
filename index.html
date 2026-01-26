@@ -960,6 +960,32 @@ body.dark-mode .highlight-card p {
     color: #cbd5f5;
 }
 
+
+/* Training Image Grid */
+.training-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 3rem;
+    align-items: center;
+}
+
+.training-image-card {
+    background: rgba(255,255,255,0.95);
+    padding: 1.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(15,23,42,0.12);
+}
+
+.training-image-card img {
+    width: 100%;
+    border-radius: 18px;
+}
+
+body.dark-mode .training-image-card {
+    background: rgba(15,23,42,0.9);
+    border: 1px solid rgba(148,163,184,0.2);
+}
+
 </style>
 </head>
 <body>
@@ -1549,7 +1575,21 @@ body.dark-mode .highlight-card p {
 
         <section class="section">
             <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
-                <h2 style="color: white; margin-bottom: 1rem;">Ready to Start Your Training?</h2>
+                <h2 style="color: white; margin-bottom: 1rem;">
+<section class="section">
+  <h2 class="section-title">Detailed Infor LN Training Coverage</h2>
+
+  <div class="training-image-grid">
+    <div class="training-image-card">
+      <img src="training/admin.png" alt="Infor LN Administration Topics">
+    </div>
+    <div class="training-image-card">
+      <img src="training/development.png" alt="Infor LN Development Topics">
+    </div>
+  </div>
+</section>
+
+<h2>Ready to Start Your Training?</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;">Join 1000+ professionals who have already transformed their careers</p>
                 <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary">Enroll Now</a>
             </div>

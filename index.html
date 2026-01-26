@@ -1576,40 +1576,26 @@ body.dark-mode .training-image-card {
 <section class="section">
   <h2 class="section-title">Detailed Infor LN Training Coverage</h2>
 
-  <div class="training-image-grid">
-    <div class="training-image-card">
-      <img src="training/admin.png" alt="Infor LN Administration Topics">
+  <div class="testimonial-carousel training-carousel">
+    <button class="carousel-btn prev" onclick="moveTrainingSlide(-1)">❮</button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track training-track">
+        <div class="carousel-slide"><img src="training/admin.png" alt="Infor LN Administration Topics"></div>
+        <div class="carousel-slide"><img src="training/development.png" alt="Infor LN Development Topics"></div>
+        <div class="carousel-slide"><img src="training/logistics.png" alt="Infor LN Logistics Topics"></div>
+        <div class="carousel-slide"><img src="training/manufacturing.png" alt="Infor LN Manufacturing Topics"></div>
+        <div class="carousel-slide"><img src="training/planning.png" alt="Infor LN Planning Topics"></div>
+        <div class="carousel-slide"><img src="training/finance.png" alt="Infor LN Finance Topics"></div>
+        <div class="carousel-slide"><img src="training/wms.png" alt="Infor LN WMS Topics"></div>
+        <div class="carousel-slide"><img src="training/extensions.png" alt="Infor LN Extensions Topics"></div>
+        <div class="carousel-slide"><img src="training/ion.png" alt="Infor ION Topics"></div>
+        <div class="carousel-slide"><img src="training/studio.png" alt="Infor LN Studio Topics"></div>
+        <div class="carousel-slide"><img src="training/os.png" alt="Infor OS Topics"></div>
+      </div>
     </div>
-    <div class="training-image-card">
-      <img src="training/development.png" alt="Infor LN Development Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/logistics.png" alt="Infor LN Logistics Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/manufacturing.png" alt="Infor LN Manufacturing Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/planning.png" alt="Infor LN Planning Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/finance.png" alt="Infor LN Finance Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/wms.png" alt="Infor LN WMS Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/extensions.png" alt="Infor LN Extensions Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/ion.png" alt="Infor ION Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/studio.png" alt="Infor LN Studio Topics">
-    </div>
-	<div class="training-image-card">
-      <img src="training/os.png" alt="Infor OS Topics">
-    </div>
+
+    <button class="carousel-btn next" onclick="moveTrainingSlide(1)">❯</button>
   </div>
 </section>
 
@@ -1999,5 +1985,20 @@ toggleBtn.addEventListener("click", () => {
 });
 </script>
 
+
+<script>
+let trainingSlide = 0;
+function moveTrainingSlide(direction) {
+    const track = document.querySelector('.training-track');
+    const slides = track.children.length;
+
+    trainingSlide += direction;
+    if (trainingSlide < 0) trainingSlide = slides - 1;
+    if (trainingSlide >= slides) trainingSlide = 0;
+
+    track.style.transform = `translateX(-${trainingSlide * 100}%)`;
+}
+</script>
 </body>
+
 </html>

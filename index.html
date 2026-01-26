@@ -273,15 +273,42 @@
 		}
 
 
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+				.section-title {
+			font-family: 'Playfair Display', serif;
+			font-size: 2.6rem;
+			font-weight: 600;
+			text-align: center;
+			margin-bottom: 3.5rem;
+			letter-spacing: 0.6px;
+			position: relative;
+
+			background: linear-gradient(
+				135deg,
+				#1e3a8a 0%,
+				#2563eb 45%,
+				#7c3aed 100%
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+		
+		.section-title::after {
+			content: "";
+			display: block;
+			width: 64px;
+			height: 3px;
+			margin: 14px auto 0;
+			background: linear-gradient(
+				135deg,
+				var(--primary-blue),
+				var(--primary-purple)
+			);
+			border-radius: 2px;
+			opacity: 0.9;
+		}
+
+
 
         .grid {
             display: grid;
@@ -730,10 +757,11 @@
 
 /* Mobile polish */
 @media (max-width: 768px) {
-    .premium-trust-title {
+    .section-title {
         font-size: 2.1rem;
     }
 }
+
 
 /* Fade-in animation */
 .fade-in {
@@ -831,6 +859,17 @@ body.dark-mode .logo-marquee h3 {
 body.dark-mode .client-logo {
     background: rgba(15,23,42,0.85);
     color: #cbd5f5;
+}
+
+body.dark-mode .section-title {
+    background: linear-gradient(
+        135deg,
+        #c7d2fe 0%,
+        #93c5fd 45%,
+        #a78bfa 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 

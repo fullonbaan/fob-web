@@ -129,7 +129,9 @@
         .contact-form-box h2 { color: var(--primary-blue); margin-bottom: 2rem; font-size: 1.6rem; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #0f172a; font-size: 0.95rem; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s; background: #f8fafc; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s; background: #f8fafc;
+        }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary-blue); background: white; }
         .form-group textarea { resize: vertical; min-height: 130px; }
         .btn { padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
@@ -153,7 +155,9 @@
         .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
         .footer-section a:hover { color: white; }
         .footer-bottom { border-top: 1px solid #334155; padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem; }
-        @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); padding: 1rem 2rem; flex-direction: column; gap: 1rem; }
@@ -167,7 +171,7 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">FULLONBAAN</a>
-            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">&#9776;</button>
+            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/">HOME</a></li>
                 <li><a href="/about/">ABOUT US</a></li>
@@ -186,6 +190,8 @@
 
     <section class="section">
         <div class="contact-layout">
+
+            <!-- Contact Form -->
             <div class="contact-form-box">
                 <h2>Send Us a Message</h2>
                 <form id="contactForm">
@@ -220,9 +226,11 @@
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
+
+            <!-- Contact Info -->
             <div class="contact-info">
                 <div class="info-card">
-                    <div class="info-icon">&#128231;</div>
+                    <div class="info-icon">📧</div>
                     <div>
                         <h3>Email</h3>
                         <a href="mailto:support@fullonbaan.com">support@fullonbaan.com</a>
@@ -230,37 +238,38 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <div class="info-icon">&#128222;</div>
+                    <div class="info-icon">📞</div>
                     <div>
                         <h3>Phone</h3>
                         <a href="tel:+916360593122">+91 63605 93122</a>
-                        <p style="margin-top: 0.5rem;">Mon&#8211;Fri: 9AM &#8211; 6PM (Local Time)</p>
+                        <p style="margin-top: 0.5rem;">Mon–Fri: 9AM – 6PM (Local Time)</p>
                         <a href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-                            &#128172; Chat on WhatsApp
+                            💬 Chat on WhatsApp
                         </a>
                     </div>
                 </div>
                 <div class="info-card">
-                    <div class="info-icon">&#127757;</div>
+                    <div class="info-icon">🌍</div>
                     <div>
                         <h3>Global Presence</h3>
                         <p>Serving clients in 20+ countries worldwide with 10+ years of Infor LN expertise.</p>
                     </div>
                 </div>
                 <div class="info-card">
-                    <div class="info-icon">&#128279;</div>
+                    <div class="info-icon">🔗</div>
                     <div>
                         <h3>Follow Us</h3>
                         <div class="social-row">
                             <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">in</a>
                             <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">f</a>
-                            <a href="https://www.instagram.com/fullonbaan/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">&#128247;</a>
-                            <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" class="social-btn" title="YouTube">&#9654;</a>
-                            <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" class="social-btn" title="X / Twitter">&#120143;</a>
+                            <a href="https://www.instagram.com/fullonbaan/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">📷</a>
+                            <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" class="social-btn" title="YouTube">▶</a>
+                            <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" class="social-btn" title="X / Twitter">𝕏</a>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -290,7 +299,7 @@
                 <h3>Contact</h3>
                 <p>Email: support@fullonbaan.com</p>
                 <p>Mobile: +91 63605 93122</p>
-                <p>Mon&#8211;Fri: 9AM &#8211; 6PM (Local Time)</p>
+                <p>Mon–Fri: 9AM – 6PM (Local Time)</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -310,14 +319,14 @@
             service: document.getElementById("service").value,
             message: document.getElementById("message").value
         }).then(function() {
-            alert("Thank you! Your message has been sent successfully.");
+            alert("✅ Thank you! Your message has been sent successfully.");
             document.getElementById("contactForm").reset();
         }, function(error) {
-            alert("Failed to send message. Please try again later.");
+            alert("❌ Failed to send message. Please try again later.");
             console.error("EmailJS Error:", error);
         });
     });
     </script>
 
 </body>
-      </html>
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Canonical domain
+Host: https://www.fullonbaan.com
+
+# Sitemap location
+Sitemap: https://www.fullonbaan.com/sitemap.xml

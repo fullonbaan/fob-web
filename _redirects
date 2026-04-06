@@ -1,0 +1,10 @@
+# Netlify / GitHub Pages redirect rules
+# Enforce www canonical and HTTPS (handled by JS fallback in HTML for GitHub Pages)
+
+# Non-www → www (301 permanent)
+https://fullonbaan.com/*   https://www.fullonbaan.com/:splat  301!
+
+# HTTP → HTTPS (GitHub Pages enforces HTTPS natively when "Enforce HTTPS" is enabled in repo settings)
+# For Netlify:
+http://fullonbaan.com/*    https://www.fullonbaan.com/:splat  301!
+http://www.fullonbaan.com/* https://www.fullonbaan.com/:splat 301!

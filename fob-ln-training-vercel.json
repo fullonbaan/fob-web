@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "fob-ln-training.vercel.app"
+        }
+      ],
+      "destination": "https://courses.fullonbaan.com/:path*",
+      "permanent": true
+    }
+  ]
+}

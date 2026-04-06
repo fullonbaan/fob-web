@@ -168,293 +168,476 @@
     })();
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary-blue: #2563eb;
-            --primary-purple: #7c3aed;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --gold: #DAA520;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #0f172a;
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        }
-        nav {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.8; }
-        .nav-links a[aria-current="page"] { border-bottom: 2px solid white; padding-bottom: 2px; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(45deg, #fff, #DAA520);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
-        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title {
-            font-size: 2.5rem;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid rgba(37,99,235,0.08);
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary-blue); }
-        .card p { color: var(--text-light); }
-        .card ul { margin-left: 1.5rem; color: var(--text-light); line-height: 2; }
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            color: white;
-            box-shadow: 0 10px 25px rgba(37,99,235,0.35);
-        }
-        .btn-primary:hover { transform: translateY(-3px); }
-        .light-section { background: var(--light-bg); padding: 5rem 2rem; }
-        .light-section .inner { max-width: 1200px; margin: 0 auto; }
-        .industry-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            color: white;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 0.3rem;
-        }
-        footer {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .footer-section h3 { font-size: 1.1rem; margin-bottom: 1.5rem; color: #DAA520; }
-        .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .footer-section a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid #334155; padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem; }
-        @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); padding: 1rem 2rem; flex-direction: column; gap: 1rem; }
-            .nav-links.active { display: flex; }
-            .hero h1 { font-size: 2rem; }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
     </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: {
+                "colors": { "primary": "#004ac6", "secondary": "#712ae2", "surface": "#f7f9fb", "background": "#f7f9fb", "on-background": "#191c1e", "on-surface": "#191c1e", "on-surface-variant": "#434655", "surface-container-low": "#f2f4f6", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "surface-bright": "#f7f9fb", "on-primary": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#2563eb", "secondary-container": "#8a4cfc", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed": "#eaddff", "outline": "#737686", "outline-variant": "#c3c6d7", "on-primary-container": "#eeefff", "tertiary": "#4d556b", "tertiary-fixed": "#dae2fd", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "inverse-surface": "#2d3133", "inverse-on-surface": "#eff1f3" },
+                "fontFamily": { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+            }}
+        }
+    </script>
 </head>
-<body>
+<body class="bg-background text-on-background">
 
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">FULLONBAAN</a>
-            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about/">ABOUT US</a></li>
-                <li><a href="/services/" aria-current="page">SERVICES</a></li>
-                <li><a href="/training/">TRAINING</a></li>
-                <li><a href="/testimonials/">TESTIMONIALS</a></li>
-                <li><a href="/contact/">CONTACT US</a></li>
-            </ul>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+            <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/">Home</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/contact/">Contact Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all aurora-gradient">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/services/">Services</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/training/">Training</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/testimonials/">Testimonials</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/contact/">Contact Us</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>Infor LN ERP Services</h1>
-        <p>Comprehensive consulting, implementation, customization, integration, and support — designed to transform your ERP investment into measurable business value.</p>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Our Service Portfolio</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: #334155;">
-            From minor enhancements to large-scale enterprise implementations, our experienced consultants address a wide range of business and technical requirements.
-        </p>
-        <div class="grid">
-            <div class="card">
-                <h3>🔨 Application Development &amp; Customization</h3>
-                <p>Tailored Infor LN solutions built to your exact business needs — 4GL programming, custom forms, reports, interfaces, and business logic enhancements.</p>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 md:px-8 bg-gradient-to-br from-slate-50 via-surface to-primary-fixed">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span class="font-headline font-semibold text-sm tracking-wide text-primary">Our Expertise</span>
+                </div>
+                <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
+                    <span class="text-primary">Infor LN</span> ERP Services
+                </h1>
+                <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    Comprehensive consulting, implementation, customization, integration, and support designed to transform your ERP investment into measurable business value.
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-headline font-semibold rounded-xl hover:opacity-90 transition-all">
+                        <span>Schedule Consultation</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="#portfolio" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-primary text-primary font-headline font-semibold rounded-xl hover:bg-primary-fixed transition-all">
+                        <span>View Services</span>
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
+                </div>
             </div>
-            <div class="card">
-                <h3>🚀 Implementation</h3>
-                <p>End-to-end Infor LN ERP implementation covering business process analysis, configuration, data migration, user training, go-live support, and post-production stabilization.</p>
-            </div>
-            <div class="card">
-                <h3>🗄️ Data Migration &amp; Archival</h3>
-                <p>Secure and structured data migration and archival services ensuring data integrity, compliance, and seamless transition between ERP environments.</p>
-            </div>
-            <div class="card">
-                <h3>🛠️ Application Support</h3>
-                <p>Dedicated technical and functional application support for Infor LN systems — issue resolution, performance tuning, and ongoing operational assistance.</p>
-            </div>
-            <div class="card">
-                <h3>🎓 Training Services</h3>
-                <p>Professional Infor LN training programs for technical, functional, and integration roles. Delivered by certified consultants with real-world project experience.</p>
-            </div>
-            <div class="card">
-                <h3>👥 Resource Staffing</h3>
-                <p>Expert Infor LN technical, functional, and ION integration consultants available for contract and permanent positions across the globe.</p>
+            <div class="hidden md:block relative">
+                <div class="aurora-gradient opacity-10 rounded-3xl h-96 w-full blur-3xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-primary opacity-20">settings_applications</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="light-section">
-        <div class="inner">
-            <h2 class="section-title">Infor Solutions Expertise</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>INFOR LN</h3>
-                    <ul>
-                        <li>Infor LN Implementations</li>
-                        <li>Application Management</li>
-                        <li>Migrations &amp; Upgrades</li>
-                        <li>Service &amp; Support</li>
-                        <li>Custom Development (4GL)</li>
-                    </ul>
+    <!-- Service Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6 md:px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">
+                    Service Portfolio
+                </h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
+                    From minor enhancements to large-scale enterprise implementations, our experienced consultants address a wide range of business and technical requirements.
+                </p>
+            </div>
+
+            <!-- Bento Grid: 6 cards, 3x2 layout -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1: App Dev & Customization -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">code</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Application Development & Customization</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Tailored Infor LN solutions built to your exact business needs — 4GL programming, custom forms, reports, interfaces, and business logic enhancements.
+                    </p>
                 </div>
-                <div class="card">
-                    <h3>INFOR ION</h3>
-                    <ul>
-                        <li>Integration with Infor &amp; Third-Party Apps</li>
-                        <li>Creating Workflows &amp; Alerts</li>
-                        <li>Business Process Monitoring</li>
-                        <li>API &amp; Data Integration</li>
-                    </ul>
+
+                <!-- Card 2: Implementation -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">alt_route</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Implementation</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        End-to-end Infor LN ERP implementation covering business process analysis, configuration, data migration, user training, go-live support, and post-production stabilization.
+                    </p>
                 </div>
-                <div class="card">
-                    <h3>INFOR CLOUD / OS</h3>
-                    <ul>
-                        <li>Infor OS Implementations</li>
-                        <li>Infor OS Administration</li>
-                        <li>Cloud Migration Support</li>
-                        <li>Service &amp; Support</li>
-                    </ul>
+
+                <!-- Card 3: Data Migration -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">cloud_done</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Data Migration & Archival</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Secure and structured data migration and archival services ensuring data integrity, compliance, and seamless transition between ERP environments.
+                    </p>
+                </div>
+
+                <!-- Card 4: Application Support -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">support_agent</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Application Support</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Dedicated technical and functional application support for Infor LN systems — issue resolution, performance tuning, and ongoing operational assistance.
+                    </p>
+                </div>
+
+                <!-- Card 5: Training -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">school</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Training Services</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Professional Infor LN training programs for technical, functional, and integration roles. Delivered by certified consultants with real-world project experience.
+                    </p>
+                </div>
+
+                <!-- Card 6: Resource Staffing -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-lg group-hover:aurora-gradient transition-all">
+                            <span class="material-symbols-outlined text-primary">people</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-lg text-on-background">Resource Staffing</h3>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Expert Infor LN technical, functional, and ION integration consultants available for contract and permanent positions across the globe.
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <section class="section">
-        <h2 class="section-title">Industries We Serve</h2>
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <span class="industry-tag">Automotive</span>
-            <span class="industry-tag">Construction</span>
-            <span class="industry-tag">Distribution</span>
-            <span class="industry-tag">High Tech &amp; Electronics</span>
-            <span class="industry-tag">Industrial Machinery</span>
-            <span class="industry-tag">Manufacturing</span>
-        </div>
-        <div style="text-align: center; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px;">
-            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1rem;">Ready to Discuss Your Requirements?</h3>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #e0e7ff;">
-                Contact us at <strong>support@fullonbaan.com</strong> or reach out directly.
-            </p>
-            <a href="/contact/" class="btn" style="background: white; color: var(--primary-blue); font-weight: 700;">Contact Us</a>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>FULLONBAAN</h3>
-                <p>Leading Infor LN ERP Consulting &amp; Training Company</p>
-                <p>Transforming businesses through innovative ERP solutions worldwide.</p>
+    <!-- Infor LN Section (Two-Column) -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-primary">settings_applications</span>
+                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor LN</h2>
+                </div>
+                <p class="text-lg text-on-surface-variant leading-relaxed">
+                    Our core expertise spans the full Infor LN platform lifecycle. Whether implementing, upgrading, or optimizing your system, we deliver proven solutions for manufacturing and distribution enterprises.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
+                        <span class="text-on-surface-variant">Infor LN Implementations from greenfield to complex upgrades</span>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
+                        <span class="text-on-surface-variant">Application Management and continuous optimization</span>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
+                        <span class="text-on-surface-variant">Migrations & Upgrades with minimal disruption</span>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
+                        <span class="text-on-surface-variant">Custom Development using 4GL and modern techniques</span>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
+                        <span class="text-on-surface-variant">Dedicated Service & Support throughout your system lifecycle</span>
+                    </li>
+                </ul>
+                <a href="/contact/" class="inline-flex items-center gap-2 text-primary font-headline font-semibold hover:gap-3 transition-all">
+                    <span>Learn more</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about/">About Us</a>
-                <a href="/services/">Services</a>
-                <a href="/training/">Training</a>
-                <a href="/testimonials/">Testimonials</a>
-                <a href="/contact/">Contact Us</a>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="/services/">Application Development</a>
-                <a href="/services/">Implementation</a>
-                <a href="/services/">Application Support</a>
-                <a href="/training/">Training</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: support@fullonbaan.com</p>
-                <p>Mobile: +91 63605 93122</p>
-                <p>Mon–Fri: 9AM – 6PM (Local Time)</p>
+            <div class="hidden md:block">
+                <div class="bg-gradient-to-br from-primary-fixed to-secondary-fixed rounded-2xl h-96 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-7xl text-primary opacity-30">build</span>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Leading Infor LN ERP Consulting &amp; Training</p>
+    </section>
+
+    <!-- Infor ION Section (Reversed Layout) -->
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="hidden md:block order-last">
+                <div class="bg-gradient-to-br from-secondary-fixed to-primary-fixed rounded-2xl h-96 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-7xl text-secondary opacity-30">alt_route</span>
+                </div>
+            </div>
+            <div class="space-y-8 md:order-first">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-3xl text-secondary">alt_route</span>
+                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor ION</h2>
+                </div>
+                <p class="text-lg text-on-surface-variant leading-relaxed">
+                    Infor ION is the intelligent orchestration network that connects all your business applications. We design and implement integration architectures that drive real-time business insights and automation.
+                </p>
+                <div class="grid gap-4">
+                    <div class="bg-white rounded-xl p-6 border border-outline-variant/30">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-secondary mt-1 flex-shrink-0">integration_instructions</span>
+                            <div>
+                                <h4 class="font-headline font-semibold text-on-background mb-2">Integration with Third-Party Systems</h4>
+                                <p class="text-sm text-on-surface-variant">Seamless connectivity between Infor LN and other enterprise applications</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 border border-outline-variant/30">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-secondary mt-1 flex-shrink-0">workflow_alert</span>
+                            <div>
+                                <h4 class="font-headline font-semibold text-on-background mb-2">Workflows & Alerts</h4>
+                                <p class="text-sm text-on-surface-variant">Intelligent process automation and real-time business event monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 border border-outline-variant/30">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-secondary mt-1 flex-shrink-0">monitoring</span>
+                            <div>
+                                <h4 class="font-headline font-semibold text-on-background mb-2">Business Process Monitoring</h4>
+                                <p class="text-sm text-on-surface-variant">Real-time visibility into critical business processes and KPIs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 border border-outline-variant/30">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-secondary mt-1 flex-shrink-0">api</span>
+                            <div>
+                                <h4 class="font-headline font-semibold text-on-background mb-2">API & Data Integration</h4>
+                                <p class="text-sm text-on-surface-variant">Robust API management and data exchange frameworks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/contact/" class="inline-flex items-center gap-2 text-secondary font-headline font-semibold hover:gap-3 transition-all">
+                    <span>Learn more</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infor Cloud/OS Section (Center-Aligned with Bento Grid) -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed rounded-full text-primary font-headline font-semibold text-sm">
+                        <span class="material-symbols-outlined">cloud_done</span>
+                        Cloud Solutions
+                    </span>
+                </div>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-on-background">
+                    Infor Cloud & Infor OS
+                </h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Modernize your ERP infrastructure with Infor's cloud platform. We guide you through implementation, administration, and transformation initiatives.
+                </p>
+            </div>
+
+            <!-- Bento Grid: 4 cards with varying spans -->
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Large card: aurora-gradient -->
+                <div class="md:col-span-2 aurora-gradient rounded-2xl p-12 text-white flex flex-col justify-center min-h-96">
+                    <div class="space-y-4">
+                        <span class="material-symbols-outlined text-5xl">cloud_sync</span>
+                        <h3 class="font-headline font-bold text-3xl">Infor OS Implementations</h3>
+                        <p class="text-white/90">Deploy modern cloud infrastructure with expert guidance and proven methodologies.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="material-symbols-outlined text-4xl text-primary">admin_panel_settings</span>
+                        <h4 class="font-headline font-bold text-on-background">OS Administration</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant">Ongoing management and optimization of your Infor OS environment.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="material-symbols-outlined text-4xl text-primary">security</span>
+                        <h4 class="font-headline font-bold text-on-background">Cloud Migration</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant">Secure transition to cloud with minimal disruption and maximum value.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="material-symbols-outlined text-4xl text-primary">support_agent</span>
+                        <h4 class="font-headline font-bold text-on-background">Service & Support</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant">Continuous support and optimization throughout your cloud journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Served Section -->
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-on-background">Industries We Serve</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Proven expertise across manufacturing, distribution, and enterprise sectors globally.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 justify-center">
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">factory</span>
+                    Automotive
+                </span>
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">construction</span>
+                    Construction
+                </span>
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">local_shipping</span>
+                    Distribution
+                </span>
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">computer</span>
+                    High Tech & Electronics
+                </span>
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">precision_manufacturing</span>
+                    Industrial Machinery
+                </span>
+                <span class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-outline-variant rounded-full font-headline font-semibold text-on-background hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined">apartment</span>
+                    Manufacturing
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-4xl mx-auto">
+            <div class="aurora-gradient rounded-3xl p-12 md:p-16 shadow-lg text-white text-center space-y-6">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl">Ready to Transform Your ERP?</h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto">
+                    Contact us to discuss your Infor LN requirements and explore how FullOnBaan can accelerate your digital transformation journey.
+                </p>
+                <div class="flex gap-4 justify-center pt-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-headline font-semibold rounded-xl hover:shadow-lg transition-all">
+                        <span>Get in Touch</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="mailto:support@fullonbaan.com" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-white text-white font-headline font-semibold rounded-xl hover:bg-white/10 transition-all">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>support@fullonbaan.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 md:px-8 py-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div class="space-y-4">
+                    <h3 class="font-headline font-bold text-lg text-on-background">FullOnBaan</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Leading Infor LN ERP Consulting & Training Company
+                    </p>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Transforming businesses through innovative ERP solutions worldwide.
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Home</a></li>
+                        <li><a href="/about/" class="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Services</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/testimonials/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Testimonials</a></li>
+                        <li><a href="/contact/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Development</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Implementation</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Support</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Data Migration</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Resource Staffing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Social -->
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Contact</h4>
+                    <div class="space-y-3">
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">mail</span>
+                            <a href="mailto:support@fullonbaan.com" class="text-on-surface-variant hover:text-primary transition-all">support@fullonbaan.com</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">call</span>
+                            <a href="tel:+916360593122" class="text-on-surface-variant hover:text-primary transition-all">+91 63605 93122</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">schedule</span>
+                            <span class="text-on-surface-variant">Mon–Fri: 9AM – 6PM (Local Time)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-slate-200 pt-8 text-center text-sm text-on-surface-variant">
+                <p>&copy; 2026 FullOnBaan. All rights reserved. | Leading Infor LN ERP Consulting & Training</p>
+            </div>
         </div>
     </footer>
 

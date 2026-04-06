@@ -199,2005 +199,483 @@
         window.location.replace('https://' + l.hostname + l.pathname + l.search + l.hash);
       }
       if (l.hostname === 'fullonbaan.com') {
-        window.location.replace('https://www.fullonbaan.com' + l.pathname + l.search + l.hash);
+        window.location.replace('https://www.www.fullonbaan.com' + l.pathname + l.search + l.hash);
       }
     })();
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Manrope, Inter, Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "tertiary": "#4d556b",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-container": "#eef0ff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "on-primary-container": "#eeefff",
+                        "primary-fixed": "#dbe1ff",
+                        "primary": "#004ac6",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#eaddff",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#712ae2",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-tint": "#0053db",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#737686",
+                        "on-surface-variant": "#434655",
+                        "on-secondary-container": "#fffbff",
+                        "on-secondary-fixed": "#25005a",
+                        "tertiary-container": "#656d84",
+                        "primary-container": "#2563eb",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-container": "#8a4cfc",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#b4c5ff",
+                        "outline-variant": "#c3c6d7",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        :root {
-            --primary-blue: #2563eb;
-            --primary-purple: #7c3aed;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-        }
-
-
-				/* Subtle noise overlay */
-		body::before {
-			content: "";
-			position: fixed;
-			inset: 0;
-			pointer-events: none;
-			z-index: 0;
-			opacity: 0.015;
-			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-		}
-
-        body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			line-height: 1.7;
-			color: #0f172a;
-			overflow-x: hidden;
-
-			/* Premium background */
-			background:
-				radial-gradient(circle at top left, rgba(124,58,237,0.05), transparent 40%),
-				radial-gradient(circle at bottom right, rgba(37,99,235,0.05), transparent 40%),
-				linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-		}
-		
-				body > * {
-			position: relative;
-			z-index: 1;
-		}
-
-
-
-        /* Navigation */
-        nav {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .marquee-track {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
+            animation: marquee 30s linear infinite;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background:
-			radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 40%),
-			linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232563eb" opacity="0.1" width="1200" height="600"/><circle cx="100" cy="100" r="80" fill="%237c3aed" opacity="0.1"/><circle cx="1000" cy="400" r="120" fill="%232563eb" opacity="0.1"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #cbd5e1;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-			box-shadow:
-				0 10px 25px rgba(37,99,235,0.35),
-				inset 0 1px 0 rgba(255,255,255,0.3);
-		}
-
-		.btn-primary:hover {
-			box-shadow:
-				0 20px 40px rgba(37,99,235,0.45),
-				inset 0 1px 0 rgba(255,255,255,0.4);
-		}
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-blue);
-        }
-
-        .btn-secondary:hover {
-            background: #f1f5f9;
-            transform: translateY(-3px);
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--light-bg);
-            padding: 4rem 2rem;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Content Sections */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-		
-		.section {
-			position: relative;
-		}
-
-		.section::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background: linear-gradient(
-				180deg,
-				rgba(255,255,255,0.6),
-				rgba(255,255,255,0.9)
-			);
-			z-index: -1;
-		}
-
-
-				.section-title {
-			font-family: 'Playfair Display', serif;
-			font-size: 2.6rem;
-			font-weight: 600;
-			text-align: center;
-			margin-bottom: 3.5rem;
-			letter-spacing: 0.6px;
-			position: relative;
-
-			background: linear-gradient(
-				135deg,
-				#1e3a8a 0%,
-				#2563eb 45%,
-				#7c3aed 100%
-			);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-		}
-		
-		.section-title::after {
-			content: "";
-			display: block;
-			width: 64px;
-			height: 3px;
-			margin: 14px auto 0;
-			background: linear-gradient(
-				135deg,
-				var(--primary-blue),
-				var(--primary-purple)
-			);
-			border-radius: 2px;
-			opacity: 0.9;
-		}
-
-
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-			background: rgba(255,255,255,0.85);
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
-			padding: 2.5rem;
-			border-radius: 20px;
-			box-shadow:
-				0 20px 40px rgba(15,23,42,0.08),
-				inset 0 1px 0 rgba(255,255,255,0.6);
-			transition: all 0.35s ease;
-			border: 1px solid rgba(226,232,240,0.6);
-		}
-
-		.card:hover {
-			transform: translateY(-8px);
-			box-shadow:
-				0 30px 60px rgba(15,23,42,0.12),
-				inset 0 1px 0 rgba(255,255,255,0.7);
-		}
-
-
-        .card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        /* Client Logos */
-        .clients {
-            background: var(--light-bg);
-            padding: 5rem 2rem;
-        }
-
-        .client-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .client-logo {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
+        .marquee-item {
+            flex-shrink: 0;
+            width: 150px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 120px;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            font-weight: 600;
-            color: var(--text-light);
+            padding: 0 20px;
         }
 
-        .client-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .marquee-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
         }
 
-        /* Footer */
-        footer {
-			position: relative;
-			z-index: 10; /* isolate from overlays */
-			background: linear-gradient(135deg, #020617, #0f172a);
-			color: #f8fafc;
-			padding: 4rem 2rem 2rem;
-		}
-
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+        .marquee-item:hover img {
+            filter: grayscale(0%);
         }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #a78bfa;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #cbd5e1;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-			position: relative;
-			z-index: 11;
-			text-align: center;
-			padding-top: 2rem;
-			border-top: 1px solid rgba(255,255,255,0.35);
-			color: #ffffff;
-			font-size: 0.95rem;
-			letter-spacing: 0.4px;
-			opacity: 1; /* critical */
-		}
-
-		footer::before {
-			content: none !important;
-		}
-
-
-        /* Hide sections by default */
-        .page-section {
-            display: none;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-		/* Client Logo Marquee */
-		.logo-marquee {
-			background: transparent; /* fully transparent section */
-			padding: 2.5rem 0;
-			overflow: hidden;
-		}
-
-		.logo-marquee h3 {
-			text-align: center;
-			font-size: 1.4rem;
-			margin-bottom: 1.5rem;
-			color: var(--text-dark);
-		}
-
-		.marquee-wrapper {
-			overflow: hidden;
-			position: relative;
-		}
-
-		.marquee-track {
-			display: flex;
-			align-items: center;
-			width: max-content;
-			animation: scroll-marquee 25s linear infinite;
-		}
-
-		/* Each logo container = SAME SIZE */
-		.marquee-item {
-			flex: 0 0 auto;
-			width: 200px;          /* FIXED WIDTH */
-			height: 80px;          /* FIXED HEIGHT */
-			margin: 0 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		/* Logos auto-scale INSIDE container */
-		.marquee-item img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-			background: transparent; /* important */
-			opacity: 0.9;
-			transition: transform 0.3s ease, opacity 0.3s ease;
-		}
-
-		.marquee-item img:hover {
-			transform: scale(1.05);
-			opacity: 1;
-		}
-
-		@keyframes scroll-marquee {
-			0% {
-				transform: translateX(0);
-			}
-			100% {
-				transform: translateX(-50%);
-			}
-		}
-		
-		h1 {
-			letter-spacing: -0.5px;
-		}
-
-		h2, h3 {
-			letter-spacing: -0.3px;
-		}
-		
-		/* Premium H3 Styling */
-		h3 {
-			font-family: 'Playfair Display', serif;
-			font-size: 1.45rem;
-			font-weight: 600;
-			letter-spacing: 0.6px;
-			margin-bottom: 0.8rem;
-
-			background: linear-gradient(
-				135deg,
-				#1e3a8a 0%,
-				#2563eb 45%,
-				#7c3aed 100%
-			);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-		}
-
-
-		p {
-			color: #334155;
-		}
-
-		.section p {
-			font-size: 1.1rem;
-		}
-
-
-/* Testimonials Carousel */
-.testimonial-carousel {
-    position: relative;
-    max-width: 900px;
-    margin: 3rem auto;
-    display: flex;
-    align-items: center;
-}
-
-.carousel-track-container {
-    overflow: hidden;
-    width: 100%;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    padding: 1rem;
-}
-
-.carousel-slide img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-/* Navigation Buttons */
-.carousel-btn {
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    border: none;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-}
-
-.carousel-btn:hover {
-    background: rgba(0,0,0,0.85);
-}
-
-.carousel-btn.prev {
-    margin-right: 10px;
-}
-
-.carousel-btn.next {
-    margin-left: 10px;
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .carousel-btn {
-        display: none;
-    }
-}
-/* Premium Trust Heading */
-.premium-trust-title {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 3rem;
-    position: relative;
-    color: #0f172a;
-    background: linear-gradient(
-        135deg,
-        #0f172a 0%,
-        #334155 40%,
-        #2563eb 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Elegant underline accent */
-.premium-trust-title::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    margin: 14px auto 0;
-    background: linear-gradient(
-        135deg,
-        var(--primary-blue),
-        var(--primary-purple)
-    );
-    border-radius: 2px;
-}
-
-/* Mobile polish */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2.1rem;
-    }
-}
-
-
-/* Fade-in animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* Dark Premium Mode */
-body.dark-mode {
-    background:
-        radial-gradient(circle at top left, rgba(99,102,241,0.12), transparent 40%),
-        radial-gradient(circle at bottom right, rgba(37,99,235,0.12), transparent 40%),
-        linear-gradient(180deg, #020617 0%, #020617 100%);
-    color: #e5e7eb;
-}
-
-body.dark-mode p {
-    color: #cbd5f5;
-}
-
-body.dark-mode .card {
-    background: rgba(15,23,42,0.85);
-    border-color: rgba(148,163,184,0.15);
-}
-
-body.dark-mode .hero {
-    background: linear-gradient(135deg, #020617, #0f172a);
-}
-
-body.dark-mode .premium-trust-title {
-    background: none !important;
-    -webkit-text-fill-color: initial;
-    color: #e5e7eb; /* premium light text */
-    text-shadow:
-        0 2px 10px rgba(147,197,253,0.25),
-        0 0 1px rgba(255,255,255,0.4);
-}
-
-
-/* Fix section overlay */
-body.dark-mode .section::before {
-    background: linear-gradient(
-        180deg,
-        rgba(2,6,23,0.6),
-        rgba(2,6,23,0.95)
-    );
-}
-
-/* Fix light background sections */
-body.dark-mode .stats,
-body.dark-mode .clients,
-body.dark-mode section[style*="var(--light-bg)"] {
-    background: rgba(2,6,23,0.9) !important;
-}
-
-/* Fix contact form */
-body.dark-mode .contact-form {
-    background: rgba(15,23,42,0.95);
-    color: #e5e7eb;
-}
-
-body.dark-mode .form-group label {
-    color: #cbd5f5;
-}
-
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-    background: #020617;
-    color: #e5e7eb;
-    border-color: #334155;
-}
-
-/* Fix footer */
-body.dark-mode footer {
-    background: linear-gradient(135deg, #020617, #020617);
-}
-
-body.dark-mode .footer-bottom {
-    border-top: 1px solid #1e293b;
-    color: #cbd5f5 !important;
-}
-
-
-/* Fix marquee heading */
-body.dark-mode .logo-marquee h3 {
-    color: #e5e7eb;
-}
-
-body.dark-mode .client-logo {
-    background: rgba(15,23,42,0.85);
-    color: #cbd5f5;
-}
-
-body.dark-mode .section-title {
-    background: linear-gradient(
-        135deg,
-        #c7d2fe 0%,
-        #93c5fd 45%,
-        #a78bfa 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Premium H3 – Dark Mode */
-body.dark-mode h3 {
-    background: linear-gradient(
-        135deg,
-        #c7d2fe 0%,
-        #93c5fd 45%,
-        #a78bfa 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* Toggle button */
-.theme-toggle {
-    background: transparent;
-    border: 1px solid rgba(148,163,184,0.3);
-    color: inherit;
-    padding: 0.4rem 0.7rem;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-
-    
-/* Training Highlights – Premium Style */
-.training-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-}
-
-.highlight-card {
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: 2.4rem;
-    border-radius: 20px;
-    border: 1px solid rgba(226,232,240,0.6);
-    box-shadow:
-        0 20px 40px rgba(15,23,42,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.6);
-    transition: all 0.35s ease;
-}
-
-.highlight-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 30px 60px rgba(15,23,42,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.7);
-}
-
-.highlight-card p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: #334155;
-}
-
-body.dark-mode .highlight-card {
-    background: rgba(15,23,42,0.85);
-    border-color: rgba(148,163,184,0.15);
-}
-
-body.dark-mode .highlight-card p {
-    color: #cbd5f5;
-}
-
-
-/* Training Image Grid */
-.training-image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    gap: 3rem;
-    align-items: center;
-}
-
-.training-image-card {
-    background: rgba(255,255,255,0.95);
-    padding: 1.5rem;
-    border-radius: 24px;
-    box-shadow: 0 20px 45px rgba(15,23,42,0.12);
-}
-
-.training-image-card img {
-    width: 100%;
-    border-radius: 18px;
-}
-
-body.dark-mode .training-image-card {
-    background: rgba(15,23,42,0.9);
-    border: 1px solid rgba(148,163,184,0.2);
-}
-
-</style>
+    </style>
 </head>
-<body>
+<body class="bg-background text-on-surface">
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">FULLONBAAN</div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-			
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/" aria-current="page">HOME</a></li>
-                <li><a href="/about/">ABOUT US</a></li>
-                <li><a href="/services/">SERVICES</a></li>
-                <li><a href="/training/">TRAINING</a></li>
-                <li><a href="/testimonials/">TESTIMONIALS</a></li>
-                <li><a href="#career" onclick="showPage('career'); closeMenu();">CAREER</a></li>
-                <li><a href="/contact/">CONTACT US</a></li>
-            </ul>
-			<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+            <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/">Home</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/contact/">Contact Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 transform active:scale-95">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/services/">Services</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/training/">Training</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/testimonials/">Testimonials</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/contact/">Contact Us</a>
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page-section active">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>A leading consulting & software development company</h1>
-                <p>Infor LN Application Support, Customization, Implementation & Upgrade</p>
-                <div class="cta-buttons">
-                    <a href="/contact/" class="btn btn-primary">Get Started</a>
-                    <a href="/about/" class="btn btn-secondary">Learn More</a>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-8 bg-background">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block mb-6 px-4 py-2 rounded-full bg-on-primary-container text-primary-container font-headline font-semibold text-xs tracking-wide">
+                    Enterprise Excellence
                 </div>
-            </div>
-        </section>
-
-        <!-- Stats -->
-        <section class="stats">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">SATISFIED CUSTOMERS (TRAINING)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">YEARS INDUSTRY EXPERIENCE</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">COUNTRIES SUPPORT</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">TRUSTING CLIENTS</div>
-                </div>
-            </div>
-        </section>
-		
-				<!-- Client Logo Marquee -->
-		<section class="logo-marquee">
-			<h3>Trusted By Leading Enterprises</h3>
-			<div class="marquee-wrapper">
-				<div class="marquee-track">
-					
-					<!-- First set -->
-					<div class="marquee-item">
-						<img src="baylin.png" alt="Baylin Technologies">
-					</div>
-					<div class="marquee-item">
-						<img src="capgemini.png" alt="Capgemini">
-					</div>
-					<div class="marquee-item">
-						<img src="lnte.png" alt="L&T Heavy Engineering">
-					</div>
-					<div class="marquee-item">
-						<img src="thoughtfocus.png" alt="ThoughtFocus">
-					</div>
-					<div class="marquee-item">
-						<img src="tcs.png" alt="TCS">
-					</div>
-					<div class="marquee-item">
-						<img src="pcg.png" alt="PCG">
-					</div>
-					<div class="marquee-item">
-						<img src="elgi.png" alt="ELGI">
-					</div>
-					<div class="marquee-item">
-						<img src="cnhi.png" alt="CNHI">
-					</div>
-					<div class="marquee-item">
-						<img src="altea.png" alt="ALTEA">
-					</div>
-					<div class="marquee-item">
-						<img src="Atlantic.png" alt="ATLANTIC TECHNOLOGIES">
-					</div>
-					<div class="marquee-item">
-						<img src="buzzworks.png" alt="BUZZWORKS">
-					</div>
-					<div class="marquee-item">
-						<img src="carrier.png" alt="CARRIER">
-					</div>
-					<div class="marquee-item">
-						<img src="dcd.png" alt="DCD">
-					</div>
-					<div class="marquee-item">
-						<img src="eutron.png" alt="EUTRON">
-					</div>
-					<div class="marquee-item">
-						<img src="eventus.png" alt="EVENTUS">
-					</div>
-					<div class="marquee-item">
-						<img src="fortude.png" alt="FORTUDE">
-					</div>
-					<div class="marquee-item">
-						<img src="genalpha.png" alt="GENALPHA">
-					</div>
-					<div class="marquee-item">
-						<img src="hyva.png" alt="HYVA">
-					</div>
-					<div class="marquee-item">
-						<img src="jcbl.png" alt="JCBL">
-					</div>
-					<div class="marquee-item">
-						<img src="lsshf.png" alt="l&T SPECIAL STEEL">
-					</div>
-					<div class="marquee-item">
-						<img src="tst.png" alt="TST">
-					</div>
-					<div class="marquee-item">
-						<img src="suhner.png" alt="SUHNER">
-					</div>
-					<div class="marquee-item">
-						<img src="tcqo.png" alt="TCQO">
-					</div>
-					<div class="marquee-item">
-						<img src="velan.png" alt="VELAN">
-					</div>
-					<div class="marquee-item">
-						<img src="wipro.png" alt="WIPRO">
-					</div>
-					
-					<!-- Duplicate set for smooth infinite scroll -->
-					<div class="marquee-item">
-						<img src="baylin.png" alt="Baylin Technologies">
-					</div>
-					<div class="marquee-item">
-						<img src="capgemini.png" alt="Capgemini">
-					</div>
-					<div class="marquee-item">
-						<img src="lnte.png" alt="L&T Heavy Engineering">
-					</div>
-					<div class="marquee-item">
-						<img src="thoughtfocus.png" alt="ThoughtFocus">
-					</div>
-					<div class="marquee-item">
-						<img src="tcs.png" alt="TCS">
-					</div>
-					<div class="marquee-item">
-						<img src="pcg.png" alt="PCG">
-					</div>
-					<div class="marquee-item">
-						<img src="elgi.png" alt="ELGI">
-					</div>
-					<div class="marquee-item">
-						<img src="cnhi.png" alt="CNHI">
-					</div>
-					<div class="marquee-item">
-						<img src="altea.png" alt="ALTEA">
-					</div>
-					<div class="marquee-item">
-						<img src="Atlantic.png" alt="ATLANTIC TECHNOLOGIES">
-					</div>
-					<div class="marquee-item">
-						<img src="buzzworks.png" alt="BUZZWORKS">
-					</div>
-					<div class="marquee-item">
-						<img src="carrier.png" alt="CARRIER">
-					</div>
-					<div class="marquee-item">
-						<img src="dcd.png" alt="DCD">
-					</div>
-					<div class="marquee-item">
-						<img src="eutron.png" alt="EUTRON">
-					</div>
-					<div class="marquee-item">
-						<img src="eventus.png" alt="EVENTUS">
-					</div>
-					<div class="marquee-item">
-						<img src="fortude.png" alt="FORTUDE">
-					</div>
-					<div class="marquee-item">
-						<img src="genalpha.png" alt="GENALPHA">
-					</div>
-					<div class="marquee-item">
-						<img src="hyva.png" alt="HYVA">
-					</div>
-					<div class="marquee-item">
-						<img src="jcbl.png" alt="JCBL">
-					</div>
-					<div class="marquee-item">
-						<img src="lsshf.png" alt="l&T SPECIAL STEEL">
-					</div>
-					<div class="marquee-item">
-						<img src="tst.png" alt="TST">
-					</div>
-					<div class="marquee-item">
-						<img src="suhner.png" alt="SUHNER">
-					</div>
-					<div class="marquee-item">
-						<img src="tcqo.png" alt="TCQO">
-					</div>
-					<div class="marquee-item">
-						<img src="velan.png" alt="VELAN">
-					</div>
-					<div class="marquee-item">
-						<img src="wipro.png" alt="WIPRO">
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-        <!-- About Preview -->
-        <section class="section">
-            <h2 class="section-title">About FullonBaan</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-                    FULLONBAAN is global leader in Consulting and Training of ERP's and digital services. We enable clients across the globe in managing their ERP and digital transformation.
+                <h1 class="text-5xl md:text-6xl font-headline font-bold leading-tight mb-6 text-on-surface">
+                    A leading consulting &amp; <span class="aurora-gradient text-transparent bg-clip-text">software development</span> company
+                </h1>
+                <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
+                    Infor LN Application Support, Customization, Implementation &amp; Upgrade
                 </p>
-                <a href="/about/" class="btn btn-primary">Learn More About Us</a>
-            </div>
-        </section>
-
-        <!-- Industries -->
-        <section class="section" style="background: var(--light-bg);">
-            <h2 class="section-title">Industries We Serve</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-light);">We cater services to spectrum of Industries</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>AUTOMOTIVE</h3>
-                    <p>Comprehensive ERP solutions for automotive manufacturing and distribution</p>
-                </div>
-                <div class="card">
-                    <h3>CONSTRUCTION</h3>
-                    <p>Project-based ERP systems for construction and infrastructure</p>
-                </div>
-                <div class="card">
-                    <h3>DISTRIBUTION</h3>
-                    <p>Supply chain and logistics optimization solutions</p>
-                </div>
-                <div class="card">
-                    <h3>HIGH TECH & ELECTRONICS</h3>
-                    <p>Advanced ERP for technology and electronics sectors</p>
-                </div>
-                <div class="card">
-                    <h3>INDUSTRIAL MACHINERY</h3>
-                    <p>Specialized solutions for equipment manufacturers</p>
-                </div>
-                <div class="card">
-                    <h3>MANUFACTURING</h3>
-                    <p>End-to-end manufacturing resource planning</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/contact/" class="bg-primary hover:opacity-90 text-on-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 transform active:scale-95 text-center">Get Started</a>
+                    <a href="/about/" class="bg-surface-container hover:bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Learn More</a>
                 </div>
             </div>
-        </section>
+            <div class="hidden md:flex items-center justify-center">
+                <div class="w-full h-96 rounded-3xl aurora-gradient opacity-20"></div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Infor Solutions -->
-        <section class="section">
-            <h2 class="section-title">Infor Solutions Expertise</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+    <!-- Stats Section -->
+    <section class="py-20 px-8 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-5xl font-headline font-bold aurora-gradient text-transparent bg-clip-text mb-3">1000+</div>
+                <p class="text-sm font-headline font-semibold text-on-surface-variant uppercase tracking-wide">Satisfied Customers (Training)</p>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-headline font-bold aurora-gradient text-transparent bg-clip-text mb-3">10+</div>
+                <p class="text-sm font-headline font-semibold text-on-surface-variant uppercase tracking-wide">Years Industry Experience</p>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-headline font-bold aurora-gradient text-transparent bg-clip-text mb-3">20+</div>
+                <p class="text-sm font-headline font-semibold text-on-surface-variant uppercase tracking-wide">Countries Support</p>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-headline font-bold aurora-gradient text-transparent bg-clip-text mb-3">50+</div>
+                <p class="text-sm font-headline font-semibold text-on-surface-variant uppercase tracking-wide">Trusting Clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logo Marquee -->
+    <section class="py-20 px-8 bg-background overflow-hidden">
+        <div class="max-w-7xl mx-auto mb-12">
+            <h2 class="text-3xl md:text-4xl font-headline font-bold text-center text-on-surface mb-4">Trusted By Leading Enterprises</h2>
+            <p class="text-center text-on-surface-variant text-lg">Partnering with industry leaders across the globe</p>
+        </div>
+        <div class="marquee-wrapper overflow-hidden">
+            <div class="marquee-track">
+                <!-- First set -->
+                <div class="marquee-item"><img src="baylin.png" alt="Baylin Technologies"></div>
+                <div class="marquee-item"><img src="capgemini.png" alt="Capgemini"></div>
+                <div class="marquee-item"><img src="lnte.png" alt="L&T Heavy Engineering"></div>
+                <div class="marquee-item"><img src="thoughtfocus.png" alt="ThoughtFocus"></div>
+                <div class="marquee-item"><img src="tcs.png" alt="TCS"></div>
+                <div class="marquee-item"><img src="pcg.png" alt="PCG"></div>
+                <div class="marquee-item"><img src="elgi.png" alt="ELGI"></div>
+                <div class="marquee-item"><img src="cnhi.png" alt="CNHI"></div>
+                <div class="marquee-item"><img src="altea.png" alt="ALTEA"></div>
+                <div class="marquee-item"><img src="Atlantic.png" alt="ATLANTIC TECHNOLOGIES"></div>
+                <div class="marquee-item"><img src="buzzworks.png" alt="BUZZWORKS"></div>
+                <div class="marquee-item"><img src="carrier.png" alt="CARRIER"></div>
+                <div class="marquee-item"><img src="dcd.png" alt="DCD"></div>
+                <div class="marquee-item"><img src="eutron.png" alt="EUTRON"></div>
+                <div class="marquee-item"><img src="eventus.png" alt="EVENTUS"></div>
+                <div class="marquee-item"><img src="fortude.png" alt="FORTUDE"></div>
+                <div class="marquee-item"><img src="genalpha.png" alt="GENALPHA"></div>
+                <div class="marquee-item"><img src="hyva.png" alt="HYVA"></div>
+                <div class="marquee-item"><img src="jcbl.png" alt="JCBL"></div>
+                <div class="marquee-item"><img src="lsshf.png" alt="l&T SPECIAL STEEL"></div>
+                <div class="marquee-item"><img src="tst.png" alt="TST"></div>
+                <div class="marquee-item"><img src="suhner.png" alt="SUHNER"></div>
+                <div class="marquee-item"><img src="tcqo.png" alt="TCQO"></div>
+                <div class="marquee-item"><img src="velan.png" alt="VELAN"></div>
+                <div class="marquee-item"><img src="wipro.png" alt="WIPRO"></div>
+
+                <!-- Duplicate set for smooth infinite scroll -->
+                <div class="marquee-item"><img src="baylin.png" alt="Baylin Technologies"></div>
+                <div class="marquee-item"><img src="capgemini.png" alt="Capgemini"></div>
+                <div class="marquee-item"><img src="lnte.png" alt="L&T Heavy Engineering"></div>
+                <div class="marquee-item"><img src="thoughtfocus.png" alt="ThoughtFocus"></div>
+                <div class="marquee-item"><img src="tcs.png" alt="TCS"></div>
+                <div class="marquee-item"><img src="pcg.png" alt="PCG"></div>
+                <div class="marquee-item"><img src="elgi.png" alt="ELGI"></div>
+                <div class="marquee-item"><img src="cnhi.png" alt="CNHI"></div>
+                <div class="marquee-item"><img src="altea.png" alt="ALTEA"></div>
+                <div class="marquee-item"><img src="Atlantic.png" alt="ATLANTIC TECHNOLOGIES"></div>
+                <div class="marquee-item"><img src="buzzworks.png" alt="BUZZWORKS"></div>
+                <div class="marquee-item"><img src="carrier.png" alt="CARRIER"></div>
+                <div class="marquee-item"><img src="dcd.png" alt="DCD"></div>
+                <div class="marquee-item"><img src="eutron.png" alt="EUTRON"></div>
+                <div class="marquee-item"><img src="eventus.png" alt="EVENTUS"></div>
+                <div class="marquee-item"><img src="fortude.png" alt="FORTUDE"></div>
+                <div class="marquee-item"><img src="genalpha.png" alt="GENALPHA"></div>
+                <div class="marquee-item"><img src="hyva.png" alt="HYVA"></div>
+                <div class="marquee-item"><img src="jcbl.png" alt="JCBL"></div>
+                <div class="marquee-item"><img src="lsshf.png" alt="l&T SPECIAL STEEL"></div>
+                <div class="marquee-item"><img src="tst.png" alt="TST"></div>
+                <div class="marquee-item"><img src="suhner.png" alt="SUHNER"></div>
+                <div class="marquee-item"><img src="tcqo.png" alt="TCQO"></div>
+                <div class="marquee-item"><img src="velan.png" alt="VELAN"></div>
+                <div class="marquee-item"><img src="wipro.png" alt="WIPRO"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="py-20 px-8 bg-surface-container-highest">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-headline font-bold mb-8 text-on-surface">About FullOnBaan</h2>
+            <p class="text-xl leading-relaxed text-on-surface-variant mb-10">
+                FULLONBAAN is global leader in Consulting and Training of ERP's and digital services. We enable clients across the globe in managing their ERP and digital transformation.
+            </p>
+            <a href="/about/" class="inline-block bg-primary hover:opacity-90 text-on-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="py-20 px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Industries We Serve</h2>
+            <p class="text-center text-xl text-on-surface-variant mb-12">We cater services to spectrum of Industries</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">AUTOMOTIVE</h3>
+                    <p class="text-on-surface-variant">Comprehensive ERP solutions for automotive manufacturing and distribution</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">CONSTRUCTION</h3>
+                    <p class="text-on-surface-variant">Project-based ERP systems for construction and infrastructure</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">DISTRIBUTION</h3>
+                    <p class="text-on-surface-variant">Supply chain and logistics optimization solutions</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">HIGH TECH &amp; ELECTRONICS</h3>
+                    <p class="text-on-surface-variant">Advanced ERP for technology and electronics sectors</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">INDUSTRIAL MACHINERY</h3>
+                    <p class="text-on-surface-variant">Specialized solutions for equipment manufacturers</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                    <h3 class="font-headline font-bold text-lg text-primary mb-3">MANUFACTURING</h3>
+                    <p class="text-on-surface-variant">End-to-end manufacturing resource planning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infor Solutions Section -->
+    <section class="py-20 px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Infor Solutions Expertise</h2>
+            <p class="text-center text-xl text-on-surface-variant mb-12 max-w-3xl mx-auto">
                 We help transform Client Business through state of the art technologies of Infor Solutions
             </p>
-            <div class="grid">
-                <div class="card">
-                    <h3>INFOR LN EXPERTISE</h3>
-                    <ul>
-                        <li>Infor LN Implementations</li>
-                        <li>Application Management</li>
-                        <li>Migrations & Upgrades</li>
-                        <li>Service & Support</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>INFOR ION EXPERTISE</h3>
-                    <ul>
-                        <li>Integration Infor & Third Party Apps</li>
-                        <li>Creating Workflows & Alerts</li>
-                        <li>Business Process Monitoring</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>INFOR CLOUD EXPERTISE</h3>
-                    <ul>
-                        <li>Infor OS Implementations</li>
-                        <li>Infor OS Administration</li>
-                        <li>Service & Support</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
-        <!-- Clients -->
-        <section class="clients">
-            <h2 class="section-title">They Trust Our Capabilities</h2>
-            <div class="client-grid">
-                <div class="client-logo">Global Manufacturing Co.</div>
-                <div class="client-logo">Tech Solutions Inc.</div>
-                <div class="client-logo">Industrial Partners</div>
-                <div class="client-logo">Auto Excellence</div>
-                <div class="client-logo">Distribution Leaders</div>
-            </div>
-        </section>
-
-        <!-- Career CTA -->
-        <section class="section" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; text-align: center;">
-            <h2 style="color: white; margin-bottom: 1rem;">Want to excel in your Career?</h2>
-            <h3 style="color: white; margin-bottom: 2rem;">Join our Leading Team</h3>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Send your updated CV at <strong>careers@fullonbaan.com</strong></p>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <p style="margin-bottom: 1rem;"><strong>INFOR LN TECHNICAL CONSULTANT</strong><br>2-10 Years of Experience</p>
-                <p style="margin-bottom: 1rem;"><strong>INFOR LN FUNCTIONAL CONSULTANT</strong><br>2-15 Years of Experience</p>
-                <p><strong>INFOR LN Integration Specialist</strong><br>2-10 Years of Experience</p>
-            </div>
-            <a href="#career" onclick="showPage('career')" class="btn btn-secondary" style="margin-top: 2rem;">View Career Opportunities</a>
-            <!-- Note: Career section lives inline on homepage -->
-        </section>
-    </div>
-
-    <!-- ABOUT US PAGE -->
-    <div id="about" class="page-section">
-        <section class="hero" style="padding: 6rem 2rem;">
-            <h1>About Us</h1>
-            <p>Global leader in ERP Consulting and Training</p>
-        </section>
-
-        <section class="section">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;">
-                <div>                    
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                        FULLONBAAN is a global leader in ERP consulting and professional training, delivering comprehensive solutions across enterprise systems and digital services.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                        We partner with organizations worldwide to effectively manage, optimize, and modernize their ERP landscapes as part of their broader digital transformation initiatives.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        With over a decade of hands-on experience in ERP system management, we guide our clients through every stage of their operational journey—driving efficiency, stability, and measurable business outcomes. Our continuous learning–driven approach enables sustained improvement by systematically building, transferring, and applying deep domain expertise, best practices, and innovative ideas.
-                    </p>
-                </div>
-                <div>
-                    <div class="card" style="text-align: center; margin-bottom: 1rem;">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Years of Service</div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Infor LN Card -->
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">settings_applications</span>
+                        <h3 class="font-headline font-bold text-xl text-on-surface">Infor LN Expertise</h3>
                     </div>
-                    <div class="card" style="text-align: center; margin-bottom: 1rem;">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Countries Support</div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Infor LN Implementations</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Application Management</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Migrations &amp; Upgrades</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Service &amp; Support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Infor ION Card -->
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">alt_route</span>
+                        <h3 class="font-headline font-bold text-xl text-on-surface">Infor ION Expertise</h3>
                     </div>
-                    <div class="card" style="text-align: center;">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Trusting Clients</div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Integration Infor &amp; Third Party Apps</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Creating Workflows &amp; Alerts</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Business Process Monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Infor Cloud Card -->
+                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">cloud_sync</span>
+                        <h3 class="font-headline font-bold text-xl text-on-surface">Infor Cloud Expertise</h3>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: var(--light-bg);">
-            <div class="grid">
-                <div class="card">
-                    <h3>Mission</h3>
-                    <p>FULLONBAAN believes in delivering the business values not only through technology but with human touch. Our human-technology centered approach helps in delivery quality solutions to our clients.</p>
-                </div>
-                <div class="card">
-                    <h3>Vision</h3>
-                    <p>In partnership with customer we create and deliver business and technology solutions which fits the customer needs and drives them towards excellency. We believe in quality as a service.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Our Business Model</h2>
-            <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 2rem;">Infor ERP Support, Implement, Training & Contract Resources</h3>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
-                FullonBaan offers enterprise resource planning services that helps client with value for money propositions. We provide Application Support, Customizations, Implementation, ERP Upgrades, Infor Training and also Contract Resources.
-            </p>
-        </section>
-    </div>
-
-    <!-- SERVICES PAGE -->
-    <div id="services" class="page-section">
-        <section class="hero" style="padding: 6rem 2rem;">
-            <h1>Services</h1>
-            <p>Comprehensive ERP solutions covering implementation, customization, integration, and ongoing support.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">FULLONBAAN Services</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                We provide consulting services on ERP Products and Suites
-            </p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Application Development & Customizations</h3>
-                    <p>Tailored solutions to meet your specific business needs with expert customization services</p>
-                </div>
-                <div class="card">
-                    <h3>Implementation</h3>
-                    <p>End-to-end ERP implementation services ensuring smooth transition and adoption</p>
-                </div>
-                <div class="card">
-                    <h3>Data Migration & Archival</h3>
-                    <p>Secure and efficient data management solutions for seamless migration</p>
-                </div>
-                <div class="card">
-                    <h3>Application Support</h3>
-                    <p>Comprehensive Technical & Functional support services for your ERP systems</p>
-                </div>
-                <div class="card">
-                    <h3>Training Services</h3>
-                    <p>Professional training programs to empower your team with ERP expertise</p>
-                </div>
-                <div class="card">
-                    <h3>Resource Staffing</h3>
-                    <p>Expert resources available for contract and permanent positions</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <div class="card" style="max-width: 900px; margin: 0 auto; text-align: center;">
-                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.2rem;">
-                        <strong>From minor enhancements to large-scale enterprise implementations, our experienced consultants are equipped to address a wide range of business and technical requirements.</strong>
-                    </p>
-                    <p style="font-size: 1.1rem;">
-                        For enquiries or to discuss your requirements, please contact us at<br>
-                        <a href="mailto:support@fullonbaan.com" style="color: var(--primary-blue); font-weight: 600; font-size: 1.15rem;">
-                            📧 support@fullonbaan.com
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: var(--light-bg);">
-            <h2 class="section-title">Infor Solutions Expertise</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>INFOR LN EXPERTISE</h3>
-                    <ul>
-                        <li>Infor LN Implementations</li>
-                        <li>Application Management</li>
-                        <li>Migrations & Upgrades</li>
-                        <li>Service & Support</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>INFOR ION EXPERTISE</h3>
-                    <ul>
-                        <li>Integration Infor & Third Party Applications</li>
-                        <li>Creating workflows & Alerts</li>
-                        <li>Business process Monitoring</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>INFOR CLOUD EXPERTISE</h3>
-                    <ul>
-                        <li>Infor OS Implementations</li>
-                        <li>Infor OS Administration</li>
-                        <li>Service & Support</li>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Infor OS Implementations</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Infor OS Administration</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 text-sm mt-0.5">check_circle</span>
+                            <span>Service &amp; Support</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- TRAINING PAGE -->
-    <div id="training" class="page-section">
-        <section class="hero" style="padding: 6rem 2rem;">
-            <h1>TRAINING</h1>
-            <p>Comprehensive Infor LN training and certification programs delivered by experienced consultants to ensure real-world knowledge, practical exposure, and professional excellence.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">INFOR Training & Certification</h2>
-            
-            <div style="max-width: 900px; margin: 0 auto;">
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Who should go for this Infor LN Training?</h3>
-                <p style="margin-bottom: 2rem;">The following professionals can go for this training:</p>
-                <ul style="line-height: 2; margin-left: 2rem;">
-                    <li>Fresh Engineering Graduates</li>
-                    <li>Technical Consultants from other ERP like SAP, Oracle</li>
-                    <li>Functional Consultants from Finance, SCM, Manufacturing domains</li>
-                    <li>Business Analysts, Project Managers</li>
-                    <li>Anyone looking to switch career to ERP domain</li>
-                </ul>
-            </div>
-        </section>
-
-        
-<section class="section">
-    <h2 class="section-title">Program Highlights & Learning Support</h2>
-
-    <div class="training-highlights">
-        <div class="highlight-card">
-            <h3>Dedicated Personal Trainer</h3>
-            <p>
-                Each participant is assigned a dedicated personal trainer who customizes training sessions based on individual learning objectives, availability, and pace—ensuring maximum learning effectiveness.
-            </p>
         </div>
-
-        <div class="highlight-card">
-            <h3>Curated Training eBooks</h3>
-            <p>
-                Exclusive, expertly curated Infor LN Development eBooks are provided to all participants as part of the program curriculum.
-            </p>
-        </div>
-
-        <div class="highlight-card">
-            <h3>Comprehensive Training Documentation</h3>
-            <p>
-                Detailed and structured training notes are shared to reinforce key concepts and support effective revision throughout and beyond the program.
-            </p>
-        </div>
-
-        <div class="highlight-card">
-            <h3>Hands-on Development Exercises</h3>
-            <p>
-                Practical, real-world development exercises are incorporated to strengthen technical proficiency and application-oriented skills.
-            </p>
-        </div>
-
-        <div class="highlight-card">
-            <h3>Recorded Training Sessions</h3>
-            <p>
-                All training sessions are recorded and securely shared with participants for future reference and continued learning.
-            </p>
-        </div>
-
-        <div class="highlight-card">
-            <h3>Training Completion Certificate</h3>
-            <p>
-                Participants who successfully complete the program will receive an official Training Completion Certificate from FULLONBAAN.
-            </p>
-        </div>
-
-        <div class="highlight-card">
-            <h3>Dedicated WhatsApp Support Group</h3>
-            <p>
-                Participants are added to a dedicated WhatsApp support group, moderated by senior consultants, to assist with queries, project-related challenges, and ongoing guidance.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="section" style="background: var(--light-bg);">
-            <h2 class="section-title">Training Modules</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Technical Training</h3>
-                    <ul>
-                        <li>Infor LN Technical Architecture</li>
-                        <li>Development Tools & IDE</li>
-                        <li>Programming & Customization</li>
-                        <li>Data Dictionary & Forms</li>
-                        <li>Reports & Interfaces</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Functional Training</h3>
-                    <ul>
-                        <li>Finance & Controlling</li>
-                        <li>Sales & Distribution</li>
-                        <li>Manufacturing</li>
-                        <li>Warehouse Management</li>
-                        <li>Project Management</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Integration Training</h3>
-                    <ul>
-                        <li>Infor ION Fundamentals</li>
-                        <li>Workflow Design</li>
-                        <li>API Development</li>
-                        <li>Data Integration</li>
-                        <li>Cloud Integration</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-<section class="section">
-  <h2 class="section-title">Detailed Infor LN Training Coverage</h2>
-
-  <div class="testimonial-carousel training-carousel">
-    <button class="carousel-btn prev" onclick="moveTrainingSlide(-1)">❮</button>
-
-    <div class="carousel-track-container">
-      <div class="carousel-track training-track">
-        <div class="carousel-slide"><img src="training/admin.png" alt="Infor LN Administration Topics"></div>
-        <div class="carousel-slide"><img src="training/development.png" alt="Infor LN Development Topics"></div>
-        <div class="carousel-slide"><img src="training/logistics.png" alt="Infor LN Logistics Topics"></div>
-        <div class="carousel-slide"><img src="training/manufacturing.png" alt="Infor LN Manufacturing Topics"></div>
-        <div class="carousel-slide"><img src="training/planning.png" alt="Infor LN Planning Topics"></div>
-        <div class="carousel-slide"><img src="training/finance.png" alt="Infor LN Finance Topics"></div>
-        <div class="carousel-slide"><img src="training/wms.png" alt="Infor LN WMS Topics"></div>
-        <div class="carousel-slide"><img src="training/extensions.png" alt="Infor LN Extensions Topics"></div>
-        <div class="carousel-slide"><img src="training/ion.png" alt="Infor ION Topics"></div>
-        <div class="carousel-slide"><img src="training/studio.png" alt="Infor LN Studio Topics"></div>
-        <div class="carousel-slide"><img src="training/os.png" alt="Infor OS Topics"></div>
-      </div>
-    </div>
-
-    <button class="carousel-btn next" onclick="moveTrainingSlide(1)">❯</button>
-  </div>
-</section>
-
-<section class="section">
-  <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
-    <h2 style="color: white; margin-bottom: 1rem;">Ready to Start Your Training?</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-      Join 1000+ professionals who have already transformed their careers
-    </p>
-    <a href="#contact" onclick="showPage('contact')" class="btn btn-secondary">Enroll Now</a>
-  </div>
-</section>
-    </div>
-	
-	<!-- TESTIMONIALS PAGE -->
-<div id="testimonials" class="page-section">
-    
-    <!-- Hero -->
-    <section class="hero" style="padding: 6rem 2rem;">
-        <h1>Customer Testimonials</h1>
-        <p>Insights and feedback from our clients and professionals reflecting their experience, satisfaction, and success in partnering with FULLONBAAN.</p>
     </section>
 
-    <!-- Testimonials Grid -->
-    <section class="section">
-        <h2 class="premium-trust-title">Trusted by Professionals Worldwide</h2>
+    <!-- Testimonials Preview Section -->
+    <section class="py-20 px-8 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Trusted by Professionals Worldwide</h2>
+            <p class="text-center text-on-surface-variant mb-12">See what our clients have to say about their experience</p>
 
-        <div class="testimonial-carousel">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                    <img src="testimonial/elisa.png" alt="Elisa Testimonial" class="w-full h-auto">
+                </div>
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                    <img src="testimonial/scott.png" alt="Scott Testimonial" class="w-full h-auto">
+                </div>
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                    <img src="testimonial/gustavo.png" alt="Gustavo Testimonial" class="w-full h-auto">
+                </div>
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                    <img src="testimonial/emily.png" alt="Emily Testimonial" class="w-full h-auto">
+                </div>
+            </div>
 
-    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
-
-		<div class="carousel-track-container">
-			<div class="carousel-track">
-
-				<div class="carousel-slide">
-					<img src="testimonial/elisa.png" alt="Elisa Testimonial">
-				</div>
-
-				<div class="carousel-slide">
-					<img src="testimonial/scott.png" alt="Scott Testimonial">
-				</div>
-
-				<div class="carousel-slide">
-					<img src="testimonial/gustavo.png" alt="Gustavo Testimonial">
-				</div>
-
-				<div class="carousel-slide">
-					<img src="testimonial/emily.png" alt="Emily Testimonial">
-				</div>
-
-			</div>
-		</div>
-
-		<button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
-
-	</div>
-
+            <div class="text-center mt-10">
+                <a href="/testimonials/" class="inline-block text-primary font-headline font-semibold hover:opacity-80 transition-all">View All Testimonials →</a>
+            </div>
+        </div>
     </section>
 
-</div>
-
-
-    <!-- CAREER PAGE -->
-    <div id="career" class="page-section">
-        <section class="hero" style="padding: 6rem 2rem;">
-            <h1>Career Opportunities</h1>
-            <p>Join our growing team of ERP experts and be part of a collaborative, high-performance environment.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Current Openings</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.2rem;">
-                We're always looking for talented professionals to join our team
+    <!-- Final CTA Section -->
+    <section class="py-20 px-8 aurora-gradient text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Ready to Transform Your ERP?</h2>
+            <p class="text-xl opacity-90 mb-10 leading-relaxed">
+                Partner with FullOnBaan to unlock the full potential of Infor LN and drive enterprise excellence
             </p>
-
-            <div class="grid">
-                <div class="card">
-                    <h3>INFOR LN Technical Consultant</h3>
-                    <p><strong>Experience:</strong> 2-10 Years</p>
-                    <p><strong>Skills Required:</strong></p>
-                    <ul>
-                        <li>Infor LN Development</li>
-                        <li>Programming (4GL, SQL)</li>
-                        <li>Customization & Enhancement</li>
-                        <li>Technical Architecture</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>INFOR LN Functional Consultant</h3>
-                    <p><strong>Experience:</strong> 2-15 Years</p>
-                    <p><strong>Skills Required:</strong></p>
-                    <ul>
-                        <li>Finance/SCM/Manufacturing Domain</li>
-                        <li>Business Process Analysis</li>
-                        <li>Configuration & Implementation</li>
-                        <li>User Training</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>INFOR LN Integration Specialist</h3>
-                    <p><strong>Experience:</strong> 2-10 Years</p>
-                    <p><strong>Skills Required:</strong></p>
-                    <ul>
-                        <li>Infor ION Expertise</li>
-                        <li>API Development</li>
-                        <li>Integration Architecture</li>
-                        <li>Cloud Technologies</li>
-                    </ul>
-                </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact/" class="bg-white hover:opacity-90 text-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Get Started Today</a>
+                <a href="/services/" class="border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Explore Services</a>
             </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 3rem; background: var(--light-bg); border-radius: 20px;">
-                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Why Work With Us?</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
-                        <strong>Global Exposure</strong>
-                        <p>Work with clients from 20+ countries</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
-                        <strong>Career Growth</strong>
-                        <p>Continuous learning and advancement</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💼</div>
-                        <strong>Exciting Projects</strong>
-                        <p>Work on cutting-edge ERP solutions</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
-                        <strong>Great Team</strong>
-                        <p>Collaborative work environment</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; text-align: center;">
-            <h2 style="color: white; margin-bottom: 1rem;">Ready to Apply?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Send your updated CV to:</p>
-            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 2rem;">careers@fullonbaan.com</p>
-            <a href="mailto:careers@fullonbaan.com" class="btn btn-secondary">Email Your CV</a>
-        </section>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page-section">
-        <section class="hero" style="padding: 6rem 2rem;">
-            <h1>Contact Us</h1>
-            <p>Get in touch with our team to begin a conversation about your challenges and discover tailored ERP solutions designed to meet your business needs.</p>
-        </section>
-
-        <section class="section">
-            <div class="contact-form">
-                <h2 style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">Send Us a Message</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Interested In *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="consulting">ERP Consulting</option>
-                            <option value="implementation">Implementation</option>
-                            <option value="training">Training</option>
-                            <option value="support">Application Support</option>
-                            <option value="staffing">Resource Staffing</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="section" style="background: var(--light-bg);">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="grid">
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:support@fullonbaan.com" style="color: var(--primary-blue);">support@fullonbaan.com</a></p>
-                    <p><a href="mailto:careers@fullonbaan.com" style="color: var(--primary-blue);">careers@fullonbaan.com</a></p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
-                    <h3>Global Presence</h3>
-                    <p>Serving clients in 20+ countries worldwide</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">⏰</div>
-                    <h3>Business Hours</h3>
-                    <p>24/7 Support Available</p>
-                    <p>Mon-Fri: 9AM - 6PM (Local Time)</p>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>FULLONBAAN</h3>
-                <p>Leading ERP Consulting & Training Company</p>
-                <p>Transforming businesses through innovative ERP solutions</p>
-                <div class="social-links">
-					<a href="https://in.linkedin.com/company/fullonbaan"
-					   target="_blank"
-					   rel="noopener noreferrer"
-					   title="LinkedIn">
-						in
-					</a>
-
-					<a href="https://x.com/FOB_SUPPORT"
-					   target="_blank"
-					   rel="noopener noreferrer"	
-					   title="Twitter">
-						𝕏
-					</a>
-
-					<a href="https://www.facebook.com/p/FullonBaaN-100067220493183/"
-					   target="_blank"
-					   rel="noopener noreferrer"
-					   title="Facebook">
-						f
-					</a>
-				</div>
-
+    <footer class="w-full pt-16 pb-8 bg-slate-50 border-t border-outline-variant/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto mb-16">
+            <div class="flex flex-col gap-4">
+                <div class="text-lg font-headline font-bold text-slate-900">FullOnBaan</div>
+                <p class="text-sm text-slate-500 max-w-xs leading-relaxed">Leading Infor LN ERP consulting and training company. Transforming enterprises through innovative ERP solutions worldwide.</p>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about/">About Us</a>
-                <a href="/services/">Services</a>
-                <a href="/training/">Training</a>
-                <a href="/testimonials/">Testimonials</a>
-                <a href="/contact/">Contact Us</a>
+            <div class="flex flex-col gap-4">
+                <div class="font-headline font-bold text-on-surface">Quick Links</div>
+                <ul class="flex flex-col gap-2">
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/">Home</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/about/">About Us</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Services</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/training/">Training</a></li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="/services/">Application Development</a>
-                <a href="/services/">Implementation</a>
-                <a href="/services/">Application Support</a>
-                <a href="/training/">Training</a>
+            <div class="flex flex-col gap-4">
+                <div class="font-headline font-bold text-on-surface">Services</div>
+                <ul class="flex flex-col gap-2">
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Implementation</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Application Support</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Customization</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/training/">Training</a></li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: support@fullonbaan.com</p>
-                <p>Careers: careers@fullonbaan.com</p>
-				<p>Mobile: +91 63605 93122</p>
-                <p>Mon-Fri: 9AM - 6PM (Local Time)</p>
+            <div class="flex flex-col gap-4">
+                <div class="font-headline font-bold text-on-surface">Contact</div>
+                <ul class="flex flex-col gap-2">
+                    <li><span class="text-sm text-slate-500">support@fullonbaan.com</span></li>
+                    <li><span class="text-sm text-slate-500">+91 63605 93122</span></li>
+                    <li><span class="text-sm text-slate-500">Mon–Fri: 9AM – 6PM</span></li>
+                </ul>
+                <div class="flex gap-3 mt-2">
+                    <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">in</a>
+                    <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">▶</a>
+                    <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">𝕏</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Leading ERP Consulting & Training Solutions</p>
+        <div class="max-w-7xl mx-auto px-8 pt-8 border-t border-outline-variant/10 text-center md:text-left">
+            <span class="text-sm text-slate-500">© 2026 FullOnBaan ERP Solutions. All rights reserved.</span>
         </div>
     </footer>
 
-    <script>
-        // Page Navigation
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.remove('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){
-    emailjs.init("aDL0FEenlYJ8WaJne");
-})();
-</script>
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.send(
-        "service_t9cqgtn",
-        "template_4wc81pc",
-        {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value,
-            service: document.getElementById("service").value,
-            message: document.getElementById("message").value
-        }
-    ).then(
-        function() {
-            alert("✅ Thank you! Your message has been sent successfully.");
-            document.getElementById("contactForm").reset();
-        },
-        function(error) {
-            alert("❌ Failed to send message. Please try again later.");
-            console.error("EmailJS Error:", error);
-        }
-    );
-});
-</script>
-<script>
-let currentSlide = 0;
-
-function moveSlide(direction) {
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-
-    currentSlide += direction;
-
-    if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-    } else if (currentSlide >= totalSlides) {
-        currentSlide = 0;
-    }
-
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll(".section, .card, .hero").forEach(el => {
-        el.classList.add("fade-in");
-        observer.observe(el);
-    });
-});
-</script>
-<script>
-const toggleBtn = document.getElementById("themeToggle");
-
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️";
-}
-
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-    toggleBtn.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-});
-</script>
-
-
-<script>
-let trainingSlide = 0;
-function moveTrainingSlide(direction) {
-    const track = document.querySelector('.training-track');
-    const slides = track.children.length;
-
-    trainingSlide += direction;
-    if (trainingSlide < 0) trainingSlide = slides - 1;
-    if (trainingSlide >= slides) trainingSlide = 0;
-
-    track.style.transform = `translateX(-${trainingSlide * 100}%)`;
-}
-</script>
 </body>
-
 </html>

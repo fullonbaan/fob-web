@@ -111,75 +111,542 @@
     })();
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-blue: #2563eb;
-            --primary-purple: #7c3aed;
-            --light-bg: #f8fafc;
-            --text-light: #64748b;
-            --gold: #DAA520;
+            --primary: #004ac6;
+            --secondary: #712ae2;
+            --surface: #f7f9fb;
+            --on-surface: #191c1e;
+            --on-surface-variant: #434655;
+            --surface-container-low: #f2f4f6;
+            --surface-container-lowest: #ffffff;
+            --on-primary: #ffffff;
+            --primary-container: #2563eb;
+            --primary-fixed: #dbe1ff;
+            --outline: #737686;
+            --outline-variant: #c3c6d7;
+            --surface-container-high: #e6e8ea;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: #0f172a; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
-        nav { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; background: linear-gradient(45deg, #fff, #e0e7ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.8; }
-        .nav-links a[aria-current="page"] { border-bottom: 2px solid white; padding-bottom: 2px; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-        .hero { margin-top: 70px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 6rem 2rem; text-align: center; }
-        .hero h1 { font-size: 3rem; font-family: 'Playfair Display', serif; background: linear-gradient(45deg, #fff, #DAA520); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
-        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 1rem; background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 3rem; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--on-surface);
+            background-color: var(--surface);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .aurora-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(115, 118, 134, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--on-surface);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-quote-btn {
+            background: var(--primary);
+            color: var(--on-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .nav-quote-btn:hover {
+            box-shadow: 0 4px 12px rgba(0, 74, 198, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--on-surface);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background-color: var(--on-surface);
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+
+        /* Section Spacing */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--on-surface-variant);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
 
         /* Rating Summary */
-        .rating-bar { display: flex; align-items: center; gap: 1.5rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
-        .big-rating { font-size: 5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-blue), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
-        .rating-details { display: flex; flex-direction: column; }
-        .stars { font-size: 2rem; letter-spacing: 2px; color: var(--gold); }
-        .rating-count { color: var(--text-light); font-size: 0.95rem; }
+        .rating-container {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-        /* Testimonial cards */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        .testimonial-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 4px solid var(--gold); position: relative; }
-        .testimonial-card::before { content: '\201C'; font-size: 5rem; color: var(--gold); opacity: 0.2; position: absolute; top: 1rem; left: 1.5rem; font-family: serif; line-height: 1; }
-        .testimonial-text { font-size: 1rem; color: #334155; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; padding-top: 1rem; }
-        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; }
-        .author-name { font-weight: 700; color: #0f172a; }
-        .author-role { font-size: 0.85rem; color: var(--text-light); }
-        .star-rating { color: var(--gold); font-size: 0.9rem; margin-top: 0.2rem; }
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-        .light-section { background: var(--light-bg); padding: 5rem 2rem; }
-        .light-section .inner { max-width: 1200px; margin: 0 auto; }
+        .big-rating {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
 
-        /* Client logos grid */
-        .clients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; align-items: center; }
-        .client-logo-box { background: white; border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: transform 0.3s; }
-        .client-logo-box:hover { transform: scale(1.05); }
-        .client-logo-box img { max-height: 50px; max-width: 100%; object-fit: contain; filter: grayscale(40%); transition: filter 0.3s; }
-        .client-logo-box:hover img { filter: grayscale(0%); }
+        .rating-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
 
-        .btn { padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; box-shadow: 0 10px 25px rgba(37,99,235,0.35); }
-        .btn-primary:hover { transform: translateY(-3px); }
-        footer { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 4rem 2rem 2rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-section h3 { font-size: 1.1rem; margin-bottom: 1.5rem; color: #DAA520; }
-        .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .footer-section a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid #334155; padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem; }
+        .stars {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #fbbf24;
+        }
+
+        .rating-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--on-surface);
+        }
+
+        .rating-count {
+            color: var(--on-surface-variant);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--surface-container-lowest);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            border-top: 4px solid #fbbf24;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-quote-mark {
+            font-size: 4rem;
+            color: #fbbf24;
+            opacity: 0.15;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--on-surface);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            padding-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--on-surface);
+            font-size: 1rem;
+        }
+
+        .author-role {
+            font-size: 0.85rem;
+            color: var(--on-surface-variant);
+            margin-bottom: 0.3rem;
+        }
+
+        .star-rating {
+            color: #fbbf24;
+            font-size: 0.9rem;
+        }
+
+        /* Client Logos Section */
+        .clients-section {
+            background-color: var(--surface-container-low);
+            padding: 5rem 2rem;
+        }
+
+        .clients-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .client-logo-box {
+            background: var(--surface-container-lowest);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .client-logo-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-logo-box img {
+            max-height: 50px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .client-logo-box:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3.5rem;
+            border-radius: 2rem;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ddd;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); padding: 1rem 2rem; flex-direction: column; gap: 1rem; }
-            .nav-links.active { display: flex; }
-            .hero h1 { font-size: 2rem; }
-            .big-rating { font-size: 3.5rem; }
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(12px);
+                padding: 1.5rem 2rem;
+                flex-direction: column;
+                gap: 1rem;
+                border-bottom: 1px solid rgba(115, 118, 134, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .big-rating {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -196,36 +663,45 @@
                 <li><a href="/training/">TRAINING</a></li>
                 <li><a href="/testimonials/" aria-current="page">TESTIMONIALS</a></li>
                 <li><a href="/contact/">CONTACT US</a></li>
+                <li><a href="/contact/" class="nav-quote-btn">Get a Quote</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>What Our Clients Say</h1>
-        <p>Insights and feedback from professionals and enterprises reflecting their experience, satisfaction, and success with FullOnBaan.</p>
+        <div class="hero-content">
+            <div class="hero-label">Client Success</div>
+            <h1>What Our Clients Say</h1>
+            <p>Insights and feedback from professionals and enterprises reflecting their experience, satisfaction, and success with FullOnBaan.</p>
+        </div>
     </section>
 
     <!-- Rating Summary -->
     <section class="section">
-        <h2 class="section-title">Trusted by 1000+ Professionals</h2>
-        <p class="section-subtitle">Across 20+ countries and 50+ enterprise clients</p>
-        <div class="rating-bar">
-            <div class="big-rating">4.9</div>
-            <div class="rating-details">
-                <div class="stars">★★★★★</div>
-                <div style="font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-top: 0.3rem;">Excellent</div>
-                <div class="rating-count">Based on 1000+ reviews</div>
+        <div class="rating-container">
+            <h2 class="section-title">Trusted by 1000+ Professionals</h2>
+            <p class="section-subtitle">Across 20+ countries and 50+ enterprise clients</p>
+            <div class="rating-bar">
+                <div>
+                    <div class="big-rating">4.9</div>
+                </div>
+                <div class="rating-details">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-label">Excellent</div>
+                    <div class="rating-count">Based on 1000+ reviews</div>
+                </div>
             </div>
         </div>
 
         <div class="testimonials-grid">
             <div class="testimonial-card">
+                <div class="testimonial-quote-mark">"</div>
                 <p class="testimonial-text">
                     The Infor LN training provided by FullOnBaan was exceptional. The dedicated trainer approach meant sessions were tailored exactly to my learning pace and goals. I went from zero Infor LN knowledge to confidently working on live projects.
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">E</div>
-                    <div>
+                    <div class="author-info">
                         <div class="author-name">Elisa</div>
                         <div class="author-role">Infor LN Functional Consultant</div>
                         <div class="star-rating">★★★★★</div>
@@ -234,12 +710,13 @@
             </div>
 
             <div class="testimonial-card">
+                <div class="testimonial-quote-mark">"</div>
                 <p class="testimonial-text">
                     Outstanding Infor LN technical training. The hands-on exercises and recorded sessions made it easy to revisit complex topics. The WhatsApp support group was incredibly helpful throughout the program and beyond.
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">S</div>
-                    <div>
+                    <div class="author-info">
                         <div class="author-name">Scott</div>
                         <div class="author-role">Infor LN Technical Consultant</div>
                         <div class="star-rating">★★★★★</div>
@@ -248,12 +725,13 @@
             </div>
 
             <div class="testimonial-card">
+                <div class="testimonial-quote-mark">"</div>
                 <p class="testimonial-text">
                     Transitioned from SAP to Infor LN with FullOnBaan's training. The curriculum was comprehensive and the trainer's real-world project expertise was invaluable. I landed a new role within 2 months of completing the program.
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">G</div>
-                    <div>
+                    <div class="author-info">
                         <div class="author-name">Gustavo</div>
                         <div class="author-role">ERP Consultant — SAP to Infor LN Switcher</div>
                         <div class="star-rating">★★★★★</div>
@@ -262,12 +740,13 @@
             </div>
 
             <div class="testimonial-card">
+                <div class="testimonial-quote-mark">"</div>
                 <p class="testimonial-text">
                     FullOnBaan's Infor LN functional training helped me land a new consulting role. The completion certificate was recognised immediately by my employer. The eBooks and documentation are still a go-to reference for me on projects.
                 </p>
                 <div class="testimonial-author">
                     <div class="author-avatar">Em</div>
-                    <div>
+                    <div class="author-info">
                         <div class="author-name">Emily</div>
                         <div class="author-role">Finance &amp; SCM Consultant</div>
                         <div class="star-rating">★★★★★</div>
@@ -278,8 +757,8 @@
     </section>
 
     <!-- Trusted Clients -->
-    <div class="light-section">
-        <div class="inner">
+    <div class="clients-section">
+        <div class="clients-inner">
             <h2 class="section-title">Trusted by Leading Enterprises</h2>
             <p class="section-subtitle">50+ organizations globally rely on FullOnBaan for ERP expertise</p>
             <div class="clients-grid">
@@ -300,12 +779,14 @@
     </div>
 
     <!-- CTA -->
-    <section class="section">
-        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
-            <h2 style="color: white; margin-bottom: 1rem;">Join 1000+ Professionals</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #e0e7ff;">Start your Infor LN journey with FullOnBaan today.</p>
-            <a href="/training/" class="btn" style="background: white; color: var(--primary-blue); font-weight: 700; margin-right: 1rem;">Explore Training</a>
-            <a href="/contact/" class="btn" style="background: rgba(255,255,255,0.15); color: white; border: 2px solid white; font-weight: 700;">Contact Us</a>
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="cta-title">Join 1000+ Professionals</h2>
+            <p class="cta-subtitle">Start your Infor LN journey with FullOnBaan today.</p>
+            <div class="cta-buttons">
+                <a href="/training/" class="btn btn-primary">Explore Training</a>
+                <a href="/contact/" class="btn btn-secondary">Contact Us</a>
+            </div>
         </div>
     </section>
 

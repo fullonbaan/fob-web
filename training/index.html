@@ -201,265 +201,528 @@
     })();
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#004ac6',
+              'primary-container': '#2563eb',
+              'primary-fixed': '#dbe1ff',
+              secondary: '#712ae2',
+              surface: '#f7f9fb',
+              background: '#f7f9fb',
+              'on-background': '#191c1e',
+              'on-surface': '#191c1e',
+              'on-surface-variant': '#434655',
+              'on-primary': '#ffffff',
+              'surface-container-low': '#f2f4f6',
+              'surface-container-lowest': '#ffffff',
+              'surface-container': '#eceef0',
+              'surface-container-high': '#e6e8ea',
+              tertiary: '#4d556b',
+              outline: '#737686',
+              'outline-variant': '#c3c6d7'
+            },
+            fontFamily: {
+              headline: ['Manrope', 'sans-serif'],
+              body: ['Inter', 'sans-serif']
+            },
+            backgroundImage: {
+              'aurora-gradient': 'linear-gradient(135deg, #004ac6, #712ae2)'
+            }
+          }
+        }
+      }
+    </script>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary-blue: #2563eb;
-            --primary-purple: #7c3aed;
-            --light-bg: #f8fafc;
-            --text-light: #64748b;
-            --gold: #DAA520;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #0f172a;
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        }
-        nav {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; background: linear-gradient(45deg, #fff, #e0e7ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.8; }
-        .nav-links a[aria-current="page"] { border-bottom: 2px solid white; padding-bottom: 2px; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-        .hero { margin-top: 70px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 6rem 2rem; text-align: center; }
-        .hero h1 { font-size: 3rem; font-family: 'Playfair Display', serif; background: linear-gradient(45deg, #fff, #DAA520); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 800px; margin: 0 auto; }
-        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 3rem; background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(37,99,235,0.08); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary-blue); }
-        .card p { color: var(--text-light); }
-        .card ul { margin-left: 1.5rem; color: var(--text-light); line-height: 2; }
-        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .highlight-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.07); border-left: 4px solid var(--gold); }
-        .highlight-card h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: #0f172a; }
-        .highlight-card p { color: var(--text-light); font-size: 0.95rem; }
-        .btn { padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; box-shadow: 0 10px 25px rgba(37,99,235,0.35); }
-        .btn-primary:hover { transform: translateY(-3px); }
-        .light-section { background: var(--light-bg); padding: 5rem 2rem; }
-        .light-section .inner { max-width: 1200px; margin: 0 auto; }
-        .faq-item { background: white; border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .faq-item h3 { font-size: 1.05rem; color: #0f172a; margin-bottom: 0.6rem; }
-        .faq-item p { color: var(--text-light); font-size: 0.95rem; }
-        footer { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 4rem 2rem 2rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-section h3 { font-size: 1.1rem; margin-bottom: 1.5rem; color: #DAA520; }
-        .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .footer-section a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid #334155; padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem; }
-        @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); padding: 1rem 2rem; flex-direction: column; gap: 1rem; }
-            .nav-links.active { display: flex; }
-            .hero h1 { font-size: 2rem; }
-        }
+      body { @apply font-body text-on-background; }
+      h1, h2, h3 { @apply font-headline; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .aurora-gradient { background: linear-gradient(135deg, #004ac6, #712ae2); }
+      .nav-glass { backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.8); }
     </style>
 </head>
-<body>
+<body class="bg-background">
 
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">FULLONBAAN</a>
-            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about/">ABOUT US</a></li>
-                <li><a href="/services/">SERVICES</a></li>
-                <li><a href="/training/" aria-current="page">TRAINING</a></li>
-                <li><a href="/testimonials/">TESTIMONIALS</a></li>
-                <li><a href="/contact/">CONTACT US</a></li>
-            </ul>
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full top-0 z-50 shadow-sm">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold font-headline bg-aurora-gradient bg-clip-text text-transparent">FULLONBAAN</a>
+
+        <button class="md:hidden text-on-background" id="mobileMenuBtn">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <ul class="hidden md:flex gap-8 text-on-background font-semibold text-sm" id="navLinks">
+          <li><a href="/" class="hover:text-primary transition">Home</a></li>
+          <li><a href="/about/" class="hover:text-primary transition">About Us</a></li>
+          <li><a href="/services/" class="hover:text-primary transition">Services</a></li>
+          <li><a href="/training/" class="text-primary border-b-2 border-primary pb-1">Training</a></li>
+          <li><a href="/testimonials/" class="hover:text-primary transition">Testimonials</a></li>
+          <li><a href="/contact/" class="hover:text-primary transition">Contact Us</a></li>
+        </ul>
+
+        <a href="/contact/" class="hidden md:inline-block px-6 py-2 rounded-full text-white font-semibold text-sm aurora-gradient hover:shadow-lg transition">
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-outline-variant">
+        <div class="px-4 py-4 space-y-2">
+          <a href="/" class="block py-2 hover:text-primary">Home</a>
+          <a href="/about/" class="block py-2 hover:text-primary">About Us</a>
+          <a href="/services/" class="block py-2 hover:text-primary">Services</a>
+          <a href="/training/" class="block py-2 text-primary font-semibold">Training</a>
+          <a href="/testimonials/" class="block py-2 hover:text-primary">Testimonials</a>
+          <a href="/contact/" class="block py-2 hover:text-primary">Contact Us</a>
+          <a href="/contact/" class="block mt-4 px-4 py-2 rounded-full text-white font-semibold text-center aurora-gradient">
+            Get a Quote
+          </a>
         </div>
+      </div>
     </nav>
 
-    <section class="hero">
-        <h1>Infor LN Training &amp; Certification</h1>
-        <p>Comprehensive Infor LN training programs — technical, functional, and integration tracks — delivered by experienced consultants to ensure real-world knowledge and professional excellence.</p>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <div class="inline-block mb-4 px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-semibold">
+          Expert Training
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold font-headline mb-6">
+          Infor LN <span class="bg-aurora-gradient bg-clip-text text-transparent">Training &amp; Certification</span>
+        </h1>
+        <p class="text-lg text-on-surface-variant mb-8 max-w-2xl leading-relaxed">
+          Comprehensive Infor LN training programs — technical, functional, and integration tracks — delivered by experienced consultants to ensure real-world knowledge and professional excellence.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact/" class="px-8 py-3 rounded-full text-white font-semibold text-center aurora-gradient hover:shadow-lg transition">
+            Enroll Now
+          </a>
+          <a href="#tracks" class="px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold text-center hover:bg-primary hover:text-white transition">
+            Explore Tracks
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- Who should attend -->
-    <section class="section">
-        <h2 class="section-title">Who Should Attend?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🎓 Fresh Graduates</h3>
-                <p>Engineering and business graduates looking to launch a career in ERP consulting and land their first Infor LN role.</p>
+    <!-- Who Should Attend Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline text-center mb-16">Who Should Attend?</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Fresh Graduates - Large -->
+          <div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">school</span>
+              <div>
+                <h3 class="text-xl font-semibold font-headline mb-3">Fresh Graduates</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Engineering and business graduates looking to launch a career in ERP consulting and land their first Infor LN role.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <h3>🔄 ERP Switchers</h3>
-                <p>Consultants with SAP, Oracle, or other ERP experience who want to add Infor LN expertise to their profile.</p>
+          </div>
+
+          <!-- ERP Switchers -->
+          <div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-secondary text-4xl flex-shrink-0">swap_horiz</span>
+              <div>
+                <h3 class="text-xl font-semibold font-headline mb-3">ERP Switchers</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Consultants with SAP, Oracle, or other ERP experience who want to add Infor LN expertise to their profile.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <h3>💼 Functional Professionals</h3>
-                <p>Finance, SCM, and Manufacturing professionals seeking to move into ERP consulting or strengthen their Infor LN skills.</p>
+          </div>
+
+          <!-- Functional Professionals -->
+          <div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">account_balance</span>
+              <div>
+                <h3 class="text-xl font-semibold font-headline mb-3">Functional Professionals</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Finance, SCM, and Manufacturing professionals seeking to move into ERP consulting or strengthen their Infor LN skills.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <h3>📊 Business Analysts &amp; PMs</h3>
-                <p>Business analysts and project managers who want deep Infor LN domain knowledge for better project delivery.</p>
+          </div>
+
+          <!-- Business Analysts & PMs -->
+          <div class="md:col-span-1 lg:col-span-1 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-secondary text-4xl flex-shrink-0">analytics</span>
+              <div>
+                <h3 class="text-xl font-semibold font-headline mb-3">Business Analysts &amp; PMs</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Business analysts and project managers who want deep Infor LN domain knowledge for better project delivery.
+                </p>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Program Highlights -->
-    <div class="light-section">
-        <div class="inner">
-            <h2 class="section-title">Program Highlights</h2>
-            <div class="highlight-grid">
-                <div class="highlight-card">
-                    <h3>👨‍🏫 Dedicated Personal Trainer</h3>
-                    <p>Each participant is assigned a dedicated trainer who customizes sessions based on individual learning objectives, availability, and pace.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>📖 Curated eBooks</h3>
-                    <p>Exclusive, expertly curated Infor LN Development eBooks provided as part of the program curriculum.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>📝 Training Documentation</h3>
-                    <p>Detailed structured training notes shared to reinforce key concepts and support effective revision throughout the program.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>🛠️ Hands-on Exercises</h3>
-                    <p>Real-world development exercises incorporated to strengthen technical proficiency and application-oriented skills.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>🎥 Recorded Sessions</h3>
-                    <p>All sessions are recorded and securely shared with participants for future reference and continued learning.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>🏆 Completion Certificate</h3>
-                    <p>Participants who successfully complete the program receive an official Training Completion Certificate from FULLONBAAN.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>💬 WhatsApp Support Group</h3>
-                    <p>Access to a dedicated WhatsApp group moderated by senior consultants for ongoing queries and guidance.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Program Highlights Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-surface-container-low">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline text-center mb-16">Program Highlights</h2>
 
-    <!-- Training Modules -->
-    <section class="section">
-        <h2 class="section-title">Training Tracks</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🔧 Technical Track</h3>
-                <ul>
-                    <li>Infor LN Technical Architecture</li>
-                    <li>Development Tools &amp; IDE</li>
-                    <li>4GL Programming &amp; Customization</li>
-                    <li>Data Dictionary &amp; Forms</li>
-                    <li>Reports &amp; Interfaces</li>
-                    <li>Studio &amp; Extensions</li>
-                </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dedicated Trainer -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary text-3xl">person</span>
+              <h3 class="text-lg font-semibold font-headline">Dedicated Personal Trainer</h3>
             </div>
-            <div class="card">
-                <h3>📊 Functional Track</h3>
-                <ul>
-                    <li>Finance &amp; Controlling</li>
-                    <li>Sales &amp; Distribution</li>
-                    <li>Manufacturing</li>
-                    <li>Warehouse Management (WMS)</li>
-                    <li>Project Management</li>
-                    <li>Planning</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>🔗 Integration Track</h3>
-                <ul>
-                    <li>Infor ION Fundamentals</li>
-                    <li>Workflow Design &amp; Alerts</li>
-                    <li>API Development</li>
-                    <li>Data Integration</li>
-                    <li>Cloud Integration</li>
-                    <li>Infor OS</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <div class="light-section">
-        <div class="inner">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="faq-item">
-                    <h3>Is the training online or in-person?</h3>
-                    <p>Training is primarily delivered online with flexible scheduling. All sessions are recorded so you can revisit at any time.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What is the duration of the training program?</h3>
-                    <p>Duration varies by track and depth. Contact us to discuss your specific requirements and we will design a program that fits your schedule.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Do I need prior ERP experience?</h3>
-                    <p>No prior Infor LN experience is required. Programs are available for beginners as well as experienced ERP professionals switching platforms.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Will I get a certificate?</h3>
-                    <p>Yes. Participants who successfully complete the program receive an official Training Completion Certificate from FullOnBaan.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Enroll CTA -->
-    <section class="section">
-        <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
-            <h2 style="color: white; margin-bottom: 1rem;">Ready to Start Your Training?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e7ff;">
-                Join 1000+ professionals who have already transformed their careers with FullOnBaan.
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Each participant is assigned a dedicated trainer who customizes sessions based on individual learning objectives, availability, and pace.
             </p>
-            <a href="/contact/" class="btn" style="background: white; color: var(--primary-blue); font-weight: 700;">Enroll Now</a>
+          </div>
+
+          <!-- eBooks -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-secondary text-3xl">menu_book</span>
+              <h3 class="text-lg font-semibold font-headline">Curated eBooks</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Exclusive, expertly curated Infor LN Development eBooks provided as part of the program curriculum.
+            </p>
+          </div>
+
+          <!-- Documentation -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary text-3xl">description</span>
+              <h3 class="text-lg font-semibold font-headline">Training Documentation</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Detailed structured training notes shared to reinforce key concepts and support effective revision throughout the program.
+            </p>
+          </div>
+
+          <!-- Hands-on Exercises -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-secondary text-3xl">build</span>
+              <h3 class="text-lg font-semibold font-headline">Hands-on Exercises</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Real-world development exercises incorporated to strengthen technical proficiency and application-oriented skills.
+            </p>
+          </div>
+
+          <!-- Recorded Sessions -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary text-3xl">videocam</span>
+              <h3 class="text-lg font-semibold font-headline">Recorded Sessions</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              All sessions are recorded and securely shared with participants for future reference and continued learning.
+            </p>
+          </div>
+
+          <!-- Certificate -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-secondary text-3xl">workspace_premium</span>
+              <h3 class="text-lg font-semibold font-headline">Completion Certificate</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Participants who successfully complete the program receive an official Training Completion Certificate from FULLONBAAN.
+            </p>
+          </div>
+
+          <!-- WhatsApp Group -->
+          <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary text-3xl">chat</span>
+              <h3 class="text-lg font-semibold font-headline">WhatsApp Support Group</h3>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Access to a dedicated WhatsApp group moderated by senior consultants for ongoing queries and guidance.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>FULLONBAAN</h3>
-                <p>Leading Infor LN ERP Consulting &amp; Training Company</p>
+    <!-- Training Tracks Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white" id="tracks">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline text-center mb-16">Training Tracks</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Technical Track -->
+          <div class="rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="bg-gradient-to-br from-primary to-primary-container p-8 text-white">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="material-symbols-outlined text-2xl">build</span>
+                <h3 class="text-2xl font-bold font-headline">Technical Track</h3>
+              </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about/">About Us</a>
-                <a href="/services/">Services</a>
-                <a href="/training/">Training</a>
-                <a href="/testimonials/">Testimonials</a>
-                <a href="/contact/">Contact Us</a>
+            <div class="p-8">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Infor LN Technical Architecture</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Development Tools &amp; IDE</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">4GL Programming &amp; Customization</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Data Dictionary &amp; Forms</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Reports &amp; Interfaces</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Studio &amp; Extensions</span>
+                </li>
+              </ul>
             </div>
-            <div class="footer-section">
-                <h3>Training Tracks</h3>
-                <a href="/training/">Technical Training</a>
-                <a href="/training/">Functional Training</a>
-                <a href="/training/">ION Integration Training</a>
+          </div>
+
+          <!-- Functional Track -->
+          <div class="rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="bg-gradient-to-br from-secondary to-purple-600 p-8 text-white">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="material-symbols-outlined text-2xl">analytics</span>
+                <h3 class="text-2xl font-bold font-headline">Functional Track</h3>
+              </div>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: support@fullonbaan.com</p>
-                <p>Mobile: +91 63605 93122</p>
-                <p>Mon–Fri: 9AM – 6PM (Local Time)</p>
+            <div class="p-8">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Finance &amp; Controlling</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Sales &amp; Distribution</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Manufacturing</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Warehouse Management (WMS)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Project Management</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Planning</span>
+                </li>
+              </ul>
             </div>
+          </div>
+
+          <!-- Integration Track -->
+          <div class="rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-md transition">
+            <div class="bg-gradient-to-br from-tertiary to-slate-700 p-8 text-white">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="material-symbols-outlined text-2xl">link</span>
+                <h3 class="text-2xl font-bold font-headline">Integration Track</h3>
+              </div>
+            </div>
+            <div class="p-8">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Infor ION Fundamentals</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Workflow Design &amp; Alerts</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">API Development</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Data Integration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Cloud Integration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5">check_circle</span>
+                  <span class="text-on-surface">Infor OS</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Infor LN ERP Training &amp; Certification</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-surface-container-low">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline text-center mb-16">Frequently Asked Questions</h2>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-container transition">
+              <h3 class="font-semibold font-headline text-lg text-on-background pr-4">
+                Who should take Infor LN training?
+              </h3>
+              <span class="material-symbols-outlined text-outline group-open:rotate-180 transition">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+              Infor LN training is suitable for fresh engineering graduates, consultants from SAP/Oracle looking to switch to Infor LN, functional consultants in Finance, SCM or Manufacturing, business analysts, project managers, and anyone wanting to enter the ERP domain.
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-container transition">
+              <h3 class="font-semibold font-headline text-lg text-on-background pr-4">
+                What does the Infor LN training program include?
+              </h3>
+              <span class="material-symbols-outlined text-outline group-open:rotate-180 transition">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+              The program includes a dedicated personal trainer, curated Infor LN eBooks, comprehensive training documentation, hands-on development exercises, recorded sessions, a completion certificate, and access to a dedicated WhatsApp support group.
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-container transition">
+              <h3 class="font-semibold font-headline text-lg text-on-background pr-4">
+                Is Infor LN training available online?
+              </h3>
+              <span class="material-symbols-outlined text-outline group-open:rotate-180 transition">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+              Yes. FullOnBaan provides online Infor LN training with flexible scheduling. Sessions are recorded and shared with participants for future reference.
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-container transition">
+              <h3 class="font-semibold font-headline text-lg text-on-background pr-4">
+                Do I get a certificate after completing Infor LN training?
+              </h3>
+              <span class="material-symbols-outlined text-outline group-open:rotate-180 transition">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+              Yes. Participants who successfully complete the program receive an official Training Completion Certificate from FullOnBaan.
+            </div>
+          </details>
         </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-2xl mx-auto aurora-gradient rounded-[3rem] p-12 md:p-16 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline mb-4">Ready to Start Your Training?</h2>
+        <p class="text-lg mb-8 opacity-90">
+          Join 1000+ professionals who have already transformed their careers with FullOnBaan.
+        </p>
+        <a href="/contact/" class="inline-block px-8 py-3 bg-white text-primary font-semibold rounded-full hover:shadow-lg transition">
+          Enroll Now
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-outline-variant">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <!-- Brand -->
+          <div>
+            <h3 class="font-headline font-bold text-lg text-on-background mb-4">FULLONBAAN</h3>
+            <p class="text-on-surface-variant text-sm">
+              Leading Infor LN ERP Consulting &amp; Training Company
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-headline font-bold text-on-background mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/" class="text-on-surface-variant hover:text-primary transition">Home</a></li>
+              <li><a href="/about/" class="text-on-surface-variant hover:text-primary transition">About Us</a></li>
+              <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition">Services</a></li>
+              <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition">Training</a></li>
+              <li><a href="/testimonials/" class="text-on-surface-variant hover:text-primary transition">Testimonials</a></li>
+              <li><a href="/contact/" class="text-on-surface-variant hover:text-primary transition">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Training Tracks -->
+          <div>
+            <h3 class="font-headline font-bold text-on-background mb-4">Training Tracks</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition">Technical Training</a></li>
+              <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition">Functional Training</a></li>
+              <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition">ION Integration Training</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="font-headline font-bold text-on-background mb-4">Contact</h3>
+            <ul class="space-y-2 text-sm">
+              <li class="text-on-surface-variant">
+                <strong>Email:</strong><br>support@fullonbaan.com
+              </li>
+              <li class="text-on-surface-variant">
+                <strong>Mobile:</strong><br>+91 63605 93122
+              </li>
+              <li class="text-on-surface-variant">
+                <strong>Hours:</strong><br>Mon–Fri: 9AM – 6PM (Local Time)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-outline-variant pt-8 text-center text-on-surface-variant text-sm">
+          <p>&copy; 2026 FULLONBAAN. All rights reserved. | Infor LN ERP Training &amp; Certification</p>
+        </div>
+      </div>
     </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
 
 </body>
 </html>

@@ -204,145 +204,50 @@
     })();
     </script>
 
-    <!-- Google Fonts: Manrope, Inter, Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS with Plugins -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-error-container": "#93000a",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-fixed-dim": "#bec6e0",
-                        "tertiary": "#4d556b",
-                        "surface": "#f7f9fb",
-                        "surface-dim": "#d8dadc",
-                        "on-tertiary-container": "#eef0ff",
-                        "on-tertiary-fixed-variant": "#3f465c",
-                        "tertiary-fixed": "#dae2fd",
-                        "surface-container-high": "#e6e8ea",
-                        "secondary-fixed-dim": "#d2bbff",
-                        "on-primary-container": "#eeefff",
-                        "primary-fixed": "#dbe1ff",
-                        "primary": "#004ac6",
-                        "on-tertiary": "#ffffff",
-                        "background": "#f7f9fb",
-                        "on-error": "#ffffff",
-                        "secondary-fixed": "#eaddff",
-                        "on-background": "#191c1e",
-                        "surface-variant": "#e0e3e5",
-                        "on-secondary": "#ffffff",
-                        "surface-bright": "#f7f9fb",
-                        "secondary": "#712ae2",
-                        "on-primary-fixed-variant": "#003ea8",
-                        "primary-fixed-dim": "#b4c5ff",
-                        "surface-tint": "#0053db",
-                        "surface-container-low": "#f2f4f6",
-                        "on-secondary-fixed-variant": "#5a00c6",
-                        "surface-container-highest": "#e0e3e5",
-                        "outline": "#737686",
-                        "on-surface-variant": "#434655",
-                        "on-secondary-container": "#fffbff",
-                        "on-secondary-fixed": "#25005a",
-                        "tertiary-container": "#656d84",
-                        "primary-container": "#2563eb",
-                        "on-primary": "#ffffff",
-                        "on-primary-fixed": "#00174b",
-                        "secondary-container": "#8a4cfc",
-                        "surface-container": "#eceef0",
-                        "on-tertiary-fixed": "#131b2e",
-                        "error-container": "#ffdad6",
-                        "inverse-primary": "#b4c5ff",
-                        "outline-variant": "#c3c6d7",
-                        "on-surface": "#191c1e",
-                        "error": "#ba1a1a",
-                        "inverse-surface": "#2d3133",
-                        "inverse-on-surface": "#eff1f3"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "fontFamily": {
-                        "headline": ["Manrope"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Custom CSS -->
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
-        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .marquee-track {
-            display: flex;
-            animation: marquee 30s linear infinite;
-        }
-
-        .marquee-item {
-            flex-shrink: 0;
-            width: 150px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 20px;
-        }
-
-        .marquee-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .marquee-item:hover img {
-            filter: grayscale(0%);
-        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; }
+        .marquee-item { flex-shrink: 0; width: 150px; height: 80px; display: flex; align-items: center; justify-content: center; padding: 0 20px; }
+        .marquee-item img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease; }
+        .marquee-item:hover img { filter: grayscale(0%); }
     </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: {
+                "colors": { "primary": "#004ac6", "secondary": "#712ae2", "surface": "#f7f9fb", "background": "#f7f9fb", "on-background": "#191c1e", "on-surface": "#191c1e", "on-surface-variant": "#434655", "surface-container-low": "#f2f4f6", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "surface-bright": "#f7f9fb", "on-primary": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#2563eb", "secondary-container": "#8a4cfc", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed": "#eaddff", "outline": "#737686", "outline-variant": "#c3c6d7", "on-primary-container": "#eeefff", "tertiary": "#4d556b", "tertiary-fixed": "#dae2fd", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "inverse-surface": "#2d3133", "inverse-on-surface": "#eff1f3" },
+                "fontFamily": { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+            }}
+        }
+    </script>
 </head>
-<body class="bg-background text-on-surface">
+<body class="bg-background text-on-background">
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
         <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
             <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
             <div class="hidden md:flex items-center gap-8">
                 <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/">Home</a>
-                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/about/">About Us</a>
-                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/services/">Services</a>
-                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/training/">Training</a>
-                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/testimonials/">Testimonials</a>
-                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all duration-300" href="/contact/">Contact Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/contact/">Contact Us</a>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 transform active:scale-95">Get a Quote</a>
-                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all aurora-gradient">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
             </div>
         </div>
-        <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
             <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
             <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
@@ -354,31 +259,40 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-8 bg-background">
+    <section class="pt-32 pb-20 px-6 md:px-8 bg-gradient-to-br from-slate-50 via-surface to-primary-fixed">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-block mb-6 px-4 py-2 rounded-full bg-on-primary-container text-primary-container font-headline font-semibold text-xs tracking-wide">
-                    Enterprise Excellence
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span class="font-headline font-semibold text-sm tracking-wide text-primary">Enterprise Excellence</span>
                 </div>
-                <h1 class="text-5xl md:text-6xl font-headline font-bold leading-tight mb-6 text-on-surface">
-                    A leading consulting &amp; <span class="aurora-gradient text-transparent bg-clip-text">software development</span> company
+                <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
+                    A leading consulting &amp; <span class="text-primary">software development</span> company
                 </h1>
-                <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
+                <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
                     Infor LN Application Support, Customization, Implementation &amp; Upgrade
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="/contact/" class="bg-primary hover:opacity-90 text-on-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 transform active:scale-95 text-center">Get Started</a>
-                    <a href="/about/" class="bg-surface-container hover:bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Learn More</a>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-headline font-semibold rounded-xl hover:opacity-90 transition-all">
+                        <span>Get Started</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="/about/" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-primary text-primary font-headline font-semibold rounded-xl hover:bg-primary-fixed transition-all">
+                        <span>Learn More</span>
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
                 </div>
             </div>
-            <div class="hidden md:flex items-center justify-center">
-                <div class="w-full h-96 rounded-3xl aurora-gradient opacity-20"></div>
+            <div class="hidden md:block relative">
+                <div class="aurora-gradient opacity-10 rounded-3xl h-96 w-full blur-3xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-primary opacity-20">developer_board</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 px-8 bg-surface-container-low">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-low">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
             <div class="text-center">
                 <div class="text-5xl font-headline font-bold aurora-gradient text-transparent bg-clip-text mb-3">1000+</div>
@@ -400,9 +314,9 @@
     </section>
 
     <!-- Client Logo Marquee -->
-    <section class="py-20 px-8 bg-background overflow-hidden">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest overflow-hidden">
         <div class="max-w-7xl mx-auto mb-12">
-            <h2 class="text-3xl md:text-4xl font-headline font-bold text-center text-on-surface mb-4">Trusted By Leading Enterprises</h2>
+            <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background text-center mb-4">Trusted By Leading Enterprises</h2>
             <p class="text-center text-on-surface-variant text-lg">Partnering with industry leaders across the globe</p>
         </div>
         <div class="marquee-wrapper overflow-hidden">
@@ -465,44 +379,46 @@
     </section>
 
     <!-- About Preview Section -->
-    <section class="py-20 px-8 bg-surface-container-highest">
+    <section class="py-20 px-6 md:px-8 bg-background">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-headline font-bold mb-8 text-on-surface">About FullOnBaan</h2>
+            <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background mb-8">About FullOnBaan</h2>
             <p class="text-xl leading-relaxed text-on-surface-variant mb-10">
                 FULLONBAAN is global leader in Consulting and Training of ERP's and digital services. We enable clients across the globe in managing their ERP and digital transformation.
             </p>
-            <a href="/about/" class="inline-block bg-primary hover:opacity-90 text-on-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300">Learn More About Us</a>
+            <a href="/about/" class="inline-block bg-primary hover:opacity-90 text-on-primary px-8 py-3 rounded-xl font-headline font-semibold transition-all">Learn More About Us</a>
         </div>
     </section>
 
     <!-- Industries Section -->
-    <section class="py-20 px-8 bg-background">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Industries We Serve</h2>
-            <p class="text-center text-xl text-on-surface-variant mb-12">We cater services to spectrum of Industries</p>
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Industries We Serve</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">We cater services to spectrum of Industries</p>
+            </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">AUTOMOTIVE</h3>
                     <p class="text-on-surface-variant">Comprehensive ERP solutions for automotive manufacturing and distribution</p>
                 </div>
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">CONSTRUCTION</h3>
                     <p class="text-on-surface-variant">Project-based ERP systems for construction and infrastructure</p>
                 </div>
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">DISTRIBUTION</h3>
                     <p class="text-on-surface-variant">Supply chain and logistics optimization solutions</p>
                 </div>
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">HIGH TECH &amp; ELECTRONICS</h3>
                     <p class="text-on-surface-variant">Advanced ERP for technology and electronics sectors</p>
                 </div>
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">INDUSTRIAL MACHINERY</h3>
                     <p class="text-on-surface-variant">Specialized solutions for equipment manufacturers</p>
                 </div>
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20 hover:border-outline-variant/40 transition-all duration-300">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <h3 class="font-headline font-bold text-lg text-primary mb-3">MANUFACTURING</h3>
                     <p class="text-on-surface-variant">End-to-end manufacturing resource planning</p>
                 </div>
@@ -511,16 +427,16 @@
     </section>
 
     <!-- Infor Solutions Section -->
-    <section class="py-20 px-8 bg-surface-container-lowest">
+    <section class="py-20 px-6 md:px-8 bg-background">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Infor Solutions Expertise</h2>
-            <p class="text-center text-xl text-on-surface-variant mb-12 max-w-3xl mx-auto">
-                We help transform Client Business through state of the art technologies of Infor Solutions
-            </p>
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Infor Solutions Expertise</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">We help transform Client Business through state of the art technologies of Infor Solutions</p>
+            </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Infor LN Card -->
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="material-symbols-outlined text-primary text-4xl">settings_applications</span>
                         <h3 class="font-headline font-bold text-xl text-on-surface">Infor LN Expertise</h3>
@@ -546,7 +462,7 @@
                 </div>
 
                 <!-- Infor ION Card -->
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="material-symbols-outlined text-primary text-4xl">alt_route</span>
                         <h3 class="font-headline font-bold text-xl text-on-surface">Infor ION Expertise</h3>
@@ -568,7 +484,7 @@
                 </div>
 
                 <!-- Infor Cloud Card -->
-                <div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/20">
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="material-symbols-outlined text-primary text-4xl">cloud_sync</span>
                         <h3 class="font-headline font-bold text-xl text-on-surface">Infor Cloud Expertise</h3>
@@ -593,87 +509,112 @@
     </section>
 
     <!-- Testimonials Preview Section -->
-    <section class="py-20 px-8 bg-surface-container-low">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-low">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-headline font-bold text-center mb-4 text-on-surface">Trusted by Professionals Worldwide</h2>
-            <p class="text-center text-on-surface-variant mb-12">See what our clients have to say about their experience</p>
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Trusted by Professionals Worldwide</h2>
+                <p class="text-on-surface-variant">See what our clients have to say about their experience</p>
+            </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+            <div class="grid md:grid-cols-4 gap-6 mb-10">
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30">
                     <img src="testimonial/elisa.png" alt="Elisa Testimonial" class="w-full h-auto">
                 </div>
-                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30">
                     <img src="testimonial/scott.png" alt="Scott Testimonial" class="w-full h-auto">
                 </div>
-                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30">
                     <img src="testimonial/gustavo.png" alt="Gustavo Testimonial" class="w-full h-auto">
                 </div>
-                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20">
+                <div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30">
                     <img src="testimonial/emily.png" alt="Emily Testimonial" class="w-full h-auto">
                 </div>
             </div>
 
-            <div class="text-center mt-10">
+            <div class="text-center">
                 <a href="/testimonials/" class="inline-block text-primary font-headline font-semibold hover:opacity-80 transition-all">View All Testimonials →</a>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="py-20 px-8 aurora-gradient text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Ready to Transform Your ERP?</h2>
-            <p class="text-xl opacity-90 mb-10 leading-relaxed">
-                Partner with FullOnBaan to unlock the full potential of Infor LN and drive enterprise excellence
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact/" class="bg-white hover:opacity-90 text-primary px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Get Started Today</a>
-                <a href="/services/" class="border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-headline font-semibold transition-all duration-300 text-center">Explore Services</a>
+    <!-- CTA Section -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-4xl mx-auto">
+            <div class="aurora-gradient rounded-3xl p-12 md:p-16 shadow-lg text-white text-center space-y-6">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl">Ready to Transform Your ERP?</h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto">
+                    Partner with FullOnBaan to unlock the full potential of Infor LN and drive enterprise excellence
+                </p>
+                <div class="flex gap-4 justify-center pt-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-headline font-semibold rounded-xl hover:shadow-lg transition-all">
+                        <span>Get Started Today</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="/services/" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-white text-white font-headline font-semibold rounded-xl hover:bg-white/10 transition-all">
+                        <span>Explore Services</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="w-full pt-16 pb-8 bg-slate-50 border-t border-outline-variant/10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto mb-16">
-            <div class="flex flex-col gap-4">
-                <div class="text-lg font-headline font-bold text-slate-900">FullOnBaan</div>
-                <p class="text-sm text-slate-500 max-w-xs leading-relaxed">Leading Infor LN ERP consulting and training company. Transforming enterprises through innovative ERP solutions worldwide.</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <div class="font-headline font-bold text-on-surface">Quick Links</div>
-                <ul class="flex flex-col gap-2">
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/">Home</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/about/">About Us</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Services</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/training/">Training</a></li>
-                </ul>
-            </div>
-            <div class="flex flex-col gap-4">
-                <div class="font-headline font-bold text-on-surface">Services</div>
-                <ul class="flex flex-col gap-2">
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Implementation</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Application Support</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/services/">Customization</a></li>
-                    <li><a class="text-sm text-slate-500 hover:text-blue-500 transition-all" href="/training/">Training</a></li>
-                </ul>
-            </div>
-            <div class="flex flex-col gap-4">
-                <div class="font-headline font-bold text-on-surface">Contact</div>
-                <ul class="flex flex-col gap-2">
-                    <li><span class="text-sm text-slate-500">support@fullonbaan.com</span></li>
-                    <li><span class="text-sm text-slate-500">+91 63605 93122</span></li>
-                    <li><span class="text-sm text-slate-500">Mon–Fri: 9AM – 6PM</span></li>
-                </ul>
-                <div class="flex gap-3 mt-2">
-                    <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">in</a>
-                    <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">▶</a>
-                    <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-sm font-bold text-slate-600">𝕏</a>
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 md:px-8 py-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-headline font-bold text-lg text-on-background">FullOnBaan</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Leading Infor LN ERP Consulting & Training Company
+                    </p>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Transforming businesses through innovative ERP solutions worldwide.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Home</a></li>
+                        <li><a href="/about/" class="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Services</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/testimonials/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Testimonials</a></li>
+                        <li><a href="/contact/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Development</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Implementation</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Support</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Data Migration</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Resource Staffing</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Contact</h4>
+                    <div class="space-y-3">
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">mail</span>
+                            <a href="mailto:support@fullonbaan.com" class="text-on-surface-variant hover:text-primary transition-all">support@fullonbaan.com</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">call</span>
+                            <a href="tel:+916360593122" class="text-on-surface-variant hover:text-primary transition-all">+91 63605 93122</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">schedule</span>
+                            <span class="text-on-surface-variant">Mon–Fri: 9AM – 6PM (Local Time)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-8 pt-8 border-t border-outline-variant/10 text-center md:text-left">
-            <span class="text-sm text-slate-500">© 2026 FullOnBaan ERP Solutions. All rights reserved.</span>
+
+            <div class="border-t border-slate-200 pt-8 text-center text-sm text-on-surface-variant">
+                <p>&copy; 2026 FullOnBaan. All rights reserved. | Leading Infor LN ERP Consulting & Training</p>
+            </div>
         </div>
     </footer>
 

@@ -109,101 +109,99 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        :root {
-            --primary: #004ac6;
-            --secondary: #712ae2;
-            --surface: #f7f9fb;
-            --on-surface: #191c1e;
-            --on-surface-variant: #434655;
-            --surface-container-low: #f2f4f6;
-            --surface-container-lowest: #ffffff;
-            --on-primary: #ffffff;
-            --primary-container: #2563eb;
-            --primary-fixed: #dbe1ff;
-            --outline: #737686;
-            --outline-variant: #c3c6d7;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--on-surface); background-color: var(--surface); }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 500,
-            'GRAD' 0,
-            'opsz' 24
-        }
-        .aurora-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
     </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: {
+                "colors": { "primary": "#004ac6", "secondary": "#712ae2", "surface": "#f7f9fb", "background": "#f7f9fb", "on-background": "#191c1e", "on-surface": "#191c1e", "on-surface-variant": "#434655", "surface-container-low": "#f2f4f6", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "surface-bright": "#f7f9fb", "on-primary": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#2563eb", "secondary-container": "#8a4cfc", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed": "#eaddff", "outline": "#737686", "outline-variant": "#c3c6d7", "on-primary-container": "#eeefff", "tertiary": "#4d556b", "tertiary-fixed": "#dae2fd", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "inverse-surface": "#2d3133", "inverse-on-surface": "#eff1f3" },
+                "fontFamily": { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+            }}
+        }
+    </script>
 </head>
-<body>
+<body class="bg-background text-on-background">
 
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-white/30 border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">FULLONBAAN</a>
-            <button id="mobileMenuBtn" class="hidden md:hidden text-on-surface text-2xl">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-            <ul id="navLinks" class="hidden md:flex list-none gap-6">
-                <li><a href="/" class="text-on-surface font-medium hover:text-primary transition">HOME</a></li>
-                <li><a href="/about/" class="text-on-surface font-medium hover:text-primary transition">ABOUT US</a></li>
-                <li><a href="/services/" class="text-on-surface font-medium hover:text-primary transition">SERVICES</a></li>
-                <li><a href="/training/" class="text-on-surface font-medium hover:text-primary transition">TRAINING</a></li>
-                <li><a href="/testimonials/" class="text-on-surface font-medium hover:text-primary transition">TESTIMONIALS</a></li>
-                <li><a href="/contact/" aria-current="page" class="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">CONTACT US</a></li>
-            </ul>
-            <a href="#" class="hidden lg:inline-block px-6 py-2 aurora-gradient text-on-primary font-semibold rounded-full hover:shadow-lg transition">Get a Quote</a>
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+            <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/">Home</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/contact/">Contact Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all aurora-gradient">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
+            </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobileNav" class="hidden md:hidden bg-white border-t border-outline-variant px-6 py-4 flex flex-col gap-3">
-            <a href="/" class="text-on-surface font-medium hover:text-primary transition">HOME</a>
-            <a href="/about/" class="text-on-surface font-medium hover:text-primary transition">ABOUT US</a>
-            <a href="/services/" class="text-on-surface font-medium hover:text-primary transition">SERVICES</a>
-            <a href="/training/" class="text-on-surface font-medium hover:text-primary transition">TRAINING</a>
-            <a href="/testimonials/" class="text-on-surface font-medium hover:text-primary transition">TESTIMONIALS</a>
-            <a href="/contact/" class="text-blue-600 font-medium">CONTACT US</a>
-            <a href="#" class="w-full px-6 py-2 aurora-gradient text-on-primary font-semibold rounded-full text-center hover:shadow-lg transition mt-2">Get a Quote</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/services/">Services</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/training/">Training</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/testimonials/">Testimonials</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/contact/">Contact Us</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 px-6 bg-on-surface text-on-primary">
-        <div class="max-w-4xl">
-            <p class="text-sm font-semibold text-blue-300 mb-4 uppercase tracking-wide">Get in Touch</p>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p class="text-xl text-blue-100 max-w-2xl">Get in touch with our team to discuss your Infor LN ERP challenges and discover tailored consulting or training solutions.</p>
+    <section class="pt-32 pb-20 px-6 md:px-8 bg-gradient-to-br from-slate-50 via-surface to-primary-fixed">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span class="font-headline font-semibold text-sm tracking-wide text-primary">Get in Touch</span>
+                </div>
+                <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
+                    <span class="text-primary">Contact</span> Us
+                </h1>
+                <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    Get in touch with our team to discuss your Infor LN ERP challenges and discover tailored consulting or training solutions.
+                </p>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="aurora-gradient opacity-10 rounded-3xl h-96 w-full blur-3xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-primary opacity-20">contact_mail</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <section class="py-16 px-6 bg-surface">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-
-            <!-- Contact Form (Left: 2 cols) -->
-            <div class="md:col-span-2 bg-surface-container-lowest rounded-[2rem] p-8 shadow-lg border border-surface-container-low">
-                <h2 class="text-2xl font-bold text-primary mb-8">Send Us a Message</h2>
+            <!-- Contact Form (2 cols) -->
+            <div class="md:col-span-2 bg-white rounded-2xl p-8 shadow-sm border border-outline-variant/30">
+                <h2 class="font-headline font-bold text-2xl text-on-background mb-8">Send Us a Message</h2>
                 <form id="contactForm" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm font-semibold text-on-surface mb-2">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="Your full name" required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        <label for="name" class="block text-sm font-headline font-semibold text-on-background mb-2">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white text-on-background placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-semibold text-on-surface mb-2">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        <label for="email" class="block text-sm font-headline font-semibold text-on-background mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white text-on-background placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-semibold text-on-surface mb-2">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+91 63605 93122" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        <label for="phone" class="block text-sm font-headline font-semibold text-on-background mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 63605 93122" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white text-on-background placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
                     </div>
                     <div>
-                        <label for="service" class="block text-sm font-semibold text-on-surface mb-2">Service Interested In *</label>
-                        <select id="service" name="service" required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                        <label for="service" class="block text-sm font-headline font-semibold text-on-background mb-2">Service Interested In *</label>
+                        <select id="service" name="service" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white text-on-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
                             <option value="">Select a service</option>
                             <option value="consulting">ERP Consulting</option>
                             <option value="implementation">Implementation</option>
@@ -214,40 +212,40 @@
                         </select>
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-semibold text-on-surface mb-2">Message *</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your requirements..." required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-vertical min-h-[140px]"></textarea>
+                        <label for="message" class="block text-sm font-headline font-semibold text-on-background mb-2">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your requirements..." required rows="5" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white text-on-background placeholder-on-surface-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-vertical"></textarea>
                     </div>
-                    <button type="submit" class="w-full aurora-gradient text-on-primary font-semibold py-3 rounded-full hover:shadow-xl transition transform hover:-translate-y-0.5">Send Message</button>
+                    <button type="submit" class="w-full aurora-gradient text-white font-headline font-semibold py-3 rounded-xl hover:shadow-lg hover:opacity-90 transition-all">Send Message</button>
                 </form>
             </div>
 
-            <!-- Contact Info (Right: 1 col) -->
+            <!-- Contact Info Cards (1 col) -->
             <div class="space-y-6">
                 <!-- Email Card -->
-                <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container-low shadow-md">
+                <div class="group bg-white rounded-2xl p-6 shadow-sm border border-outline-variant/30 hover:shadow-lg transition-all hover:translate-y-[-4px]">
                     <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg aurora-gradient flex items-center justify-center">
-                            <span class="material-symbols-outlined text-on-primary">mail</span>
+                        <div class="p-3 aurora-gradient rounded-lg flex-shrink-0">
+                            <span class="material-symbols-outlined text-white">mail</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="font-bold text-on-surface mb-3">Email</h3>
-                            <a href="mailto:support@fullonbaan.com" class="block text-primary hover:underline text-sm mb-2">support@fullonbaan.com</a>
+                        <div>
+                            <h3 class="font-headline font-bold text-on-background mb-2">Email</h3>
+                            <a href="mailto:support@fullonbaan.com" class="block text-primary hover:underline text-sm mb-1">support@fullonbaan.com</a>
                             <a href="mailto:careers@fullonbaan.com" class="block text-primary hover:underline text-sm">careers@fullonbaan.com</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Phone Card -->
-                <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container-low shadow-md">
+                <div class="group bg-white rounded-2xl p-6 shadow-sm border border-outline-variant/30 hover:shadow-lg transition-all hover:translate-y-[-4px]">
                     <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg aurora-gradient flex items-center justify-center">
-                            <span class="material-symbols-outlined text-on-primary">call</span>
+                        <div class="p-3 aurora-gradient rounded-lg flex-shrink-0">
+                            <span class="material-symbols-outlined text-white">call</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="font-bold text-on-surface mb-3">Phone</h3>
-                            <a href="tel:+916360593122" class="block text-primary hover:underline text-sm mb-2">+91 63605 93122</a>
-                            <p class="text-xs text-on-surface-variant mb-3">Mon–Fri: 9AM – 6PM (Local Time)</p>
-                            <a href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-600 text-white text-xs font-semibold rounded-full hover:shadow-lg transition">
+                        <div>
+                            <h3 class="font-headline font-bold text-on-background mb-2">Phone</h3>
+                            <a href="tel:+916360593122" class="block text-primary hover:underline text-sm mb-1">+91 63605 93122</a>
+                            <p class="text-xs text-on-surface-variant mb-3">Mon-Fri: 9AM - 6PM (Local Time)</p>
+                            <a href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-600 text-white text-xs font-semibold rounded-xl hover:shadow-lg transition">
                                 <span class="material-symbols-outlined" style="font-size: 16px;">chat</span>
                                 Chat on WhatsApp
                             </a>
@@ -256,60 +254,49 @@
                 </div>
 
                 <!-- Global Presence Card -->
-                <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container-low shadow-md">
+                <div class="group bg-white rounded-2xl p-6 shadow-sm border border-outline-variant/30 hover:shadow-lg transition-all hover:translate-y-[-4px]">
                     <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg aurora-gradient flex items-center justify-center">
-                            <span class="material-symbols-outlined text-on-primary">public</span>
+                        <div class="p-3 aurora-gradient rounded-lg flex-shrink-0">
+                            <span class="material-symbols-outlined text-white">public</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="font-bold text-on-surface mb-2">Global Presence</h3>
+                        <div>
+                            <h3 class="font-headline font-bold text-on-background mb-2">Global Presence</h3>
                             <p class="text-sm text-on-surface-variant">Serving clients in 20+ countries worldwide with 10+ years of Infor LN expertise.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Social Links Card -->
-                <div class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-container-low shadow-md">
+                <div class="group bg-white rounded-2xl p-6 shadow-sm border border-outline-variant/30 hover:shadow-lg transition-all hover:translate-y-[-4px]">
                     <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-lg aurora-gradient flex items-center justify-center">
-                            <span class="material-symbols-outlined text-on-primary">share</span>
+                        <div class="p-3 aurora-gradient rounded-lg flex-shrink-0">
+                            <span class="material-symbols-outlined text-white">share</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="font-bold text-on-surface mb-4">Follow Us</h3>
+                        <div>
+                            <h3 class="font-headline font-bold text-on-background mb-4">Follow Us</h3>
                             <div class="flex gap-3 flex-wrap">
-                                <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 rounded-full aurora-gradient text-on-primary flex items-center justify-center hover:shadow-lg transition transform hover:-translate-y-0.5">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">login</span>
-                                </a>
-                                <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/" target="_blank" rel="noopener noreferrer" title="Facebook" class="w-10 h-10 rounded-full aurora-gradient text-on-primary flex items-center justify-center hover:shadow-lg transition transform hover:-translate-y-0.5">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">sentiment_satisfied</span>
-                                </a>
-                                <a href="https://www.instagram.com/fullonbaan/" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-10 h-10 rounded-full aurora-gradient text-on-primary flex items-center justify-center hover:shadow-lg transition transform hover:-translate-y-0.5">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">photo_camera</span>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" title="YouTube" class="w-10 h-10 rounded-full aurora-gradient text-on-primary flex items-center justify-center hover:shadow-lg transition transform hover:-translate-y-0.5">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">play_circle</span>
-                                </a>
-                                <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" title="X / Twitter" class="w-10 h-10 rounded-full aurora-gradient text-on-primary flex items-center justify-center hover:shadow-lg transition transform hover:-translate-y-0.5">
-                                    <span class="material-symbols-outlined" style="font-size: 20px;">share</span>
-                                </a>
+                                <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 rounded-xl aurora-gradient text-white flex items-center justify-center hover:shadow-lg transition-all hover:translate-y-[-2px]"><span class="material-symbols-outlined" style="font-size: 20px;">business</span></a>
+                                <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/" target="_blank" rel="noopener noreferrer" title="Facebook" class="w-10 h-10 rounded-xl aurora-gradient text-white flex items-center justify-center hover:shadow-lg transition-all hover:translate-y-[-2px]"><span class="material-symbols-outlined" style="font-size: 20px;">public</span></a>
+                                <a href="https://www.instagram.com/fullonbaan/" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-10 h-10 rounded-xl aurora-gradient text-white flex items-center justify-center hover:shadow-lg transition-all hover:translate-y-[-2px]"><span class="material-symbols-outlined" style="font-size: 20px;">photo_camera</span></a>
+                                <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" title="YouTube" class="w-10 h-10 rounded-xl aurora-gradient text-white flex items-center justify-center hover:shadow-lg transition-all hover:translate-y-[-2px]"><span class="material-symbols-outlined" style="font-size: 20px;">play_circle</span></a>
+                                <a href="https://x.com/FOB_SUPPORT" target="_blank" rel="noopener noreferrer" title="X / Twitter" class="w-10 h-10 rounded-xl aurora-gradient text-white flex items-center justify-center hover:shadow-lg transition-all hover:translate-y-[-2px]"><span class="material-symbols-outlined" style="font-size: 20px;">share</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-50 border-t border-surface-container-low pt-12 pb-6 px-6">
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 md:px-8 py-16">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
             <div>
-                <h3 class="font-bold text-on-surface mb-3">FULLONBAAN</h3>
+                <h3 class="font-headline font-bold text-on-surface mb-3">FullOnBaan</h3>
                 <p class="text-on-surface-variant text-sm">Leading Infor LN ERP Consulting &amp; Training Company</p>
             </div>
             <div>
-                <h3 class="font-bold text-on-surface mb-3">Quick Links</h3>
+                <h3 class="font-headline font-bold text-on-surface mb-3">Quick Links</h3>
                 <div class="space-y-2">
                     <a href="/" class="text-on-surface-variant text-sm hover:text-primary transition block">Home</a>
                     <a href="/about/" class="text-on-surface-variant text-sm hover:text-primary transition block">About Us</a>
@@ -320,7 +307,7 @@
                 </div>
             </div>
             <div>
-                <h3 class="font-bold text-on-surface mb-3">Services</h3>
+                <h3 class="font-headline font-bold text-on-surface mb-3">Services</h3>
                 <div class="space-y-2">
                     <a href="/services/" class="text-on-surface-variant text-sm hover:text-primary transition block">Application Development</a>
                     <a href="/services/" class="text-on-surface-variant text-sm hover:text-primary transition block">Implementation</a>
@@ -329,23 +316,16 @@
                 </div>
             </div>
             <div>
-                <h3 class="font-bold text-on-surface mb-3">Contact</h3>
+                <h3 class="font-headline font-bold text-on-surface mb-3">Contact</h3>
                 <p class="text-on-surface-variant text-sm mb-2">Email: support@fullonbaan.com</p>
                 <p class="text-on-surface-variant text-sm mb-2">Mobile: +91 63605 93122</p>
-                <p class="text-on-surface-variant text-sm">Mon–Fri: 9AM – 6PM (Local Time)</p>
+                <p class="text-on-surface-variant text-sm">Mon-Fri: 9AM - 6PM (Local Time)</p>
             </div>
         </div>
         <div class="border-t border-outline-variant pt-6 text-center text-on-surface-variant text-sm">
-            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Infor LN ERP Consulting &amp; Training</p>
+            <p>&copy; 2026 FullOnBaan. All rights reserved. | Infor LN ERP Consulting &amp; Training</p>
         </div>
     </footer>
-
-    <!-- Mobile Menu Toggle -->
-    <script>
-    document.getElementById("mobileMenuBtn").addEventListener("click", function() {
-        document.getElementById("mobileNav").classList.toggle("hidden");
-    });
-    </script>
 
     <!-- EmailJS Integration -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>

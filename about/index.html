@@ -88,175 +88,120 @@
     })();
     </script>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        :root {
-            --primary: #004ac6;
-            --secondary: #712ae2;
-            --surface: #f7f9fb;
-            --background: #f7f9fb;
-            --on-background: #191c1e;
-            --on-surface: #191c1e;
-            --on-surface-variant: #434655;
-            --surface-container-low: #f2f4f6;
-            --surface-container-lowest: #ffffff;
-            --on-primary: #ffffff;
-            --on-secondary: #ffffff;
-            --primary-container: #2563eb;
-            --primary-fixed: #dbe1ff;
-            --primary-fixed-dim: #b4c5ff;
-            --outline: #737686;
-            --outline-variant: #c3c6d7;
-            --surface-container-high: #e6e8ea;
-            --surface-container: #eceef0;
-            --tertiary: #4d556b;
-            --inverse-surface: #2d3133;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--on-background);
-            background: var(--background);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .aurora-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-        }
-
-        .nav-frosted {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(40px);
-        }
-
-        .label-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--surface-container-low);
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
     </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: {
+                "colors": { "primary": "#004ac6", "secondary": "#712ae2", "surface": "#f7f9fb", "background": "#f7f9fb", "on-background": "#191c1e", "on-surface": "#191c1e", "on-surface-variant": "#434655", "surface-container-low": "#f2f4f6", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "surface-bright": "#f7f9fb", "on-primary": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#2563eb", "secondary-container": "#8a4cfc", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed": "#eaddff", "outline": "#737686", "outline-variant": "#c3c6d7", "on-primary-container": "#eeefff", "tertiary": "#4d556b", "tertiary-fixed": "#dae2fd", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "inverse-surface": "#2d3133", "inverse-on-surface": "#eff1f3" },
+                "fontFamily": { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+            }}
+        }
+    </script>
 </head>
-<body>
+<body class="bg-background text-on-background">
 
     <!-- Navigation -->
-    <nav class="nav-frosted fixed w-full top-0 z-50 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="/" class="text-2xl font-bold font-manrope text-gray-900">FULLONBAAN</a>
-
-                <!-- Desktop Navigation -->
-                <button class="md:hidden text-gray-900" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-
-                <ul class="hidden md:flex items-center gap-8">
-                    <li><a href="/" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a></li>
-                    <li><a href="/about/" class="text-blue-600 border-b-2 border-blue-600 font-medium pb-1">About Us</a></li>
-                    <li><a href="/services/" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a></li>
-                    <li><a href="/training/" class="text-gray-700 hover:text-blue-600 font-medium transition">Training</a></li>
-                    <li><a href="/testimonials/" class="text-gray-700 hover:text-blue-600 font-medium transition">Testimonials</a></li>
-                    <li><a href="/contact/" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact Us</a></li>
-                    <li><a href="/contact/" class="aurora-gradient text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">Get a Quote</a></li>
-                </ul>
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+            <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/">Home</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/contact/">Contact Us</a>
             </div>
-
-            <!-- Mobile Navigation -->
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <ul class="flex flex-col gap-3">
-                    <li><a href="/" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
-                    <li><a href="/about/" class="block text-blue-600 font-medium">About Us</a></li>
-                    <li><a href="/services/" class="block text-gray-700 hover:text-blue-600 font-medium">Services</a></li>
-                    <li><a href="/training/" class="block text-gray-700 hover:text-blue-600 font-medium">Training</a></li>
-                    <li><a href="/testimonials/" class="block text-gray-700 hover:text-blue-600 font-medium">Testimonials</a></li>
-                    <li><a href="/contact/" class="block text-gray-700 hover:text-blue-600 font-medium">Contact Us</a></li>
-                    <li><a href="/contact/" class="block aurora-gradient text-white px-6 py-2 rounded-full font-semibold text-center">Get a Quote</a></li>
-                </ul>
+            <div class="flex items-center gap-4">
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all aurora-gradient">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
             </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/services/">Services</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/training/">Training</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/testimonials/">Testimonials</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/contact/">Contact Us</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-white" style="background-color: var(--surface);">
-        <div class="max-w-3xl">
-            <span class="label-badge">About Us</span>
-            <h1 class="text-5xl sm:text-6xl font-bold font-manrope text-gray-900 mb-6">About FullOnBaan</h1>
-            <p class="text-xl text-gray-600 leading-relaxed">
-                A global leader in Infor LN ERP consulting, training, and digital transformation — empowering enterprises across 20+ countries.
-            </p>
+    <section class="pt-32 pb-20 px-6 md:px-8 bg-gradient-to-br from-slate-50 via-surface to-primary-fixed">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span class="font-headline font-semibold text-sm tracking-wide text-primary">About Us</span>
+                </div>
+                <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
+                    About <span class="text-primary">FullOnBaan</span>
+                </h1>
+                <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    A global leader in Infor LN ERP consulting, training, and digital transformation — empowering enterprises across 20+ countries.
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-headline font-semibold rounded-xl hover:opacity-90 transition-all">
+                        <span>Get in Touch</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="/services/" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-primary text-primary font-headline font-semibold rounded-xl hover:bg-primary-fixed transition-all">
+                        <span>Our Services</span>
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="aurora-gradient opacity-10 rounded-3xl h-96 w-full blur-3xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-primary opacity-20">groups</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Who We Are Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <!-- Text Content -->
-                <div class="lg:col-span-2">
-                    <h2 class="text-4xl font-bold font-manrope text-gray-900 mb-8">Who We Are</h2>
-
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background mb-8">Who We Are</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-6">
                         FULLONBAAN is a global leader in ERP consulting and professional training, delivering comprehensive solutions across enterprise systems and digital services. We partner with organizations worldwide to effectively manage, optimize, and modernize their ERP landscapes as part of their broader digital transformation initiatives.
                     </p>
-
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-6">
                         With over a decade of hands-on experience in ERP system management, we guide our clients through every stage of their operational journey — driving efficiency, stability, and measurable business outcomes.
                     </p>
-
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-on-surface-variant leading-relaxed">
                         Our continuous learning–driven approach enables sustained improvement by systematically building, transferring, and applying deep domain expertise, best practices, and innovative ideas.
                     </p>
                 </div>
-
-                <!-- Stat Cards -->
                 <div class="flex flex-col gap-6">
-                    <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center">
-                        <div class="text-5xl font-bold mb-2" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            10+
-                        </div>
-                        <p class="text-gray-600 font-medium">Years of Service</p>
+                    <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] text-center">
+                        <div class="aurora-gradient text-transparent bg-clip-text text-5xl font-bold mb-2">10+</div>
+                        <p class="font-medium text-on-surface-variant">Years of Service</p>
                     </div>
-
-                    <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center">
-                        <div class="text-5xl font-bold mb-2" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            20+
-                        </div>
-                        <p class="text-gray-600 font-medium">Countries Supported</p>
+                    <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] text-center">
+                        <div class="aurora-gradient text-transparent bg-clip-text text-5xl font-bold mb-2">20+</div>
+                        <p class="font-medium text-on-surface-variant">Countries Supported</p>
                     </div>
-
-                    <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center">
-                        <div class="text-5xl font-bold mb-2" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            50+
-                        </div>
-                        <p class="text-gray-600 font-medium">Trusting Clients</p>
+                    <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] text-center">
+                        <div class="aurora-gradient text-transparent bg-clip-text text-5xl font-bold mb-2">50+</div>
+                        <p class="font-medium text-on-surface-variant">Trusting Clients</p>
                     </div>
-
-                    <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center">
-                        <div class="text-5xl font-bold mb-2" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            1000+
-                        </div>
-                        <p class="text-gray-600 font-medium">Professionals Trained</p>
+                    <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] text-center">
+                        <div class="aurora-gradient text-transparent bg-clip-text text-5xl font-bold mb-2">1000+</div>
+                        <p class="font-medium text-on-surface-variant">Professionals Trained</p>
                     </div>
                 </div>
             </div>
@@ -264,29 +209,30 @@
     </section>
 
     <!-- Mission & Vision Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--surface-container-low);">
+    <section class="py-20 px-6 md:px-8 bg-background">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold font-manrope text-gray-900 text-center mb-16">Our Mission & Vision</h2>
-
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Our Mission & Vision</h2>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Mission Card -->
-                <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm hover:shadow-md transition">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <div class="flex items-center gap-3 mb-6">
-                        <span class="material-symbols-outlined text-3xl" style="color: var(--primary);">track_changes</span>
-                        <h3 class="text-2xl font-bold font-manrope text-gray-900">Mission</h3>
+                        <span class="material-symbols-outlined text-3xl text-primary">track_changes</span>
+                        <h3 class="font-headline font-bold text-2xl text-on-background">Mission</h3>
                     </div>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-on-surface-variant leading-relaxed">
                         FULLONBAAN believes in delivering business value not only through technology but with a human touch. Our human-technology centered approach helps in delivering quality solutions to our clients, ensuring every implementation drives real, measurable outcomes.
                     </p>
                 </div>
 
                 <!-- Vision Card -->
-                <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm hover:shadow-md transition">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
                     <div class="flex items-center gap-3 mb-6">
-                        <span class="material-symbols-outlined text-3xl" style="color: var(--secondary);">visibility</span>
-                        <h3 class="text-2xl font-bold font-manrope text-gray-900">Vision</h3>
+                        <span class="material-symbols-outlined text-3xl text-secondary">visibility</span>
+                        <h3 class="font-headline font-bold text-2xl text-on-background">Vision</h3>
                     </div>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-on-surface-variant leading-relaxed">
                         In partnership with customers, we create and deliver business and technology solutions that fit their needs and drive them towards excellence. We believe in quality as a service, building long-term partnerships rooted in transparency and trust.
                     </p>
                 </div>
@@ -295,122 +241,124 @@
     </section>
 
     <!-- Business Model Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold font-manrope text-gray-900 text-center mb-6">Our Business Model</h2>
-
-            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
-                FullOnBaan offers enterprise resource planning services that help clients with value-for-money propositions. We provide Application Support, Customizations, Implementation, ERP Upgrades, Infor Training, and Contract Resources.
-            </p>
-
-            <!-- Bento-style Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Our Business Model</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
+                    FullOnBaan offers enterprise resource planning services that help clients with value-for-money propositions. We provide Application Support, Customizations, Implementation, ERP Upgrades, Infor Training, and Contract Resources.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Consulting & Implementation -->
-                <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm hover:shadow-md transition">
-                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6 aurora-gradient">
                         <span class="material-symbols-outlined text-2xl text-white">build</span>
                     </div>
-                    <h3 class="text-xl font-bold font-manrope text-gray-900 mb-4">Consulting & Implementation</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="font-headline font-bold text-xl text-on-background mb-4">Consulting & Implementation</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
                         End-to-end Infor LN ERP implementation, migration, upgrade, and customization services tailored to your industry and business requirements.
                     </p>
                 </div>
 
                 <!-- Professional Training -->
-                <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm hover:shadow-md transition">
-                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6 aurora-gradient">
                         <span class="material-symbols-outlined text-2xl text-white">school</span>
                     </div>
-                    <h3 class="text-xl font-bold font-manrope text-gray-900 mb-4">Professional Training</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="font-headline font-bold text-xl text-on-background mb-4">Professional Training</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
                         Comprehensive Infor LN training programs for technical, functional, and integration tracks — delivered by experienced consultants with real-world project exposure.
                     </p>
                 </div>
 
                 <!-- Ongoing Support -->
-                <div class="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm hover:shadow-md transition">
-                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px]">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-xl mb-6 aurora-gradient">
                         <span class="material-symbols-outlined text-2xl text-white">support_agent</span>
                     </div>
-                    <h3 class="text-xl font-bold font-manrope text-gray-900 mb-4">Ongoing Support</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="font-headline font-bold text-xl text-on-background mb-4">Ongoing Support</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
                         Dedicated application support and contract resource staffing to keep your ERP running smoothly, with 24/7 availability for critical issues.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- CTA Button -->
-            <div class="flex justify-center">
-                <a href="/contact/" class="aurora-gradient text-white px-10 py-4 rounded-[3rem] font-semibold text-lg hover:shadow-xl transition transform hover:scale-105">
-                    Get in Touch
-                </a>
+    <!-- CTA Section -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-4xl mx-auto">
+            <div class="aurora-gradient rounded-3xl p-12 md:p-16 shadow-lg text-white text-center space-y-6">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl">Ready to Transform Your ERP?</h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto">
+                    Contact us to discuss your Infor LN requirements and explore how FullOnBaan can accelerate your digital transformation journey.
+                </p>
+                <div class="flex gap-4 justify-center pt-4 flex-wrap">
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-headline font-semibold rounded-xl hover:shadow-lg transition-all">
+                        <span>Get in Touch</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="mailto:support@fullonbaan.com" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-white text-white font-headline font-semibold rounded-xl hover:bg-white/10 transition-all">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>support@fullonbaan.com</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 md:px-8 py-16">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Brand -->
-                <div>
-                    <h3 class="text-xl font-bold font-manrope text-gray-900 mb-4">FULLONBAAN</h3>
-                    <p class="text-gray-600 mb-3">Leading Infor LN ERP Consulting & Training Company</p>
-                    <p class="text-gray-600">Transforming businesses through innovative ERP solutions worldwide.</p>
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-headline font-bold text-lg text-on-background">FullOnBaan</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Leading Infor LN ERP Consulting & Training Company</p>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Transforming businesses through innovative ERP solutions worldwide.</p>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-lg font-bold font-manrope text-gray-900 mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="/" class="text-gray-600 hover:text-gray-900 transition">Home</a></li>
-                        <li><a href="/about/" class="text-gray-600 hover:text-gray-900 transition">About Us</a></li>
-                        <li><a href="/services/" class="text-gray-600 hover:text-gray-900 transition">Services</a></li>
-                        <li><a href="/training/" class="text-gray-600 hover:text-gray-900 transition">Training</a></li>
-                        <li><a href="/testimonials/" class="text-gray-600 hover:text-gray-900 transition">Testimonials</a></li>
-                        <li><a href="/contact/" class="text-gray-600 hover:text-gray-900 transition">Contact Us</a></li>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Home</a></li>
+                        <li><a href="/about/" class="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Services</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/testimonials/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Testimonials</a></li>
+                        <li><a href="/contact/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Contact Us</a></li>
                     </ul>
                 </div>
-
-                <!-- Services -->
-                <div>
-                    <h3 class="text-lg font-bold font-manrope text-gray-900 mb-6">Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="/services/" class="text-gray-600 hover:text-gray-900 transition">Application Development</a></li>
-                        <li><a href="/services/" class="text-gray-600 hover:text-gray-900 transition">Implementation</a></li>
-                        <li><a href="/services/" class="text-gray-600 hover:text-gray-900 transition">Application Support</a></li>
-                        <li><a href="/training/" class="text-gray-600 hover:text-gray-900 transition">Training</a></li>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Development</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Implementation</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Support</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Data Migration</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Resource Staffing</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact & Socials -->
-                <div>
-                    <h3 class="text-lg font-bold font-manrope text-gray-900 mb-6">Contact</h3>
-                    <p class="text-gray-600 mb-2">Email: <a href="mailto:support@fullonbaan.com" class="hover:text-gray-900 transition">support@fullonbaan.com</a></p>
-                    <p class="text-gray-600 mb-2">Mobile: <a href="tel:+916360593122" class="hover:text-gray-900 transition">+91 63605 93122</a></p>
-                    <p class="text-gray-600 mb-6">Mon–Fri: 9AM – 6PM (Local Time)</p>
-                    <div class="flex gap-4">
-                        <a href="https://linkedin.com/company/fullonbaan/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition">
-                            <span class="material-symbols-outlined">business</span>
-                        </a>
-                        <a href="https://www.facebook.com/p/FullonBaaN-100067220493183/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition">
-                            <span class="material-symbols-outlined">public</span>
-                        </a>
-                        <a href="https://www.instagram.com/fullonbaan/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition">
-                            <span class="material-symbols-outlined">photo_camera</span>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition">
-                            <span class="material-symbols-outlined">play_circle</span>
-                        </a>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Contact</h4>
+                    <div class="space-y-3">
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">mail</span>
+                            <a href="mailto:support@fullonbaan.com" class="text-on-surface-variant hover:text-primary transition-all">support@fullonbaan.com</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">call</span>
+                            <a href="tel:+916360593122" class="text-on-surface-variant hover:text-primary transition-all">+91 63605 93122</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">schedule</span>
+                            <span class="text-on-surface-variant">Mon-Fri: 9AM - 6PM (Local Time)</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="border-t border-gray-200 pt-8">
-                <p class="text-center text-gray-600 text-sm">
-                    &copy; 2026 FULLONBAAN. All rights reserved. | Leading Infor LN ERP Consulting & Training
-                </p>
+            <div class="border-t border-slate-200 pt-8 text-center text-sm text-on-surface-variant">
+                <p>&copy; 2026 FullOnBaan. All rights reserved. | Leading Infor LN ERP Consulting & Training</p>
             </div>
         </div>
     </footer>

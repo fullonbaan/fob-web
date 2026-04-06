@@ -112,715 +112,296 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        :root {
-            --primary: #004ac6;
-            --secondary: #712ae2;
-            --surface: #f7f9fb;
-            --on-surface: #191c1e;
-            --on-surface-variant: #434655;
-            --surface-container-low: #f2f4f6;
-            --surface-container-lowest: #ffffff;
-            --on-primary: #ffffff;
-            --primary-container: #2563eb;
-            --primary-fixed: #dbe1ff;
-            --outline: #737686;
-            --outline-variant: #c3c6d7;
-            --surface-container-high: #e6e8ea;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--on-surface);
-            background-color: var(--surface);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .aurora-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(115, 118, 134, 0.1);
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--on-surface);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a[aria-current="page"] {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .nav-quote-btn {
-            background: var(--primary);
-            color: var(--on-primary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .nav-quote-btn:hover {
-            box-shadow: 0 4px 12px rgba(0, 74, 198, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--on-surface);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background-color: var(--on-surface);
-            color: white;
-            padding: 6rem 2rem;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .hero-label {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-        }
-
-        /* Section Spacing */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            display: inline-block;
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--on-surface);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--on-surface-variant);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Rating Summary */
-        .rating-container {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .rating-bar {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .big-rating {
-            font-size: 5rem;
-            font-weight: 900;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .rating-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .stars {
-            font-size: 2rem;
-            letter-spacing: 2px;
-            color: #fbbf24;
-        }
-
-        .rating-label {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--on-surface);
-        }
-
-        .rating-count {
-            color: var(--on-surface-variant);
-            font-size: 0.95rem;
-        }
-
-        /* Testimonials Grid */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-card {
-            background: var(--surface-container-lowest);
-            padding: 2.5rem;
-            border-radius: 2rem;
-            border-top: 4px solid #fbbf24;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .testimonial-quote-mark {
-            font-size: 4rem;
-            color: #fbbf24;
-            opacity: 0.15;
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            line-height: 1;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--on-surface);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            padding-top: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-weight: 700;
-            color: var(--on-surface);
-            font-size: 1rem;
-        }
-
-        .author-role {
-            font-size: 0.85rem;
-            color: var(--on-surface-variant);
-            margin-bottom: 0.3rem;
-        }
-
-        .star-rating {
-            color: #fbbf24;
-            font-size: 0.9rem;
-        }
-
-        /* Client Logos Section */
-        .clients-section {
-            background-color: var(--surface-container-low);
-            padding: 5rem 2rem;
-        }
-
-        .clients-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .client-logo-box {
-            background: var(--surface-container-lowest);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-
-        .client-logo-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .client-logo-box img {
-            max-height: 50px;
-            max-width: 100%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        .client-logo-box:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cta-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 3.5rem;
-            border-radius: 2rem;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .cta-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #666;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.7rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #ddd;
-            padding-top: 2rem;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(12px);
-                padding: 1.5rem 2rem;
-                flex-direction: column;
-                gap: 1rem;
-                border-bottom: 1px solid rgba(115, 118, 134, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero {
-                padding: 4rem 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .big-rating {
-                font-size: 3.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aurora-gradient { background: linear-gradient(135deg, #004ac6 0%, #712ae2 100%); }
     </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: {
+                "colors": { "primary": "#004ac6", "secondary": "#712ae2", "surface": "#f7f9fb", "background": "#f7f9fb", "on-background": "#191c1e", "on-surface": "#191c1e", "on-surface-variant": "#434655", "surface-container-low": "#f2f4f6", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "surface-bright": "#f7f9fb", "on-primary": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#2563eb", "secondary-container": "#8a4cfc", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed": "#eaddff", "outline": "#737686", "outline-variant": "#c3c6d7", "on-primary-container": "#eeefff", "tertiary": "#4d556b", "tertiary-fixed": "#dae2fd", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "inverse-surface": "#2d3133", "inverse-on-surface": "#eff1f3" },
+                "fontFamily": { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+            }}
+        }
+    </script>
 </head>
-<body>
+<body class="bg-background text-on-background">
 
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">FULLONBAAN</a>
-            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about/">ABOUT US</a></li>
-                <li><a href="/services/">SERVICES</a></li>
-                <li><a href="/training/">TRAINING</a></li>
-                <li><a href="/testimonials/" aria-current="page">TESTIMONIALS</a></li>
-                <li><a href="/contact/">CONTACT US</a></li>
-                <li><a href="/contact/" class="nav-quote-btn">Get a Quote</a></li>
-            </ul>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+            <a href="/" class="text-xl font-bold tracking-tighter text-slate-900 font-headline">FullOnBaan</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/">Home</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/about/">About Us</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/services/">Services</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/training/">Training</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-blue-600 border-b-2 border-blue-600 pb-1" href="/testimonials/">Testimonials</a>
+                <a class="font-headline font-medium text-sm tracking-tight text-slate-600 hover:text-blue-500 transition-all" href="/contact/">Contact Us</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/contact/" class="bg-primary hover:opacity-80 text-on-primary px-6 py-2.5 rounded-xl font-medium text-sm transition-all aurora-gradient">Get a Quote</a>
+                <button class="md:hidden text-slate-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl px-8 py-4 space-y-3">
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/">Home</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/about/">About Us</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/services/">Services</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/training/">Training</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/testimonials/">Testimonials</a>
+            <a class="block font-headline font-medium text-sm text-slate-700 py-2" href="/contact/">Contact Us</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-label">Client Success</div>
-            <h1>What Our Clients Say</h1>
-            <p>Insights and feedback from professionals and enterprises reflecting their experience, satisfaction, and success with FullOnBaan.</p>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 md:px-8 bg-gradient-to-br from-slate-50 via-surface to-primary-fixed">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span class="font-headline font-semibold text-sm tracking-wide text-primary">Client Success</span>
+                </div>
+                <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
+                    What Our <span class="text-primary">Clients Say</span>
+                </h1>
+                <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    Insights and feedback from professionals and enterprises reflecting their experience, satisfaction, and success with FullOnBaan.
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="/training/" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-headline font-semibold rounded-xl hover:opacity-90 transition-all">
+                        <span>Explore Training</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-primary text-primary font-headline font-semibold rounded-xl hover:bg-primary-fixed transition-all">
+                        <span>Contact Us</span>
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="aurora-gradient opacity-10 rounded-3xl h-96 w-full blur-3xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-9xl text-primary opacity-20">reviews</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Rating Summary -->
-    <section class="section">
-        <div class="rating-container">
-            <h2 class="section-title">Trusted by 1000+ Professionals</h2>
-            <p class="section-subtitle">Across 20+ countries and 50+ enterprise clients</p>
-            <div class="rating-bar">
-                <div>
-                    <div class="big-rating">4.9</div>
-                </div>
-                <div class="rating-details">
-                    <div class="stars">★★★★★</div>
-                    <div class="rating-label">Excellent</div>
-                    <div class="rating-count">Based on 1000+ reviews</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-quote-mark">"</div>
-                <p class="testimonial-text">
-                    The Infor LN training provided by FullOnBaan was exceptional. The dedicated trainer approach meant sessions were tailored exactly to my learning pace and goals. I went from zero Infor LN knowledge to confidently working on live projects.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">E</div>
-                    <div class="author-info">
-                        <div class="author-name">Elisa</div>
-                        <div class="author-role">Infor LN Functional Consultant</div>
-                        <div class="star-rating">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-quote-mark">"</div>
-                <p class="testimonial-text">
-                    Outstanding Infor LN technical training. The hands-on exercises and recorded sessions made it easy to revisit complex topics. The WhatsApp support group was incredibly helpful throughout the program and beyond.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <div class="author-name">Scott</div>
-                        <div class="author-role">Infor LN Technical Consultant</div>
-                        <div class="star-rating">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-quote-mark">"</div>
-                <p class="testimonial-text">
-                    Transitioned from SAP to Infor LN with FullOnBaan's training. The curriculum was comprehensive and the trainer's real-world project expertise was invaluable. I landed a new role within 2 months of completing the program.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">G</div>
-                    <div class="author-info">
-                        <div class="author-name">Gustavo</div>
-                        <div class="author-role">ERP Consultant — SAP to Infor LN Switcher</div>
-                        <div class="star-rating">★★★★★</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-quote-mark">"</div>
-                <p class="testimonial-text">
-                    FullOnBaan's Infor LN functional training helped me land a new consulting role. The completion certificate was recognised immediately by my employer. The eBooks and documentation are still a go-to reference for me on projects.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">Em</div>
-                    <div class="author-info">
-                        <div class="author-name">Emily</div>
-                        <div class="author-role">Finance &amp; SCM Consultant</div>
-                        <div class="star-rating">★★★★★</div>
+    <!-- Rating Summary Section -->
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Trusted by 1000+ Professionals</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Across 20+ countries and 50+ enterprise clients</p>
+                <div class="flex items-center justify-center gap-8 pt-8 flex-wrap">
+                    <div class="text-7xl font-headline font-bold text-primary">4.9</div>
+                    <div class="text-left">
+                        <div class="text-3xl text-amber-400 tracking-wider">★★★★★</div>
+                        <div class="font-headline font-bold text-on-background text-lg">Excellent</div>
+                        <div class="text-on-surface-variant text-sm">Based on 1000+ reviews</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trusted Clients -->
-    <div class="clients-section">
-        <div class="clients-inner">
-            <h2 class="section-title">Trusted by Leading Enterprises</h2>
-            <p class="section-subtitle">50+ organizations globally rely on FullOnBaan for ERP expertise</p>
-            <div class="clients-grid">
-                <div class="client-logo-box"><img src="../baylin.png" alt="Baylin Technologies"></div>
-                <div class="client-logo-box"><img src="../capgemini.png" alt="Capgemini"></div>
-                <div class="client-logo-box"><img src="../lnte.png" alt="L&T Heavy Engineering"></div>
-                <div class="client-logo-box"><img src="../tcs.png" alt="TCS"></div>
-                <div class="client-logo-box"><img src="../wipro.png" alt="Wipro"></div>
-                <div class="client-logo-box"><img src="../elgi.png" alt="ELGI"></div>
-                <div class="client-logo-box"><img src="../carrier.png" alt="Carrier"></div>
-                <div class="client-logo-box"><img src="../cnhi.png" alt="CNHI"></div>
-                <div class="client-logo-box"><img src="../fortude.png" alt="Fortude"></div>
-                <div class="client-logo-box"><img src="../hyva.png" alt="HYVA"></div>
-                <div class="client-logo-box"><img src="../velan.png" alt="Velan"></div>
-                <div class="client-logo-box"><img src="../thoughtfocus.png" alt="ThoughtFocus"></div>
-            </div>
-        </div>
-    </div>
+    <!-- Testimonial Cards -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] relative">
+                    <div class="text-6xl text-amber-400 opacity-15 absolute top-4 left-6 font-serif">"</div>
+                    <p class="text-on-surface-variant leading-relaxed mb-6 relative z-10 pt-4 italic">
+                        The Infor LN training provided by FullOnBaan was exceptional. The dedicated trainer approach meant sessions were tailored exactly to my learning pace and goals. I went from zero Infor LN knowledge to confidently working on live projects.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full aurora-gradient flex items-center justify-center text-white font-bold text-lg flex-shrink-0">E</div>
+                        <div>
+                            <div class="font-headline font-bold text-on-background">Elisa</div>
+                            <div class="text-sm text-on-surface-variant">Infor LN Functional Consultant</div>
+                            <div class="text-amber-400 text-sm mt-1">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="cta-card">
-            <h2 class="cta-title">Join 1000+ Professionals</h2>
-            <p class="cta-subtitle">Start your Infor LN journey with FullOnBaan today.</p>
-            <div class="cta-buttons">
-                <a href="/training/" class="btn btn-primary">Explore Training</a>
-                <a href="/contact/" class="btn btn-secondary">Contact Us</a>
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] relative">
+                    <div class="text-6xl text-amber-400 opacity-15 absolute top-4 left-6 font-serif">"</div>
+                    <p class="text-on-surface-variant leading-relaxed mb-6 relative z-10 pt-4 italic">
+                        Outstanding Infor LN technical training. The hands-on exercises and recorded sessions made it easy to revisit complex topics. The WhatsApp support group was incredibly helpful throughout the program and beyond.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full aurora-gradient flex items-center justify-center text-white font-bold text-lg flex-shrink-0">S</div>
+                        <div>
+                            <div class="font-headline font-bold text-on-background">Scott</div>
+                            <div class="text-sm text-on-surface-variant">Infor LN Technical Consultant</div>
+                            <div class="text-amber-400 text-sm mt-1">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] relative">
+                    <div class="text-6xl text-amber-400 opacity-15 absolute top-4 left-6 font-serif">"</div>
+                    <p class="text-on-surface-variant leading-relaxed mb-6 relative z-10 pt-4 italic">
+                        Transitioned from SAP to Infor LN with FullOnBaan's training. The curriculum was comprehensive and the trainer's real-world project expertise was invaluable. I landed a new role within 2 months of completing the program.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full aurora-gradient flex items-center justify-center text-white font-bold text-lg flex-shrink-0">G</div>
+                        <div>
+                            <div class="font-headline font-bold text-on-background">Gustavo</div>
+                            <div class="text-sm text-on-surface-variant">ERP Consultant — SAP to Infor LN Switcher</div>
+                            <div class="text-amber-400 text-sm mt-1">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-outline-variant/30 transition-all hover:translate-y-[-4px] relative">
+                    <div class="text-6xl text-amber-400 opacity-15 absolute top-4 left-6 font-serif">"</div>
+                    <p class="text-on-surface-variant leading-relaxed mb-6 relative z-10 pt-4 italic">
+                        FullOnBaan's Infor LN functional training helped me land a new consulting role. The completion certificate was recognised immediately by my employer. The eBooks and documentation are still a go-to reference for me on projects.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full aurora-gradient flex items-center justify-center text-white font-bold text-lg flex-shrink-0">Em</div>
+                        <div>
+                            <div class="font-headline font-bold text-on-background">Emily</div>
+                            <div class="text-sm text-on-surface-variant">Finance &amp; SCM Consultant</div>
+                            <div class="text-amber-400 text-sm mt-1">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>FULLONBAAN</h3>
-                <p>Leading Infor LN ERP Consulting &amp; Training Company</p>
+    <!-- Client Logos Section -->
+    <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Trusted by Leading Enterprises</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">50+ organizations globally rely on FullOnBaan for ERP expertise</p>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about/">About Us</a>
-                <a href="/services/">Services</a>
-                <a href="/training/">Training</a>
-                <a href="/testimonials/">Testimonials</a>
-                <a href="/contact/">Contact Us</a>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="/services/">Application Development</a>
-                <a href="/services/">Implementation</a>
-                <a href="/services/">Application Support</a>
-                <a href="/training/">Training</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: support@fullonbaan.com</p>
-                <p>Mobile: +91 63605 93122</p>
-                <p>Mon–Fri: 9AM – 6PM (Local Time)</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../baylin.png" alt="Baylin Technologies" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../capgemini.png" alt="Capgemini" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../lnte.png" alt="L&T Heavy Engineering" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../tcs.png" alt="TCS" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../wipro.png" alt="Wipro" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../elgi.png" alt="ELGI" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../carrier.png" alt="Carrier" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../cnhi.png" alt="CNHI" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../fortude.png" alt="Fortude" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../hyva.png" alt="HYVA" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../velan.png" alt="Velan" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 flex items-center justify-center min-h-[100px] hover:shadow-md transition-all hover:translate-y-[-2px]">
+                    <img src="../thoughtfocus.png" alt="ThoughtFocus" class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 FULLONBAAN. All rights reserved. | Leading Infor LN ERP Consulting &amp; Training</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 md:px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-br from-primary via-primary to-secondary rounded-3xl p-12 md:p-16 text-center aurora-gradient">
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-white mb-4">
+                    Join 1000+ Professionals
+                </h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                    Start your Infor LN journey with FullOnBaan today.
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="/training/" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-headline font-semibold rounded-xl hover:opacity-90 transition-all">
+                        <span>Explore Training</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="/contact/" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-white text-white font-headline font-semibold rounded-xl hover:bg-white/10 transition-all">
+                        <span>Contact Us</span>
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 md:px-8 py-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-headline font-bold text-lg text-on-background">FullOnBaan</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Leading Infor LN ERP Consulting &amp; Training Company</p>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Transforming businesses through innovative ERP solutions worldwide.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Home</a></li>
+                        <li><a href="/about/" class="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Services</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/testimonials/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Testimonials</a></li>
+                        <li><a href="/contact/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Development</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Implementation</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Application Support</a></li>
+                        <li><a href="/training/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Training</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Data Migration</a></li>
+                        <li><a href="/services/" class="text-on-surface-variant hover:text-primary transition-all text-sm">Resource Staffing</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-headline font-semibold text-on-background">Contact</h4>
+                    <div class="space-y-3">
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">mail</span>
+                            <a href="mailto:support@fullonbaan.com" class="text-on-surface-variant hover:text-primary transition-all">support@fullonbaan.com</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">call</span>
+                            <a href="tel:+916360593122" class="text-on-surface-variant hover:text-primary transition-all">+91 63605 93122</a>
+                        </div>
+                        <div class="flex gap-2 items-start text-sm">
+                            <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5">schedule</span>
+                            <span class="text-on-surface-variant">Mon–Fri: 9AM – 6PM (Local Time)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 text-center text-sm text-on-surface-variant">
+                <p>&copy; 2026 FullOnBaan. All rights reserved. | Leading Infor LN ERP Consulting &amp; Training</p>
+            </div>
         </div>
     </footer>
 

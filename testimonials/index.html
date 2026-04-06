@@ -98,18 +98,7 @@
     }
     </script>
 
-    <!-- Canonical HTTPS enforcement -->
-    <script>
-    (function(){
-      var l = window.location;
-      if (l.protocol === 'http:' && l.hostname !== 'localhost' && l.hostname !== '127.0.0.1') {
-        window.location.replace('https://' + l.hostname + l.pathname + l.search + l.hash);
-      }
-      if (l.hostname === 'fullonbaan.com') {
-        window.location.replace('https://www.fullonbaan.com' + l.pathname + l.search + l.hash);
-      }
-    })();
-    </script>
+    <!-- HTTPS & www enforcement handled by server-side 301 redirects in _redirects -->
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
@@ -168,7 +157,7 @@
                     <span class="font-headline font-semibold text-sm tracking-wide text-primary">Client Success</span>
                 </div>
                 <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
-                    What Our <span class="text-primary">Clients Say</span>
+                    Infor LN Training &amp; Consulting <span class="text-primary">Reviews</span>
                 </h1>
                 <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
                     Insights and feedback from professionals and enterprises reflecting their experience, satisfaction, and success with FullOnBaan.
@@ -197,7 +186,7 @@
     <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
             <div class="text-center space-y-4 mb-16">
-                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Trusted by 1000+ Professionals</h2>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Infor LN Training Trusted by 1000+ Professionals</h2>
                 <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Across 20+ countries and 50+ enterprise clients</p>
                 <div class="flex items-center justify-center gap-8 pt-8 flex-wrap">
                     <div class="text-7xl font-headline font-bold text-primary">4.9</div>
@@ -282,7 +271,7 @@
     <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
             <div class="text-center space-y-4 mb-12">
-                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Trusted by Leading Enterprises</h2>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">Infor LN ERP — Trusted by Leading Enterprises</h2>
                 <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">50+ organizations globally rely on FullOnBaan for ERP expertise</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -331,7 +320,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="bg-gradient-to-br from-primary via-primary to-secondary rounded-3xl p-12 md:p-16 text-center aurora-gradient">
                 <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-white mb-4">
-                    Join 1000+ Professionals
+                    Join 1000+ Infor LN Professionals
                 </h2>
                 <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
                     Start your Infor LN journey with FullOnBaan today.

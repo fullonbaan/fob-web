@@ -95,18 +95,7 @@
     }
     </script>
 
-    <!-- Canonical HTTPS enforcement -->
-    <script>
-    (function(){
-      var l = window.location;
-      if (l.protocol === 'http:' && l.hostname !== 'localhost' && l.hostname !== '127.0.0.1') {
-        window.location.replace('https://' + l.hostname + l.pathname + l.search + l.hash);
-      }
-      if (l.hostname === 'fullonbaan.com') {
-        window.location.replace('https://www.fullonbaan.com' + l.pathname + l.search + l.hash);
-      }
-    })();
-    </script>
+    <!-- HTTPS & www enforcement handled by server-side 301 redirects in _redirects -->
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
@@ -165,7 +154,7 @@
                     <span class="font-headline font-semibold text-sm tracking-wide text-primary">Get in Touch</span>
                 </div>
                 <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
-                    <span class="text-primary">Contact</span> Us
+                    <span class="text-primary">Contact</span> FullOnBaan — Infor LN ERP Enquiries
                 </h1>
                 <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
                     Get in touch with our team to discuss your Infor LN ERP challenges and discover tailored consulting or training solutions.
@@ -185,7 +174,7 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
             <!-- Contact Form (2 cols) -->
             <div class="md:col-span-2 bg-white rounded-2xl p-8 shadow-sm border border-outline-variant/30">
-                <h2 class="font-headline font-bold text-2xl text-on-background mb-8">Send Us a Message</h2>
+                <h2 class="font-headline font-bold text-2xl text-on-background mb-8">Send Us an Infor LN Enquiry</h2>
                 <form id="contactForm" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-headline font-semibold text-on-background mb-2">Full Name *</label>

@@ -155,18 +155,7 @@
     }
     </script>
 
-    <!-- Canonical HTTPS enforcement -->
-    <script>
-    (function(){
-      var l = window.location;
-      if (l.protocol === 'http:' && l.hostname !== 'localhost' && l.hostname !== '127.0.0.1') {
-        window.location.replace('https://' + l.hostname + l.pathname + l.search + l.hash);
-      }
-      if (l.hostname === 'fullonbaan.com') {
-        window.location.replace('https://www.fullonbaan.com' + l.pathname + l.search + l.hash);
-      }
-    })();
-    </script>
+    <!-- HTTPS & www enforcement handled by server-side 301 redirects in _redirects -->
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
@@ -225,7 +214,7 @@
                     <span class="font-headline font-semibold text-sm tracking-wide text-primary">Our Expertise</span>
                 </div>
                 <h1 class="font-headline font-bold text-5xl md:text-6xl tracking-tight leading-tight">
-                    <span class="text-primary">Infor LN</span> ERP Services
+                    <span class="text-primary">Infor LN</span> ERP Services &amp; Solutions
                 </h1>
                 <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
                     Comprehensive consulting, implementation, customization, integration, and support designed to transform your ERP investment into measurable business value.
@@ -255,7 +244,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center space-y-4 mb-16">
                 <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-on-background">
-                    Service Portfolio
+                    Infor LN ERP Service Portfolio
                 </h2>
                 <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
                     From minor enhancements to large-scale enterprise implementations, our experienced consultants address a wide range of business and technical requirements.
@@ -351,7 +340,7 @@
             <div class="space-y-8">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-3xl text-primary">settings_applications</span>
-                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor LN</h2>
+                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor LN ERP Platform</h2>
                 </div>
                 <p class="text-lg text-on-surface-variant leading-relaxed">
                     Our core expertise spans the full Infor LN platform lifecycle. Whether implementing, upgrading, or optimizing your system, we deliver proven solutions for manufacturing and distribution enterprises.
@@ -402,7 +391,7 @@
             <div class="space-y-8 md:order-first">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-3xl text-secondary">alt_route</span>
-                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor ION</h2>
+                    <h2 class="font-headline font-bold text-4xl text-on-background">Infor ION Integration Services</h2>
                 </div>
                 <p class="text-lg text-on-surface-variant leading-relaxed">
                     Infor ION is the intelligent orchestration network that connects all your business applications. We design and implement integration architectures that drive real-time business insights and automation.
@@ -516,7 +505,7 @@
     <section class="py-20 px-6 md:px-8 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto">
             <div class="text-center space-y-4 mb-12">
-                <h2 class="font-headline font-bold text-4xl md:text-5xl text-on-background">Industries We Serve</h2>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-on-background">Industries We Serve with Infor LN</h2>
                 <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
                     Proven expertise across manufacturing, distribution, and enterprise sectors globally.
                 </p>
@@ -555,7 +544,7 @@
     <section class="py-20 px-6 md:px-8 bg-background">
         <div class="max-w-4xl mx-auto">
             <div class="aurora-gradient rounded-3xl p-12 md:p-16 shadow-lg text-white text-center space-y-6">
-                <h2 class="font-headline font-bold text-4xl md:text-5xl">Ready to Transform Your ERP?</h2>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl">Ready to Transform Your Infor LN ERP?</h2>
                 <p class="text-lg text-white/90 max-w-2xl mx-auto">
                     Contact us to discuss your Infor LN requirements and explore how FullOnBaan can accelerate your digital transformation journey.
                 </p>

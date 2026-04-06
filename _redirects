@@ -1,5 +1,5 @@
 # Netlify / GitHub Pages redirect rules
-# Enforce www canonical and HTTPS (handled by JS fallback in HTML for GitHub Pages)
+# Enforce www canonical and HTTPS via server-side 301 redirects
 
 # Non-www → www (301 permanent)
 https://fullonbaan.com/*   https://www.fullonbaan.com/:splat  301!
@@ -8,3 +8,9 @@ https://fullonbaan.com/*   https://www.fullonbaan.com/:splat  301!
 # For Netlify:
 http://fullonbaan.com/*    https://www.fullonbaan.com/:splat  301!
 http://www.fullonbaan.com/* https://www.fullonbaan.com/:splat 301!
+
+# Legacy Blogspot pages → relevant new pages (301 permanent)
+/2012/*    https://www.fullonbaan.com/about/     301!
+/2016/*    https://www.fullonbaan.com/services/   301!
+/2017/*    https://www.fullonbaan.com/services/   301!
+/2020/*    https://www.fullonbaan.com/training/   301!
